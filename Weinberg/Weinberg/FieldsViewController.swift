@@ -8,6 +8,6 @@
 
 import UIKit
 
-class FieldsViewController: UITableViewController {
+class FieldsViewController: UIViewController {
 
 }

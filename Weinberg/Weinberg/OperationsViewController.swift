@@ -8,6 +8,6 @@
 
 import UIKit
 
-class OperationsViewController: UITableViewController {
+class OperationsViewController: UIViewController {
 
 }
