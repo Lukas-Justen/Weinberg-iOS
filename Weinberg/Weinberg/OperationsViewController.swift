@@ -1,5 +1,5 @@
 //
-//  MapViewController.swift
+//  OperationTableViewController.swift
 //  Weinberg
 //
 //  Created by Student on 02.06.17.
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class MapViewController: UIViewController {
+class OperationsViewController: UITableViewController {
 
 }

@@ -13,8 +13,8 @@
 		3FE6BF4F1EE16C3E0013A622 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF4D1EE16C3E0013A622 /* LaunchScreen.storyboard */; };
 		3FE6BF5A1EE16C3E0013A622 /* WeinbergTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF591EE16C3E0013A622 /* WeinbergTests.swift */; };
 		3FE6BF651EE16C3E0013A622 /* WeinbergUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF641EE16C3E0013A622 /* WeinbergUITests.swift */; };
-		3FE6BF731EE16E930013A622 /* OperationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF721EE16E930013A622 /* OperationTableViewController.swift */; };
-		3FE6BF751EE172700013A622 /* FieldsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF741EE172700013A622 /* FieldsTableViewController.swift */; };
+		3FE6BF731EE16E930013A622 /* OperationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF721EE16E930013A622 /* OperationsViewController.swift */; };
+		3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF741EE172700013A622 /* FieldsViewController.swift */; };
 		3FE6BF771EE1728B0013A622 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF761EE1728B0013A622 /* MapViewController.swift */; };
 		3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE6BF791EE176340013A622 /* MapKit.framework */; };
 /* End PBXBuildFile section */
@@ -49,8 +49,8 @@
 		3FE6BF601EE16C3E0013A622 /* WeinbergUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeinbergUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6BF641EE16C3E0013A622 /* WeinbergUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeinbergUITests.swift; sourceTree = "<group>"; };
 		3FE6BF661EE16C3E0013A622 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3FE6BF721EE16E930013A622 /* OperationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationTableViewController.swift; sourceTree = "<group>"; };
-		3FE6BF741EE172700013A622 /* FieldsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsTableViewController.swift; sourceTree = "<group>"; };
+		3FE6BF721EE16E930013A622 /* OperationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsViewController.swift; sourceTree = "<group>"; };
+		3FE6BF741EE172700013A622 /* FieldsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsViewController.swift; sourceTree = "<group>"; };
 		3FE6BF761EE1728B0013A622 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3FE6BF791EE176340013A622 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -110,8 +110,8 @@
 				3FE6BF4B1EE16C3E0013A622 /* Assets.xcassets */,
 				3FE6BF4D1EE16C3E0013A622 /* LaunchScreen.storyboard */,
 				3FE6BF501EE16C3E0013A622 /* Info.plist */,
-				3FE6BF721EE16E930013A622 /* OperationTableViewController.swift */,
-				3FE6BF741EE172700013A622 /* FieldsTableViewController.swift */,
+				3FE6BF721EE16E930013A622 /* OperationsViewController.swift */,
+				3FE6BF741EE172700013A622 /* FieldsViewController.swift */,
 				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
 			);
 			path = Weinberg;
@@ -277,8 +277,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FE6BF751EE172700013A622 /* FieldsTableViewController.swift in Sources */,
-				3FE6BF731EE16E930013A622 /* OperationTableViewController.swift in Sources */,
+				3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */,
+				3FE6BF731EE16E930013A622 /* OperationsViewController.swift in Sources */,
 				3FE6BF431EE16C3D0013A622 /* AppDelegate.swift in Sources */,
 				3FE6BF771EE1728B0013A622 /* MapViewController.swift in Sources */,
 			);
@@ -527,6 +527,7 @@
 				3FE6BF6B1EE16C3E0013A622 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FE6BF6C1EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "WeinbergTests" */ = {
 			isa = XCConfigurationList;
@@ -535,6 +536,7 @@
 				3FE6BF6E1EE16C3E0013A622 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3FE6BF6F1EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "WeinbergUITests" */ = {
 			isa = XCConfigurationList;
@@ -543,6 +545,7 @@
 				3FE6BF711EE16C3E0013A622 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
