@@ -58,6 +58,20 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         }
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
+            print("Edit tapped")
+        })
+        editAction.backgroundColor = UIColor.orange
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
+            print("Delete tapped")
+        })
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [deleteAction, editAction]
+    }
+    
 }
 
 struct Operation {
