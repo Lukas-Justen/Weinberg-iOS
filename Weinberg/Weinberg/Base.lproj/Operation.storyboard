@@ -218,7 +218,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Neue Arbeit anlegen" id="xVl-Ep-24h">
                         <barButtonItem key="backBarButtonItem" title="Back" id="YLH-r2-yRO"/>
-                        <barButtonItem key="leftBarButtonItem" title="Zurück" id="EDU-rt-Jfw">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Zurück" id="EDU-rt-Jfw">
                             <connections>
                                 <action selector="cancleAddOperation:" destination="Y79-b3-EVI" id="jEb-jg-auz"/>
                             </connections>
