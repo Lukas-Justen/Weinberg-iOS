@@ -108,7 +108,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Weingut Selmigkeit" id="6Do-bd-K9f">
-                        <barButtonItem key="rightBarButtonItem" title="+" id="HZG-Ao-aZG">
+                        <barButtonItem key="rightBarButtonItem" image="add" id="HZG-Ao-aZG">
                             <connections>
                                 <segue destination="Y79-b3-EVI" kind="show" id="xPR-iu-d86"/>
                             </connections>
@@ -128,7 +128,7 @@
         <!--Neue Arbeit anlegen-->
         <scene sceneID="gca-KK-9fv">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="Y79-b3-EVI" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="Y79-b3-EVI" customClass="AddOperationViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vSa-V4-izQ"/>
                         <viewControllerLayoutGuide type="bottom" id="rU7-bt-TDk"/>
@@ -194,30 +194,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Xk-fL-E7c">
-                                <rect key="frame" x="271" y="499" width="100" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="TzL-Zo-CSV"/>
-                                    <constraint firstAttribute="width" constant="100" id="eGL-cG-bFs"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
-                                <state key="normal" title="J" backgroundImage="first"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MN2-ok-7Sg">
                                 <rect key="frame" x="16" y="62" width="343" height="2"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="fE2-jn-4Pz"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="7Xk-fL-E7c" secondAttribute="trailing" constant="4" id="1iT-wV-tY4"/>
                             <constraint firstItem="9xQ-HF-5ND" firstAttribute="top" secondItem="MN2-ok-7Sg" secondAttribute="bottom" constant="16" id="4iY-ob-x5i"/>
                             <constraint firstItem="MN2-ok-7Sg" firstAttribute="leading" secondItem="151-YY-NF0" secondAttribute="leading" constant="16" id="7Lu-kW-bjb"/>
                             <constraint firstAttribute="trailing" secondItem="9xQ-HF-5ND" secondAttribute="trailing" constant="4" id="FdK-Gv-2bC"/>
-                            <constraint firstAttribute="bottom" secondItem="7Xk-fL-E7c" secondAttribute="bottom" constant="4" id="ImM-9C-REh"/>
                             <constraint firstItem="9xQ-HF-5ND" firstAttribute="leading" secondItem="151-YY-NF0" secondAttribute="leading" constant="4" id="X6U-Yc-jBl"/>
                             <constraint firstItem="lxs-XL-OfS" firstAttribute="top" secondItem="vSa-V4-izQ" secondAttribute="bottom" constant="16" id="bGq-s8-VJN"/>
                             <constraint firstItem="lxs-XL-OfS" firstAttribute="leading" secondItem="151-YY-NF0" secondAttribute="leading" constant="16" id="iEp-9t-iHV"/>
@@ -227,7 +217,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Neue Arbeit anlegen" id="xVl-Ep-24h">
-                        <barButtonItem key="backBarButtonItem" title="dfvsfd" id="YLH-r2-yRO"/>
+                        <barButtonItem key="backBarButtonItem" title="Back" id="YLH-r2-yRO"/>
+                        <barButtonItem key="leftBarButtonItem" title="Zurück" id="EDU-rt-Jfw">
+                            <connections>
+                                <action selector="cancleAddOperation:" destination="Y79-b3-EVI" id="jEb-jg-auz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZw-4G-Oxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -238,7 +233,7 @@
         <scene sceneID="Fct-5V-Zoe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cqM-aR-Mah" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Arbeiten" image="first" id="ah8-Wg-2YO"/>
+                    <tabBarItem key="tabBarItem" title="Arbeiten" image="operations" id="ah8-Wg-2YO"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="65y-Og-0eP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -261,7 +256,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="add" width="24" height="24"/>
+        <image name="operations" width="24" height="24"/>
     </resources>
     <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
