@@ -10,6 +10,7 @@
 		3FC14C791EE98374000EA760 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
 		3FC14C7B1EE9838B000EA760 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7A1EE9838B000EA760 /* Map.storyboard */; };
 		3FC14C7E1EE983A3000EA760 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
+		3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */; };
 		3FE6BF431EE16C3D0013A622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */; };
 		3FE6BF4A1EE16C3E0013A622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF481EE16C3E0013A622 /* Main.storyboard */; };
 		3FE6BF4C1EE16C3E0013A622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF4B1EE16C3E0013A622 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		3FC14C781EE98374000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Operation.storyboard; sourceTree = "<group>"; };
 		3FC14C7A1EE9838B000EA760 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		3FC14C7D1EE983A3000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Field.storyboard; sourceTree = "<group>"; };
+		3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationDetailCell.swift; sourceTree = "<group>"; };
 		3FE6BF3F1EE16C3D0013A622 /* Weinberg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weinberg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE6BF491EE16C3E0013A622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				3FE6BF4D1EE16C3E0013A622 /* LaunchScreen.storyboard */,
 				3FE6BF501EE16C3E0013A622 /* Info.plist */,
 				3FE6BF721EE16E930013A622 /* OperationsViewController.swift */,
+				3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */,
 				3FE6BF741EE172700013A622 /* FieldsViewController.swift */,
 				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
 			);
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */,
+				3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */,
 				3FE6BF731EE16E930013A622 /* OperationsViewController.swift in Sources */,
 				3FE6BF431EE16C3D0013A622 /* AppDelegate.swift in Sources */,
 				3FE6BF771EE1728B0013A622 /* MapViewController.swift in Sources */,
