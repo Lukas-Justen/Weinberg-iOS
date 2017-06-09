@@ -41,16 +41,13 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Holt ein neues Element aus der Liste aller Operations
         let operation = ops[indexPath.row]
-        let cellIdentifier = "OperationCell"
-        if let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? OperationDetailCell{
-            cell.name.text = operation.name
-            cell.date.text = operation.date
-            cell.done.text = operation.done
+        let cellIdentifier = "OperationDetailCell"
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OperationDetailCell
+        cell.name.text = operation.name
+        cell.datex.text = operation.date
+        cell.done.text = operation.done
             
-            return cell
-        }
-        
-        return UITableViewCell()
+        return cell
     }
     
     
