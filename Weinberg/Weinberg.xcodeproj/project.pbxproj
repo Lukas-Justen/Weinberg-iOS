@@ -20,6 +20,7 @@
 		3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF741EE172700013A622 /* FieldsViewController.swift */; };
 		3FE6BF771EE1728B0013A622 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF761EE1728B0013A622 /* MapViewController.swift */; };
 		3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE6BF791EE176340013A622 /* MapKit.framework */; };
+		F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weinberg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC14C781EE98374000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Operation.storyboard; sourceTree = "<group>"; };
 		3FC14C7A1EE9838B000EA760 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		3FC14C7D1EE983A3000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Field.storyboard; sourceTree = "<group>"; };
@@ -59,6 +61,8 @@
 		3FE6BF741EE172700013A622 /* FieldsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsViewController.swift; sourceTree = "<group>"; };
 		3FE6BF761EE1728B0013A622 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3FE6BF791EE176340013A622 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.debug.xcconfig"; sourceTree = "<group>"; };
+		DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */,
+				F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +100,7 @@
 				3FE6BF631EE16C3E0013A622 /* WeinbergUITests */,
 				3FE6BF401EE16C3D0013A622 /* Products */,
 				3FE6BF781EE176340013A622 /* Frameworks */,
+				725721B14E3FB8FCF16BBAC9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,8 +154,18 @@
 			isa = PBXGroup;
 			children = (
 				3FE6BF791EE176340013A622 /* MapKit.framework */,
+				36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		725721B14E3FB8FCF16BBAC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */,
+				DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FE6BF691EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "Weinberg" */;
 			buildPhases = (
+				90F3F7E15A8474100DA01E9D /* [CP] Check Pods Manifest.lock */,
 				3FE6BF3B1EE16C3D0013A622 /* Sources */,
 				3FE6BF3C1EE16C3D0013A622 /* Frameworks */,
 				3FE6BF3D1EE16C3D0013A622 /* Resources */,
+				802890595DDD7D429EDEDE71 /* [CP] Embed Pods Frameworks */,
+				E79105037A081B9A3047E152 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,6 +302,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		802890595DDD7D429EDEDE71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90F3F7E15A8474100DA01E9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E79105037A081B9A3047E152 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3FE6BF3B1EE16C3D0013A622 /* Sources */ = {
@@ -460,6 +527,7 @@
 		};
 		3FE6BF6A1EE16C3E0013A622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Weinberg/Info.plist;
@@ -472,6 +540,7 @@
 		};
 		3FE6BF6B1EE16C3E0013A622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Weinberg/Info.plist;
