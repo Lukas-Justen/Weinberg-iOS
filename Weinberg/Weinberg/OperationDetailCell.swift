@@ -10,8 +10,8 @@ import UIKit
 
 class OperationDetailCell: UITableViewCell {
 
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var done: UILabel!
-    @IBOutlet weak var datex: UILabel!
+    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet weak var labelDate: UILabel!
+    @IBOutlet weak var labelDone: UILabel!
     
 }

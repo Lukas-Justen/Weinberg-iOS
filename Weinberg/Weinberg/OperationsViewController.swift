@@ -25,7 +25,6 @@ class OperationsViewController: UIViewController {
         ops.append(Operation(name: "Spritzen 1" , date: "12.04.2017 - 15.04.2017", done: "10.5" ))
         ops.append(Operation(name: "Spritzen 2" , date: "12.04.2017 - 15.04.2017", done: "0.0" ))
         ops.append(Operation(name: "Spritzen 3" , date: "12.04.2017 - 15.04.2017", done: "12.4" ))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .plain, target: nil, action: nil)
         operationTable.tableFooterView = UIView()
     }
 
@@ -43,9 +42,9 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         let operation = ops[indexPath.row]
         let cellIdentifier = "OperationDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OperationDetailCell
-        cell.name.text = operation.name
-        cell.datex.text = operation.date
-        cell.done.text = operation.done
+        cell.labelName.text = operation.name
+        cell.labelDate.text = operation.date
+        cell.labelDone.text = operation.done
             
         return cell
     }
