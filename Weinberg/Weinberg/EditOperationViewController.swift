@@ -10,4 +10,8 @@ import UIKit
 
 class EditOperationViewController: UIViewController {
 
+    @IBAction func cancleEditOperation(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }
