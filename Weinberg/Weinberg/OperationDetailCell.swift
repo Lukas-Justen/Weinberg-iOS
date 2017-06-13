@@ -13,5 +13,8 @@ class OperationDetailCell: UITableViewCell {
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelDone: UILabel!
+    @IBOutlet weak var labelAll: UILabel!
+    @IBOutlet weak var imageDone: UIImageView!
+    @IBOutlet weak var labelSlash: UILabel!
     
 }

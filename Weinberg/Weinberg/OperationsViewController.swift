@@ -15,16 +15,16 @@ class OperationsViewController: UIViewController {
     @IBOutlet weak var operationTable: UITableView!
     
     override func viewDidLoad() {
-        ops.append(Operation(name: "Grubbern" , date: "12.04.2017 - 15.04.2017", done: "6.84" ))
-        ops.append(Operation(name: "Schneiden" , date: "20.05.2017 - 15.06.2017", done: "0.0" ))
-        ops.append(Operation(name: "Ausbessern" , date: "11.06.2017 - 17.06.2017", done: "0.0" ))
-        ops.append(Operation(name: "Ausbrechen" , date: "12.04.2017 - 15.04.2017", done: "3.56" ))
-        ops.append(Operation(name: "Entlauben 1" , date: "12.04.2017 - 15.04.2017", done: "0.0" ))
-        ops.append(Operation(name: "Entlauben 2" , date: "12.04.2017 - 15.04.2017", done: "8.87" ))
-        ops.append(Operation(name: "Heften" , date: "12.04.2017 - 15.04.2017", done: "0.0" ))
-        ops.append(Operation(name: "Spritzen 1" , date: "12.04.2017 - 15.04.2017", done: "10.5" ))
-        ops.append(Operation(name: "Spritzen 2" , date: "12.04.2017 - 15.04.2017", done: "0.0" ))
-        ops.append(Operation(name: "Spritzen 3" , date: "12.04.2017 - 15.04.2017", done: "12.4" ))
+        ops.append(Operation(name: "Grubbern" , date: "12.04.2017 - 15.04.2017", done: "6.84", all: "15.5" ))
+        ops.append(Operation(name: "Schneiden" , date: "20.05.2017 - 15.06.2017", done: "0.0", all: "15.5"  ))
+        ops.append(Operation(name: "Ausbessern" , date: "11.06.2017 - 17.06.2017", done: "all", all: "15.5"  ))
+        ops.append(Operation(name: "Ausbrechen" , date: "23.02.2016 - 28.02.2016", done: "3.56" , all: "15.5" ))
+        ops.append(Operation(name: "Entlauben 1" , date: "19.01.2017 - 22.01.2017", done: "0.0" , all: "15.5" ))
+        ops.append(Operation(name: "Entlauben 2" , date: "30.02.2017 - 27.4.2017", done: "8.87", all: "15.5"  ))
+        ops.append(Operation(name: "Heften" , date: "25.08.2017 - 30.08.2017", done: "all", all: "15.5"  ))
+        ops.append(Operation(name: "Spritzen 1" , date: "29.09.2017 - 14.10.2017", done: "10.5", all: "15.5"  ))
+        ops.append(Operation(name: "Spritzen 2" , date: "30.10.2017 - 11.11.2017", done: "0.0" , all: "15.5" ))
+        ops.append(Operation(name: "Spritzen 3" , date: "24.12.2017 - 04.02.2018", done: "12.4", all: "15.5"  ))
         operationTable.tableFooterView = UIView()
     }
 
@@ -42,9 +42,19 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         let operation = ops[indexPath.row]
         let cellIdentifier = "OperationDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OperationDetailCell
-        cell.labelName.text = operation.name
-        cell.labelDate.text = operation.date
-        cell.labelDone.text = operation.done
+        if (operation.done != "all") {
+            cell.labelName.text = operation.name
+            cell.labelDate.text = operation.date
+            cell.labelDone.text = operation.done
+            cell.labelAll.text = operation.all
+        } else {
+            cell.labelName.text = operation.name
+            cell.labelDate.text = operation.date
+            cell.labelDone.isHidden = true
+            cell.labelAll.isHidden = true
+            cell.labelSlash.isHidden = true
+            cell.imageDone.isHidden = false
+        }
             
         return cell
     }
@@ -61,6 +71,8 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
             print("Edit tapped")
+            let edit: EditOperationViewController = EditOperationViewController()
+            self.navigationController?.pushViewController(edit, animated: true)
         })
         editAction.backgroundColor = UIColor.orange
         
@@ -78,4 +90,5 @@ struct Operation {
     var name: String
     var date: String
     var done: String
+    var all: String
 }

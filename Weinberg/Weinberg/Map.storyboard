@@ -13,7 +13,7 @@
         <!--Karte-->
         <scene sceneID="YKu-vw-HZW">
             <objects>
-                <viewController id="jzA-eh-54I" customClass="MapViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jzA-eh-54I" customClass="MapViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="4K4-hf-OmY"/>
                         <viewControllerLayoutGuide type="bottom" id="bAc-2T-dkd"/>
