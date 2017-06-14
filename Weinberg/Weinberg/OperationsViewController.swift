@@ -28,6 +28,10 @@ class OperationsViewController: UIViewController {
         operationTable.tableFooterView = UIView()
     }
 
+    @IBAction func unwindToOperation(segue:UIStoryboardSegue) {
+        
+    }
+    
 }
 
 extension OperationsViewController : UITableViewDataSource, UITableViewDelegate {
@@ -55,17 +59,12 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
             cell.labelSlash.isHidden = true
             cell.imageDone.isHidden = false
         }
+        cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
+        cell.viewBackground.layer.shadowOpacity = 0.2
+        cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
+        cell.viewBackground.layer.shadowRadius = 1
             
         return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Entfernt das ausgewählte Element aus der Liste aller Operations
-            self.ops.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
@@ -78,6 +77,8 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
             print("Delete tapped")
+            self.ops.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
         })
         deleteAction.backgroundColor = UIColor.red
         

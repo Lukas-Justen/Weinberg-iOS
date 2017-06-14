@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cqM-aR-Mah">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cqM-aR-Mah">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -25,19 +25,23 @@
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Arbeit suchen" translatesAutoresizingMaskIntoConstraints="NO" id="IgP-iu-H4D">
                                 <rect key="frame" x="0.0" y="8" width="375" height="44"/>
                                 <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-bL-xEh">
                                 <rect key="frame" x="8" y="58" width="359" height="29"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="Name"/>
                                     <segment title="Status (ha)"/>
                                 </segments>
                                 <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                             </segmentedControl>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-aT-FJT">
-                                <rect key="frame" x="0.0" y="101" width="375" height="460"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-aT-FJT">
+                                <rect key="frame" x="0.0" y="94" width="375" height="458"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OperationDetailCell" id="us2-cU-SRK" customClass="OperationDetailCell" customModule="Weinberg" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="70"/>
@@ -46,6 +50,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTi-Ni-LVS">
+                                                    <rect key="frame" x="8" y="4" width="359" height="61.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="labelDate" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqM-iX-png">
                                                     <rect key="frame" x="16" y="39" width="343" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -86,21 +100,27 @@
                                                         </stackView>
                                                     </subviews>
                                                 </stackView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="done" highlightedImage="done" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxf-J4-ZTX">
-                                                    <rect key="frame" x="264" y="8" width="26" height="39"/>
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="done" highlightedImage="done" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxf-J4-ZTX">
+                                                    <rect key="frame" x="265" y="15" width="24" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.40784313729999999" green="0.62352941179999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="HTi-Ni-LVS" firstAttribute="leading" secondItem="XsD-az-tNm" secondAttribute="leading" constant="8" id="2D6-uT-uNu"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="NqM-iX-png" secondAttribute="trailing" constant="8" id="6Ml-Uc-LS1"/>
+                                                <constraint firstAttribute="bottom" secondItem="HTi-Ni-LVS" secondAttribute="bottom" constant="4" id="FeD-Yy-nKr"/>
                                                 <constraint firstItem="BRz-1H-YoH" firstAttribute="top" secondItem="XsD-az-tNm" secondAttribute="topMargin" constant="8" id="JUV-QM-dsx"/>
+                                                <constraint firstItem="HTi-Ni-LVS" firstAttribute="top" secondItem="XsD-az-tNm" secondAttribute="top" constant="4" id="P7L-Mj-xgw"/>
                                                 <constraint firstItem="BRz-1H-YoH" firstAttribute="leading" secondItem="XsD-az-tNm" secondAttribute="leadingMargin" constant="8" id="Vxp-ZX-ZVB"/>
+                                                <constraint firstAttribute="trailing" secondItem="HTi-Ni-LVS" secondAttribute="trailing" constant="8" id="cWE-Zl-s1i"/>
                                                 <constraint firstItem="NqM-iX-png" firstAttribute="leading" secondItem="XsD-az-tNm" secondAttribute="leadingMargin" constant="8" id="n7O-tL-Cii"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="NqM-iX-png" secondAttribute="bottom" constant="8" id="qAt-U9-yWw"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="BRz-1H-YoH" secondAttribute="trailing" constant="8" id="z0L-XO-xpG"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
                                             <outlet property="imageDone" destination="Nxf-J4-ZTX" id="vIO-eY-YGM"/>
                                             <outlet property="labelAll" destination="Qc8-il-frV" id="i8b-Om-6do"/>
@@ -108,6 +128,7 @@
                                             <outlet property="labelDone" destination="6s8-uF-Jha" id="SFG-0h-vba"/>
                                             <outlet property="labelName" destination="Msl-Hi-CU3" id="X0Q-Jd-q5f"/>
                                             <outlet property="labelSlash" destination="lFD-Rm-gyy" id="5xi-Ap-Phv"/>
+                                            <outlet property="viewBackground" destination="HTi-Ni-LVS" id="2s9-iT-6Ys"/>
                                             <segue destination="xQL-3P-Ivx" kind="showDetail" action="showViewController:sender:" id="nlG-t9-Ggi"/>
                                         </connections>
                                     </tableViewCell>
@@ -119,16 +140,17 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IgP-iu-H4D" secondAttribute="trailing" id="6zm-sC-hli"/>
                             <constraint firstItem="Cpf-aT-FJT" firstAttribute="leading" secondItem="s5G-KK-y4G" secondAttribute="leading" id="7aQ-MR-sjW"/>
                             <constraint firstItem="IgP-iu-H4D" firstAttribute="leading" secondItem="s5G-KK-y4G" secondAttribute="leading" id="Am6-vH-pG7"/>
+                            <constraint firstItem="XsV-uu-VWP" firstAttribute="top" secondItem="Cpf-aT-FJT" secondAttribute="bottom" constant="2" id="CJn-36-oiM"/>
                             <constraint firstAttribute="trailing" secondItem="Cpf-aT-FJT" secondAttribute="trailing" id="T5x-3a-nhR"/>
+                            <constraint firstItem="XsV-uu-VWP" firstAttribute="top" secondItem="Cpf-aT-FJT" secondAttribute="bottom" constant="2" id="UR1-vZ-t4h"/>
                             <constraint firstItem="zLH-bL-xEh" firstAttribute="top" secondItem="IgP-iu-H4D" secondAttribute="bottom" constant="6" id="a0V-6X-KMB"/>
                             <constraint firstItem="zLH-bL-xEh" firstAttribute="leading" secondItem="s5G-KK-y4G" secondAttribute="leading" constant="8" id="aKb-49-DQk"/>
                             <constraint firstAttribute="trailing" secondItem="zLH-bL-xEh" secondAttribute="trailing" constant="8" id="ebQ-lZ-Em3"/>
-                            <constraint firstItem="XsV-uu-VWP" firstAttribute="top" secondItem="Cpf-aT-FJT" secondAttribute="bottom" id="nW7-8A-ypf"/>
                             <constraint firstItem="IgP-iu-H4D" firstAttribute="top" secondItem="kre-6g-Sn5" secondAttribute="bottom" constant="8" id="vHI-nu-pjG"/>
                             <constraint firstItem="Cpf-aT-FJT" firstAttribute="top" secondItem="zLH-bL-xEh" secondAttribute="bottom" constant="8" id="zRN-qq-xS8"/>
                         </constraints>
@@ -272,8 +294,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="lLN-Af-PaZ" kind="unwind" identifier="unwindSegueToOperation" unwindAction="unwindToOperationWithSegue:" id="vIh-lj-BL6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lci-yg-A85" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="lLN-Af-PaZ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2857" y="-240"/>
         </scene>
@@ -402,8 +428,12 @@
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="bde-dU-LHf" kind="unwind" identifier="unwindSegueToOperation" unwindAction="unwindToOperationWithSegue:" id="bXb-uY-nbo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZw-4G-Oxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="bde-dU-LHf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2857" y="-905"/>
         </scene>

@@ -11,7 +11,9 @@ import UIKit
 class AddOperationViewController: UIViewController {
 
     @IBAction func cancleAddOperation(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindSegueToOperation", sender: self)
+        print("Klappt")
     }
+    
     
 }

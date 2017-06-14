@@ -10,8 +10,9 @@ import UIKit
 
 class EditOperationViewController: UIViewController {
 
-    @IBAction func cancleEditOperation(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    @IBAction func cancleAddOperation(_ sender: Any) {
+        performSegue(withIdentifier: "unwindSegueToOperation", sender: self)
+        print("Klappt")
     }
     
 }

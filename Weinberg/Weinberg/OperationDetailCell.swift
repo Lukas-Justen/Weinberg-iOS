@@ -16,5 +16,6 @@ class OperationDetailCell: UITableViewCell {
     @IBOutlet weak var labelAll: UILabel!
     @IBOutlet weak var imageDone: UIImageView!
     @IBOutlet weak var labelSlash: UILabel!
+    @IBOutlet weak var viewBackground: UIView!
     
 }
