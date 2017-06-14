@@ -51,6 +51,26 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     /*
+     * Creates the opportunity for the user to edit or delete a row in the UITableView
+     */
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
+            let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
+            let editController : EditFieldViewController = storyBoard.instantiateViewController(withIdentifier: "EditField") as! EditFieldViewController
+            self.navigationController?.pushViewController(editController, animated: true)
+        })
+        editAction.backgroundColor = UIColor.orange
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
+            self.fields.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        })
+        deleteAction.backgroundColor = UIColor.red
+        
+        return [deleteAction, editAction]
+    }
+    
+    /*
      * Handles all clicks on a FieldDetailCell
      */
     func handleFieldTap() -> Void {

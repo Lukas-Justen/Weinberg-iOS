@@ -9,8 +9,6 @@
 import UIKit
 
 class CheckBox: UIButton {
-
-    let uncheckedImage = #imageLiteral(resourceName: "checkbox-unchecked-th")
     
     var isChecked: Bool = false{
         didSet{

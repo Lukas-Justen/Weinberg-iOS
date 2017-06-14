@@ -10,6 +10,9 @@ import UIKit
 
 class EditFieldViewController: UIViewController {
 
+    
+    @IBOutlet weak var fabEdit: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,6 +24,13 @@ class EditFieldViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func NameChange(_ sender: UITextField) {
+        if(sender.text != ""){
+            fabEdit.isHidden = false
+        }else{
+            fabEdit.isHidden = true
+        }        
+    }
 
     /*
     // MARK: - Navigation

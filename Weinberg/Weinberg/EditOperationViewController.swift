@@ -40,5 +40,4 @@ class EditOperationViewController: UIViewController {
             fabEdit.isHidden = true
         }
     }
-    
 }
