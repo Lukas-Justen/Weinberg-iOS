@@ -24,8 +24,23 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         
         let cellIdentifier = "FielDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! FieldDetailCell
+        let gesture:UIGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleFieldTap))
+        
+        
+        cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
+        cell.viewBackground.layer.shadowOpacity = 0.2
+        cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
+        cell.viewBackground.layer.shadowRadius = 1
+        cell.addGestureRecognizer(gesture)
         
         return cell
+    }
+    
+    /*
+     * Handles all clicks on a FieldDetailCell
+     */
+    func handleFieldTap() -> Void {
+        self.tabBarController?.selectedIndex = 1
     }
 }
 
