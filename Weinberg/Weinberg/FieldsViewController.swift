@@ -12,6 +12,17 @@ class FieldsViewController: UIViewController {
 
     var fields:[Field] = [Field]()
     
+    @IBOutlet weak var fieldTable: UITableView!
+    let all:String = "15.5"
+    
+    
+    override func viewDidLoad() {
+        fields.append(Field(name: "Sommerberg", fruit: "Riesling", treatment: "Normalerziehung", size: 2000, done: false))
+        
+        fieldTable.tableHeaderView = UIView()
+        fieldTable.tableFooterView = UIView()
+    }
+    
 }
 
 extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
@@ -22,10 +33,13 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "FielDetailCell"
+        let field = fields[indexPath.row]
+        let cellIdentifier = "FieldDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! FieldDetailCell
         let gesture:UIGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleFieldTap))
         
+        cell.name.text = field.name
+        cell.size.text = String(field.size) + " m²"
         
         cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
         cell.viewBackground.layer.shadowOpacity = 0.2

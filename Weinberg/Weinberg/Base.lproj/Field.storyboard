@@ -24,8 +24,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lut-qc-2FW">
                                 <rect key="frame" x="8" y="100" width="359" height="518"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="o1R-md-lOG" customClass="FieldDetailCell" customModule="Weinberg" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FieldDetailCell" id="o1R-md-lOG" customClass="FieldDetailCell" customModule="Weinberg" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="359" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o1R-md-lOG" id="JbM-EW-DBg">
@@ -44,19 +45,23 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-U0-Zfz">
-                                                    <rect key="frame" x="0.0" y="-9" width="359" height="61.5"/>
+                                                    <rect key="frame" x="0.0" y="-9" width="359" height="62"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLc-su-c0m" customClass="CheckBox" customModule="Weinberg" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="20" width="22" height="22"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <state key="normal" backgroundImage="checkbox-unchecked-th"/>
-                                                            <connections>
-                                                                <action selector="checkBoxClick:" destination="o1R-md-lOG" eventType="touchUpInside" id="0pC-fE-nJR"/>
-                                                            </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="labelDone" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-yK-Ous">
-                                                            <rect key="frame" x="38" y="20" width="42" height="20.5"/>
+                                                            <rect key="frame" x="38" y="20" width="42" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTn-p5-wq3" userLabel="Size">
+                                                            <rect key="frame" x="283" y="19" width="42" height="21"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -75,6 +80,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="name" destination="cb6-yK-Ous" id="Mxv-0T-9KL"/>
+                                            <outlet property="size" destination="sTn-p5-wq3" id="9BL-6H-CxF"/>
                                             <outlet property="viewBackground" destination="JdD-YO-gPE" id="4Ra-er-rdO"/>
                                         </connections>
                                     </tableViewCell>
@@ -114,6 +120,9 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
                         <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </simulatedTabBarMetrics>
+                    <connections>
+                        <outlet property="fieldTable" destination="Lut-qc-2FW" id="RFG-AA-EYn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN8-ZX-7TT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
