@@ -14,4 +14,5 @@ class FieldDetailCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var size: UILabel!
     @IBOutlet weak var checkBox: UIButton!
+    
 }
