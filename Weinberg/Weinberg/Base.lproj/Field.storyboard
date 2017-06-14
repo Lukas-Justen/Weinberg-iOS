@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CVD-Y9-qJe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CVD-Y9-qJe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Felder-->
+        <!--Grubbern-->
         <scene sceneID="TMe-El-txI">
             <objects>
                 <viewController id="CVD-Y9-qJe" customClass="FieldsViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
@@ -21,52 +21,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lut-qc-2FW">
-                                <rect key="frame" x="8" y="100" width="359" height="518"/>
+                            <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Feld suchen" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-ix-T3m">
+                                <rect key="frame" x="8" y="41" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V7b-VM-7zj">
+                                <rect key="frame" x="16" y="41" width="359" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Name"/>
+                                    <segment title="Fläche"/>
+                                    <segment title="Rebsorte"/>
+                                    <segment title="Erziehung"/>
+                                </segments>
+                                <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                            </segmentedControl>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lut-qc-2FW">
+                                <rect key="frame" x="0.0" y="148" width="375" height="458"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FieldDetailCell" id="o1R-md-lOG" customClass="FieldDetailCell" customModule="Weinberg" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="359" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o1R-md-lOG" id="JbM-EW-DBg">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdD-YO-gPE" userLabel="BackgroundView">
-                                                    <rect key="frame" x="0.0" y="-9" width="359" height="61"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="2"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-U0-Zfz">
-                                                    <rect key="frame" x="0.0" y="-9" width="359" height="62"/>
+                                                    <rect key="frame" x="8" y="4" width="359" height="61"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLc-su-c0m" customClass="CheckBox" customModule="Weinberg" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="20" width="22" height="22"/>
+                                                        <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R7V-U0-Zfz">
+                                                            <rect key="frame" x="-8" y="-1" width="359" height="62"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <state key="normal" backgroundImage="checkbox-unchecked-th"/>
-                                                        </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="labelDone" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-yK-Ous">
-                                                            <rect key="frame" x="38" y="20" width="42" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTn-p5-wq3" userLabel="Size">
-                                                            <rect key="frame" x="283" y="19" width="42" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="labelDone" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-yK-Ous">
+                                                                    <rect key="frame" x="38" y="20" width="166" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Size" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sTn-p5-wq3" userLabel="Size">
+                                                                    <rect key="frame" x="252" y="19" width="73" height="21"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLc-su-c0m" customClass="CheckBox" customModule="Weinberg" customModuleProvider="target">
+                                                                    <rect key="frame" x="8" y="20" width="22" height="22"/>
+                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <state key="normal" backgroundImage="checkbox-unchecked-th"/>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </view>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <userDefinedRuntimeAttributes>
@@ -90,37 +109,12 @@
                                     <outlet property="delegate" destination="CVD-Y9-qJe" id="s2n-Ry-JxL"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V7b-VM-7zj">
-                                <rect key="frame" x="8" y="64" width="359" height="29"/>
-                                <segments>
-                                    <segment title="Name"/>
-                                    <segment title="Fläche"/>
-                                    <segment title="Rebsorte"/>
-                                    <segment title="Erziehung"/>
-                                </segments>
-                                <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
-                            </segmentedControl>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Feld suchen" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-ix-T3m">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Bm4-T2-ijm" firstAttribute="top" secondItem="Lut-qc-2FW" secondAttribute="bottom" id="5jH-d8-DYL"/>
-                            <constraint firstItem="g7j-ix-T3m" firstAttribute="top" secondItem="ovn-Ug-viT" secondAttribute="bottom" id="Ly6-VZ-tfC"/>
-                            <constraint firstItem="V7b-VM-7zj" firstAttribute="top" secondItem="g7j-ix-T3m" secondAttribute="bottom" id="Q6D-zF-OTQ"/>
-                            <constraint firstItem="V7b-VM-7zj" firstAttribute="leading" secondItem="8bO-oY-qeh" secondAttribute="leading" constant="8" id="STG-LI-kLF"/>
-                            <constraint firstAttribute="trailing" secondItem="g7j-ix-T3m" secondAttribute="trailing" id="T7Z-Ml-MMC"/>
-                            <constraint firstItem="Lut-qc-2FW" firstAttribute="leading" secondItem="8bO-oY-qeh" secondAttribute="leading" constant="8" id="Vup-Cj-wbu"/>
-                            <constraint firstAttribute="trailing" secondItem="V7b-VM-7zj" secondAttribute="trailing" constant="8" id="doj-Ki-4zq"/>
-                            <constraint firstItem="g7j-ix-T3m" firstAttribute="leading" secondItem="8bO-oY-qeh" secondAttribute="leading" id="fzH-3V-VUz"/>
-                            <constraint firstAttribute="trailing" secondItem="Lut-qc-2FW" secondAttribute="trailing" constant="8" id="nW2-3K-sub"/>
-                            <constraint firstItem="Lut-qc-2FW" firstAttribute="top" secondItem="V7b-VM-7zj" secondAttribute="bottom" constant="8" id="qAG-K5-5mM"/>
-                            <constraint firstItem="V7b-VM-7zj" firstAttribute="top" secondItem="g7j-ix-T3m" secondAttribute="bottom" id="vMr-Uz-pjR"/>
-                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Felder" image="fields" id="1QS-au-Lve"/>
+                    <navigationItem key="navigationItem" title="Grubbern" id="yaV-2z-MTc">
+                        <barButtonItem key="rightBarButtonItem" image="add" id="zan-bI-egZ"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
                         <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </simulatedTabBarMetrics>
@@ -134,8 +128,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="add" width="24" height="24"/>
         <image name="checkbox-unchecked-th" width="100" height="100"/>
-        <image name="fields" width="24" height="24"/>
     </resources>
     <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>
