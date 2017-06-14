@@ -138,6 +138,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="imageDone" destination="Nxf-J4-ZTX" id="vIO-eY-YGM"/>
                                             <outlet property="labelAll" destination="Qc8-il-frV" id="i8b-Om-6do"/>
@@ -146,7 +147,6 @@
                                             <outlet property="labelName" destination="Msl-Hi-CU3" id="X0Q-Jd-q5f"/>
                                             <outlet property="labelSlash" destination="lFD-Rm-gyy" id="5xi-Ap-Phv"/>
                                             <outlet property="viewBackground" destination="HTi-Ni-LVS" id="2s9-iT-6Ys"/>
-                                            <segue destination="xQL-3P-Ivx" kind="showDetail" action="showViewController:sender:" id="nlG-t9-Ggi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -347,14 +347,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2857" y="-240"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="OgK-vS-H0B">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="xQL-3P-Ivx" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="h8D-xR-2Ra" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1947" y="-163"/>
         </scene>
         <!--Neue Arbeit anlegen-->
         <scene sceneID="gca-KK-9fv">
