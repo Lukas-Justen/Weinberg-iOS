@@ -10,7 +10,6 @@ import UIKit
 
 class OperationsViewController: UIViewController {
 
-    // Die Liste der Todos, die dargestellt werden soll
     var ops:[Operation] = [Operation]()
     @IBOutlet weak var operationTable: UITableView!
     
@@ -25,6 +24,8 @@ class OperationsViewController: UIViewController {
         ops.append(Operation(name: "Spritzen 1" , date: "29.09.2017 - 14.10.2017", done: "10.5", all: "15.5"  ))
         ops.append(Operation(name: "Spritzen 2" , date: "30.10.2017 - 11.11.2017", done: "0.0" , all: "15.5" ))
         ops.append(Operation(name: "Spritzen 3" , date: "24.12.2017 - 04.02.2018", done: "12.4", all: "15.5"  ))
+        
+        operationTable.tableHeaderView = UIView()
         operationTable.tableFooterView = UIView()
     }
 
@@ -70,8 +71,9 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
             print("Edit tapped")
-            let edit: EditOperationViewController = EditOperationViewController()
-            self.navigationController?.pushViewController(edit, animated: true)
+            let storyBoard: UIStoryboard = UIStoryboard(name:"Operation",bundle:nil)
+            let editController : EditOperationViewController = storyBoard.instantiateViewController(withIdentifier: "EditOperation") as! EditOperationViewController
+            self.navigationController?.pushViewController(editController, animated: true)
         })
         editAction.backgroundColor = UIColor.orange
         

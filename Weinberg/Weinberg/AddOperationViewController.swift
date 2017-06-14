@@ -10,10 +10,18 @@ import UIKit
 
 class AddOperationViewController: UIViewController {
 
+    @IBOutlet weak var fabAdd: UIView!
+    
     @IBAction func cancleAddOperation(_ sender: Any) {
         performSegue(withIdentifier: "unwindSegueToOperation", sender: self)
-        print("Klappt")
     }
     
+    @IBAction func nameOfOperationChanged(_ sender: UITextField) {
+        if (sender.text != "") {
+            fabAdd.isHidden = false
+        } else {
+            fabAdd.isHidden = true
+        }
+    }
     
 }

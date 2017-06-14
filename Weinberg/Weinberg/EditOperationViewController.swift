@@ -10,9 +10,18 @@ import UIKit
 
 class EditOperationViewController: UIViewController {
 
-    @IBAction func cancleAddOperation(_ sender: Any) {
+    @IBOutlet weak var fabEdit: UIView!
+    
+    @IBAction func cancleEditOperation(_ sender: Any) {
         performSegue(withIdentifier: "unwindSegueToOperation", sender: self)
-        print("Klappt")
+    }
+    
+    @IBAction func nameOfOperationChanged(_ sender: UITextField) {
+        if (sender.text != "") {
+            fabEdit.isHidden = false
+        } else {
+            fabEdit.isHidden = true
+        }
     }
     
 }
