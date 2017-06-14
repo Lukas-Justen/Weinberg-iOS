@@ -17,7 +17,11 @@ class FieldsViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        fields.append(Field(name: "Sommerberg", fruit: "Riesling", treatment: "Normalerziehung", size: 2000, done: false))
+        fields.append(Field(name: "Sommerberg", fruit: "Riesling", treatment: "Normalerziehung", size: 1385, done: false))
+        fields.append(Field(name: "Guldenbach", fruit: "Bacchus", treatment: "Umkehranlage", size: 1683, done: false))
+        fields.append(Field(name: "Schlossgarten", fruit: "Riesling", treatment: "Normalerziehung", size: 1870, done: false))
+        fields.append(Field(name: "Wintertal", fruit: "Chardonnay", treatment: "Minimalschnitt", size: 876, done: false))
+        fields.append(Field(name: "Hirtental", fruit: "Bacchus", treatment: "Minimalschnitt", size: 1790, done: false))
         
         fieldTable.tableHeaderView = UIView()
         fieldTable.tableFooterView = UIView()
