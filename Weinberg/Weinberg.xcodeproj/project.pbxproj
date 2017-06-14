@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */; };
+		3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */; };
 		3FC14C791EE98374000EA760 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
 		3FC14C7B1EE9838B000EA760 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7A1EE9838B000EA760 /* Map.storyboard */; };
 		3FC14C7E1EE983A3000EA760 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
@@ -47,6 +49,8 @@
 
 /* Begin PBXFileReference section */
 		36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weinberg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFieldViewController.swift; sourceTree = "<group>"; };
+		3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFieldViewController.swift; sourceTree = "<group>"; };
 		3FC14C781EE98374000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Operation.storyboard; sourceTree = "<group>"; };
 		3FC14C7A1EE9838B000EA760 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		3FC14C7D1EE983A3000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Field.storyboard; sourceTree = "<group>"; };
@@ -127,6 +131,8 @@
 				3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */,
 				3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */,
 				3FC14C7C1EE983A3000EA760 /* Field.storyboard */,
+				3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */,
+				3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */,
 			);
 			name = Field;
 			sourceTree = "<group>";
@@ -396,6 +402,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */,
+				3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */,
+				3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */,
 				3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */,
 				3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */,
 				3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */,
