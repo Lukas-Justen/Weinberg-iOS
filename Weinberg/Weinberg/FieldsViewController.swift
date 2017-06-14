@@ -34,7 +34,7 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let field = fields[indexPath.row]
-        let cellIdentifier = "FieldDetailCell"
+        let cellIdentifier = "FieldDetailCell"	
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! FieldDetailCell
         let gesture:UIGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleFieldTap))
         
