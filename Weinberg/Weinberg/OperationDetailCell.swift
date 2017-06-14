@@ -8,6 +8,14 @@
 
 import UIKit
 
+/*
+ * @author Lukas Justen
+ * @email lukas.justen@th-bingen.de
+ * @version 1.0
+ *
+ * The class OperationDetailCell acts like a wrapper for the UIElements in the UITableViewCell.
+ * You can changes the values or properties of the all these fields.
+ */
 class OperationDetailCell: UITableViewCell {
 
     @IBOutlet weak var labelName: UILabel!

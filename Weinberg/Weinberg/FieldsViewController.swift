@@ -14,14 +14,14 @@ class FieldsViewController: UIViewController {
     
 }
 
-extension FieldsViewController : UITableViewDataSource, UITableViewDataSource{
+extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return fields.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        return UITableViewCell()
     }
     
 }

@@ -8,6 +8,15 @@
 
 import UIKit
 
+/*
+ * @author Lukas Justen
+ * @email lukas.justen@th-bingen.de
+ * @version 1.0
+ *
+ * The class OperationsViewController is responsible for filling the operation data into the 
+ * UITableView. Furthermore, it handles clickevents on the OperationDetailCells. Editing, deleting
+ * or adding new operations is also possible.
+ */
 class OperationsViewController: UIViewController {
 
     // The list of all operations which are displayed by the UITableView
@@ -46,7 +55,9 @@ class OperationsViewController: UIViewController {
 
 
 
-
+/*
+ * The extensions for OperationsViewController handle all tasks which relate to the UITableView
+ */
 extension OperationsViewController : UITableViewDataSource, UITableViewDelegate {
     
     /*
