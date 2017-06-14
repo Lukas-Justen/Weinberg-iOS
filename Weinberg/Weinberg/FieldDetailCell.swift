@@ -12,4 +12,13 @@ class FieldDetailCell: UITableViewCell {
 
     
     
+    
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var checkBox: UIButton!
+    
+    
+    @IBAction func checkBoxClick(_ sender: Any) {
+        
+    }
+    
 }

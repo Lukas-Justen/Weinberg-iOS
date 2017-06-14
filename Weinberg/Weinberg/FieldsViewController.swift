@@ -34,4 +34,5 @@ struct Field {
     var fruit : String
     var treatment : String
     var size : Int
+    var done : Bool
 }

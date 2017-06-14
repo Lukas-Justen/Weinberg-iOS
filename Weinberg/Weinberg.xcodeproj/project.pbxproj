@@ -12,6 +12,7 @@
 		3FC14C7E1EE983A3000EA760 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
 		3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */; };
 		3FE5E6DD1EF183B0004734F4 /* FieldDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */; };
+		3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */; };
 		3FE6BF431EE16C3D0013A622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */; };
 		3FE6BF4A1EE16C3E0013A622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF481EE16C3E0013A622 /* Main.storyboard */; };
 		3FE6BF4C1EE16C3E0013A622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF4B1EE16C3E0013A622 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		3FC14C7D1EE983A3000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Field.storyboard; sourceTree = "<group>"; };
 		3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationDetailCell.swift; sourceTree = "<group>"; };
 		3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldDetailCell.swift; sourceTree = "<group>"; };
+		3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		3FE6BF3F1EE16C3D0013A622 /* Weinberg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weinberg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE6BF491EE16C3E0013A622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				3FE6BF741EE172700013A622 /* FieldsViewController.swift */,
 				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
 				3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */,
+				3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */,
 			);
 			path = Weinberg;
 			sourceTree = "<group>";
@@ -370,6 +373,7 @@
 			files = (
 				3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */,
 				3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */,
+				3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */,
 				3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */,
 				3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */,
 				3FE6BF731EE16E930013A622 /* OperationsViewController.swift in Sources */,
