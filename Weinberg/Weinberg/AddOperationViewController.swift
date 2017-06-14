@@ -8,12 +8,37 @@
 
 import UIKit
 
+/*
+ * @author Lukas Justen
+ * @email lukas.justen@th-bingen.de
+ * @version 1.0
+ *
+ * The class AddOperationViewController handles the user-interaction in order to add a new
+ * operation. The class recognizes wether the user has entered a name for the operation. Thus,
+ * the class hides or shows the FloatingActionButton in order to save the new operation.
+ */
 class AddOperationViewController: UIViewController {
 
+    // The FloatingActionButton for saving the input
+    @IBOutlet weak var fabAdd: UIView!
+    
+    /*
+     * Performs an unwind-segue to the OperationsViewController.
+     */
     @IBAction func cancleAddOperation(_ sender: Any) {
         performSegue(withIdentifier: "unwindSegueToOperation", sender: self)
-        print("Klappt")
     }
     
+    /*
+     * Recognizes changes in the UITextField for the name of the operation and hides or shows
+     * the FloatingActionButton
+     */
+    @IBAction func nameOfOperationChanged(_ sender: UITextField) {
+        if (sender.text != "") {
+            fabAdd.isHidden = false
+        } else {
+            fabAdd.isHidden = true
+        }
+    }
     
 }

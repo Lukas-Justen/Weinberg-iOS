@@ -102,6 +102,36 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FB6A6041EF191F300DD227A /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */,
+				3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */,
+				3FE6BF721EE16E930013A622 /* OperationsViewController.swift */,
+				3FC14C771EE98374000EA760 /* Operation.storyboard */,
+				3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */,
+			);
+			name = Operation;
+			sourceTree = "<group>";
+		};
+		3FB6A6051EF1924B00DD227A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3FC14C7A1EE9838B000EA760 /* Map.storyboard */,
+				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		3FB6A6061EF1925200DD227A /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				3FE6BF741EE172700013A622 /* FieldsViewController.swift */,
+				3FC14C7C1EE983A3000EA760 /* Field.storyboard */,
+			);
+			name = Field;
+			sourceTree = "<group>";
+		};
 		3FE6BF361EE16C3D0013A622 = {
 			isa = PBXGroup;
 			children = (
@@ -127,12 +157,11 @@
 		3FE6BF411EE16C3D0013A622 /* Weinberg */ = {
 			isa = PBXGroup;
 			children = (
+				3FB6A6061EF1925200DD227A /* Field */,
+				3FB6A6051EF1924B00DD227A /* Map */,
+				3FB6A6041EF191F300DD227A /* Operation */,
 				3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */,
 				3FE6BF481EE16C3E0013A622 /* Main.storyboard */,
-				3FC14C7C1EE983A3000EA760 /* Field.storyboard */,
-				3FC14C7A1EE9838B000EA760 /* Map.storyboard */,
-				3FC14C771EE98374000EA760 /* Operation.storyboard */,
-				3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */,
 				3FE6BF4B1EE16C3E0013A622 /* Assets.xcassets */,
 				3FE6BF4D1EE16C3E0013A622 /* LaunchScreen.storyboard */,
 				3FE6BF501EE16C3E0013A622 /* Info.plist */,
