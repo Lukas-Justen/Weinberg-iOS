@@ -13,15 +13,8 @@ class EditFieldViewController: UIViewController {
     
     @IBOutlet weak var fabEdit: UIView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func editFieldCancled(_ sender: Any) {
+        performSegue(withIdentifier: "unwindSegueToField", sender: self)
     }
     
     @IBAction func NameChange(_ sender: UITextField) {
@@ -31,15 +24,5 @@ class EditFieldViewController: UIViewController {
             fabEdit.isHidden = true
         }        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

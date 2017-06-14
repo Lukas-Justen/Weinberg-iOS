@@ -23,6 +23,8 @@ class FieldsViewController: UIViewController {
         fieldTable.tableFooterView = UIView()
     }
     
+    @IBAction func unwindToField(segue:UIStoryboardSegue) {}
+    
 }
 
 extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
@@ -39,8 +41,7 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         let gesture:UIGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleFieldTap))
         
         cell.name.text = field.name
-        cell.size.text = String(field.size) + " m²"
-        
+        cell.size.text = String(field.size)
         cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
         cell.viewBackground.layer.shadowOpacity = 0.2
         cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
@@ -50,9 +51,6 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         return cell
     }
     
-    /*
-     * Creates the opportunity for the user to edit or delete a row in the UITableView
-     */
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
             let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
@@ -70,12 +68,10 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         return [deleteAction, editAction]
     }
     
-    /*
-     * Handles all clicks on a FieldDetailCell
-     */
     func handleFieldTap() -> Void {
         self.tabBarController?.selectedIndex = 1
     }
+    
 }
 
 struct Field {
