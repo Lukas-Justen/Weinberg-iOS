@@ -27,6 +27,12 @@
 		3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE6BF791EE176340013A622 /* MapKit.framework */; };
 		3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */; };
 		3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */; };
+		85CFA64D1EF7D15B00D19BB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; };
+		85CFA64E1EF7D15B00D19BB7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85CFA64F1EF7D15B00D19BB7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */; };
+		85CFA6501EF7D15B00D19BB7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		85CFA6561EF7D54C00D19BB7 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6551EF7D54C00D19BB7 /* Operation.swift */; };
+		85CFA6581EF7D78500D19BB7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6571EF7D78500D19BB7 /* Field.swift */; };
 		F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +52,21 @@
 			remoteInfo = Weinberg;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		85CFA6511EF7D15B00D19BB7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				85CFA6501EF7D15B00D19BB7 /* RealmSwift.framework in Embed Frameworks */,
+				85CFA64E1EF7D15B00D19BB7 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weinberg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,6 +96,10 @@
 		3FE6BF791EE176340013A622 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOperationViewController.swift; sourceTree = "<group>"; };
 		3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOperationViewController.swift; sourceTree = "<group>"; };
+		85CFA64B1EF7D15B00D19BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		85CFA6551EF7D54C00D19BB7 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		85CFA6571EF7D78500D19BB7 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
 		C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.debug.xcconfig"; sourceTree = "<group>"; };
 		DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +109,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85CFA64D1EF7D15B00D19BB7 /* Realm.framework in Frameworks */,
 				3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */,
+				85CFA64F1EF7D15B00D19BB7 /* RealmSwift.framework in Frameworks */,
 				F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -114,6 +141,7 @@
 				3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */,
 				3FC14C771EE98374000EA760 /* Operation.storyboard */,
 				3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */,
+				85CFA6551EF7D54C00D19BB7 /* Operation.swift */,
 			);
 			name = Operation;
 			sourceTree = "<group>";
@@ -136,6 +164,7 @@
 				3FC14C7C1EE983A3000EA760 /* Field.storyboard */,
 				3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */,
 				3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */,
+				85CFA6571EF7D78500D19BB7 /* Field.swift */,
 			);
 			name = Field;
 			sourceTree = "<group>";
@@ -143,6 +172,8 @@
 		3FE6BF361EE16C3D0013A622 = {
 			isa = PBXGroup;
 			children = (
+				85CFA64B1EF7D15B00D19BB7 /* Realm.framework */,
+				85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */,
 				3FE6BF411EE16C3D0013A622 /* Weinberg */,
 				3FE6BF581EE16C3E0013A622 /* WeinbergTests */,
 				3FE6BF631EE16C3E0013A622 /* WeinbergUITests */,
@@ -226,6 +257,8 @@
 				3FE6BF3D1EE16C3D0013A622 /* Resources */,
 				802890595DDD7D429EDEDE71 /* [CP] Embed Pods Frameworks */,
 				E79105037A081B9A3047E152 /* [CP] Copy Pods Resources */,
+				85CFA6511EF7D15B00D19BB7 /* Embed Frameworks */,
+				85CFA6521EF7D1A300D19BB7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -364,6 +397,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		85CFA6521EF7D1A300D19BB7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
 		90F3F7E15A8474100DA01E9D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -408,10 +454,12 @@
 				3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */,
 				3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */,
 				3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */,
+				85CFA6581EF7D78500D19BB7 /* Field.swift in Sources */,
 				3FE6BF731EE16E930013A622 /* OperationsViewController.swift in Sources */,
 				3FE6BF431EE16C3D0013A622 /* AppDelegate.swift in Sources */,
 				3FE6BF771EE1728B0013A622 /* MapViewController.swift in Sources */,
 				3FE5E6DD1EF183B0004734F4 /* FieldDetailCell.swift in Sources */,
+				85CFA6561EF7D54C00D19BB7 /* Operation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +630,10 @@
 			baseConfigurationReference = C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Weinberg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TH-Bingen.Weinberg";
@@ -595,6 +647,10 @@
 			baseConfigurationReference = DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Weinberg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TH-Bingen.Weinberg";

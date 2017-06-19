@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cqM-aR-Mah">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cqM-aR-Mah">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -27,6 +27,9 @@
                                 <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" red="0.40784313729999999" green="0.62352941179999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="HwZ-5Q-3cT" id="dll-Ma-NwR"/>
+                                </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-bL-xEh">
                                 <rect key="frame" x="8" y="58" width="359" height="29"/>
@@ -36,6 +39,9 @@
                                     <segment title="Status (ha)"/>
                                 </segments>
                                 <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sortOperations:" destination="HwZ-5Q-3cT" eventType="valueChanged" id="imB-rx-ez5"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-aT-FJT">
                                 <rect key="frame" x="0.0" y="94" width="375" height="458"/>
@@ -193,6 +199,7 @@
                     </simulatedTabBarMetrics>
                     <connections>
                         <outlet property="operationTable" destination="Cpf-aT-FJT" id="IoB-Si-QN8"/>
+                        <outlet property="searchForOperation" destination="IgP-iu-H4D" id="sh6-2L-lFI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiX-KG-5ff" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -510,7 +517,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cqM-aR-Mah" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Arbeiten" image="operations" id="ah8-Wg-2YO"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="65y-Og-0eP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="65y-Og-0eP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

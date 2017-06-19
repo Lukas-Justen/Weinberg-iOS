@@ -10,18 +10,18 @@ import UIKit
 
 class FieldsViewController: UIViewController {
 
-    var fields:[Field] = [Field]()
+    var fields:[FieldDummy] = [FieldDummy]()
     
     @IBOutlet weak var fieldTable: UITableView!
     let all:String = "15.5"
     
     
     override func viewDidLoad() {
-        fields.append(Field(name: "Sommerberg", fruit: "Riesling", treatment: "Normalerziehung", size: 1385, done: false))
-        fields.append(Field(name: "Guldenbach", fruit: "Bacchus", treatment: "Umkehranlage", size: 1683, done: false))
-        fields.append(Field(name: "Schlossgarten", fruit: "Riesling", treatment: "Normalerziehung", size: 1870, done: false))
-        fields.append(Field(name: "Wintertal", fruit: "Chardonnay", treatment: "Minimalschnitt", size: 876, done: false))
-        fields.append(Field(name: "Hirtental", fruit: "Bacchus", treatment: "Minimalschnitt", size: 1790, done: false))
+        fields.append(FieldDummy(name: "Sommerberg", fruit: "Riesling", treatment: "Normalerziehung", size: 1385, done: false))
+        fields.append(FieldDummy(name: "Guldenbach", fruit: "Bacchus", treatment: "Umkehranlage", size: 1683, done: false))
+        fields.append(FieldDummy(name: "Schlossgarten", fruit: "Riesling", treatment: "Normalerziehung", size: 1870, done: false))
+        fields.append(FieldDummy(name: "Wintertal", fruit: "Chardonnay", treatment: "Minimalschnitt", size: 876, done: false))
+        fields.append(FieldDummy(name: "Hirtental", fruit: "Bacchus", treatment: "Minimalschnitt", size: 1790, done: false))
         
         fieldTable.tableHeaderView = UIView()
         fieldTable.tableFooterView = UIView()
@@ -78,7 +78,7 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     
 }
 
-struct Field {
+struct FieldDummy {
     var name : String
     var fruit : String
     var treatment : String

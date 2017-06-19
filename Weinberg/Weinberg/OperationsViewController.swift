@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 /*
  * @author Lukas Justen
@@ -20,36 +21,82 @@ import UIKit
 class OperationsViewController: UIViewController {
 
     // The list of all operations which are displayed by the UITableView
-    var ops:[Operation] = [Operation]()
+    var ops: Results<Operation>?
     // The UITableView which shows the operations
     @IBOutlet weak var operationTable: UITableView!
     // The complete area the winery has to cultivate
     let all:String = "15.5"
-    
+    // The RealmInstance in order to access the database
+    let realm = try! Realm()
+    // The searchBar for searching specific operations
+    @IBOutlet weak var searchForOperation: UISearchBar!
+    // The order and search criteria
+    var sortBy: Int = 0
+    var searchFor: String = ""
     
     /*
      * Fills the list of operations with data and creates an empty UIView for the header and footer in the UITableView
      */
     override func viewDidLoad() {
-        ops.append(Operation(name: "Heften" , date: "25.08.2017 - 30.08.2017", done: "all"))
-        ops.append(Operation(name: "Grubbern" , date: "12.04.2017 - 15.04.2017", done: "6.84"))
-        ops.append(Operation(name: "Schneiden" , date: "20.05.2017 - 15.06.2017", done: "0.0"))
-        ops.append(Operation(name: "Ausbessern" , date: "11.06.2017 - 17.06.2017", done: "all"))
-        ops.append(Operation(name: "Ausbrechen" , date: "23.02.2016 - 28.02.2016", done: "3.56"))
-        ops.append(Operation(name: "Entlauben 1" , date: "19.01.2017 - 22.01.2017", done: "0.0"))
-        ops.append(Operation(name: "Entlauben 2" , date: "30.02.2017 - 27.4.2017", done: "8.87"))
-        ops.append(Operation(name: "Spritzen 1" , date: "29.09.2017 - 14.10.2017", done: "10.5"))
-        ops.append(Operation(name: "Spritzen 2" , date: "30.10.2017 - 11.11.2017", done: "0.0"))
-        ops.append(Operation(name: "Spritzen 3" , date: "24.12.2017 - 04.02.2018", done: "12.4"))
-        
         operationTable.tableHeaderView = UIView()
         operationTable.tableFooterView = UIView()
+        
+        // Add Operations to the Realm inside a transaction
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if !launchedBefore {
+            try! realm.write {
+                realm.add(Operation(value: ["name" : "Grubbern 3", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Grubbern 4", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Grubbern 5", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Heften 1", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Heften 2", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Heften 3", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Laub schneiden", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Schneiden", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 1", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 2", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 3", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Ausbessern", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Ausbrechen 1", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Ausbrechen 2", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Ausheben", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Biegen", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Drähte runter legen", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Entlauben 1", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Entlauben 2", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Grubbern 1", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Grubbern 2", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 4", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 5", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 6", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 7", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Spritzen 8", "startdate": NSDate(), "enddate":NSDate()]))
+            }
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        ops = realm.objects(Operation.self).sorted(byKeyPath: "name", ascending: true)
     }
-
+        
     /*
      * This segue closes the EditOperation- or AddOperationViewController
      */
     @IBAction func unwindToOperation(segue:UIStoryboardSegue) {}
+    
+    @IBAction func sortOperations(_ sender: UISegmentedControl) {
+        sortBy = sender.selectedSegmentIndex
+        updateTableView()
+    }
+    
+    func updateTableView() -> Void {
+        ops = realm.objects(Operation.self)
+        if (sortBy == 0) {
+            ops = ops?.sorted(byKeyPath: "name", ascending: true)
+        } else {
+            ops = ops?.sorted(byKeyPath: "name", ascending: false)
+        }
+        ops = ops?.filter("name contains '" + searchFor + "'")
+        operationTable.reloadData()
+    }
     
 }
 
@@ -64,26 +111,29 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
      * Returns the number of rows displayed by the UITableView
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ops.count
+        if (ops != nil) {
+            return (ops?.count)!
+        }
+        return realm.objects(Operation.self).count
     }
     
     /*
      * Creates an empty OperationDetailCell and fills the labels with the correct data
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let operation = ops[indexPath.row]
+        let operation = ops![indexPath.row]
         let cellIdentifier = "OperationDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OperationDetailCell
         let gesture:UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleOperationTap))
         
-        if (operation.done != "all") {
+        if (operation.todo.count > 0) {
             cell.labelName.text = operation.name
-            cell.labelDate.text = operation.date
-            cell.labelDone.text = operation.done
-            cell.labelAll.text = self.all
+            cell.labelDate.text = operation.getDateAsString()
+            cell.labelDone.text = String(operation.done.count)
+            cell.labelAll.text = String(operation.todo.count)
         } else {
             cell.labelName.text = operation.name
-            cell.labelDate.text = operation.date
+            cell.labelDate.text = operation.getDateAsString()
             cell.labelDone.isHidden = true
             cell.labelAll.isHidden = true
             cell.labelSlash.isHidden = true
@@ -110,7 +160,9 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         editAction.backgroundColor = UIColor.orange
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
-            self.ops.remove(at: indexPath.row)
+            try! self.realm.write {
+                self.realm.delete(self.ops![indexPath.row])
+            }
             tableView.deleteRows(at: [indexPath], with: .fade)
         })
         deleteAction.backgroundColor = UIColor.red
@@ -127,16 +179,11 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
     
 }
 
-
-
-
-struct Operation {
+extension OperationsViewController: UISearchBarDelegate {
     
-    // The name of the given operation
-    var name: String
-    // The start- and enddate concatenated to one string
-    var date: String
-    // The area which is already done
-    var done: String
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchFor = searchText
+        updateTableView()
+    }
     
 }
