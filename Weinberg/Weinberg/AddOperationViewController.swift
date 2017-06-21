@@ -29,10 +29,12 @@ class AddOperationViewController: UIViewController {
     @IBOutlet weak var operationName: UITextField!
     @IBOutlet weak var labelWarning: UILabel!
     
+    // Formats the output of the datepicker to a string
     let formatter = DateFormatter()
     
     // The RealmInstance in order to access the database
     let realm = try! Realm()
+    
     
     
     /*

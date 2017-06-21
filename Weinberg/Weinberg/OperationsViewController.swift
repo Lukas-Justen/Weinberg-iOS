@@ -34,6 +34,8 @@ class OperationsViewController: UIViewController {
     var sortBy: Int = 0
     var searchFor: String = ""
     
+    
+    
     /*
      * Fills the list of operations with data and creates an empty UIView for the header and footer in the UITableView
      */
@@ -83,11 +85,17 @@ class OperationsViewController: UIViewController {
      */
     @IBAction func unwindToOperation(segue:UIStoryboardSegue) {}
     
+    /*
+     * Tries to sort the list of operation by the given criteria and updates the UITableView
+     */
     @IBAction func sortOperations(_ sender: UISegmentedControl) {
         sortBy = sender.selectedSegmentIndex
         updateTableView()
     }
     
+    /*
+     * Updates the content of the UITableView
+     */
     func updateTableView() -> Void {
         ops = realm.objects(Operation.self)
         if (sortBy == 0) {
