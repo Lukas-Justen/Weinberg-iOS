@@ -11,24 +11,21 @@ import RealmSwift
 
 class Operation: Object {
     
-    static var formatter = DateFormatter()
-    
     dynamic var name: String = ""
-    dynamic var startdate: NSDate?
-    dynamic var enddate: NSDate?
-    let workingtime: Double = 0.0
+    dynamic var startdate: String?
+    dynamic var enddate: String?
+    dynamic var workingtime: String?
     let todo: List<Field> = List<Field>()
     let done: List<Field> = List<Field>()
     
     func getDateAsString() -> String {
         var result = ""
         
-        Operation.formatter.dateFormat = ("dd.MM.yyy")
-        if (startdate != nil) {
-            result += Operation.formatter.string(from: startdate! as Date)
+        if (startdate != nil && startdate != "") {
+            result += startdate!
         }
-        if (enddate != nil) {
-            result += " - " + Operation.formatter.string(from: enddate! as Date)
+        if (enddate != nil && enddate != "") {
+            result += " - " + enddate!
         }
         return result;
     }

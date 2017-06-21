@@ -45,36 +45,37 @@ class OperationsViewController: UIViewController {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if !launchedBefore {
             try! realm.write {
-                realm.add(Operation(value: ["name" : "Grubbern 3", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Grubbern 4", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Grubbern 5", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Heften 1", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Heften 2", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Heften 3", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Laub schneiden", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Schneiden", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 1", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 2", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 3", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Ausbessern", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Ausbrechen 1", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Ausbrechen 2", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Ausheben", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Biegen", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Drähte runter legen", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Entlauben 1", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Entlauben 2", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Grubbern 1", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Grubbern 2", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 4", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 5", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 6", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 7", "startdate": NSDate(), "enddate":NSDate()]))
-                realm.add(Operation(value: ["name" : "Spritzen 8", "startdate": NSDate(), "enddate":NSDate()]))
+                realm.add(Operation(value: ["name" : "Grubbern 3", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Grubbern 4", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Grubbern 5", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Heften 1", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Heften 2", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Heften 3", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Laub schneiden", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Schneiden", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 1", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 2", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 3", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Ausbessern", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Ausbrechen 1", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Ausbrechen 2", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Ausheben", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Biegen", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Drähte runter legen", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Entlauben 1", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Entlauben 2", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Grubbern 1", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Grubbern 2", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 4", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 5", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 6", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 7", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
+                realm.add(Operation(value: ["name" : "Spritzen 8", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
             }
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
         ops = realm.objects(Operation.self).sorted(byKeyPath: "name", ascending: true)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: .update, object: nil)
     }
         
     /*
@@ -186,4 +187,8 @@ extension OperationsViewController: UISearchBarDelegate {
         updateTableView()
     }
     
+}
+
+extension Notification.Name {
+    static let update = Notification.Name("update")
 }
