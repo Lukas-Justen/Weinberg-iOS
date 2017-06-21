@@ -39,16 +39,16 @@ class AddOperationViewController: UIViewController {
      * Performs an unwind-segue to the OperationsViewController.
      */
     @IBAction func cancleAddOperation(_ sender: Any) {
-            performSegue(withIdentifier: "unwindSegueToOperation", sender: self)
-            let newOperation: Operation = Operation()
-            newOperation.name = operationName.text!
-            newOperation.startdate = (startdate.text?.hasPrefix("z.B."))! ? nil : startdate.text!
-            newOperation.enddate = (enddate.text?.hasPrefix("z.B."))! ? nil : enddate.text!
-            newOperation.workingtime = (workingTime.text?.hasPrefix("z.B."))! ? nil : workingTime.text!
-            try! realm.write {
-                realm.add(newOperation)
-            }
-            NotificationCenter.default.post(name: .update, object: nil)
+        performSegue(withIdentifier: "unwindSegueToOperation", sender: self)
+        let newOperation: Operation = Operation()
+        newOperation.name = operationName.text!
+        newOperation.startdate = (startdate.text?.hasPrefix("z.B."))! ? nil : startdate.text!
+        newOperation.enddate = (enddate.text?.hasPrefix("z.B."))! ? nil : enddate.text!
+        newOperation.workingtime = (workingTime.text?.hasPrefix("z.B."))! ? nil : workingTime.text!
+        try! realm.write {
+            realm.add(newOperation)
+        }
+        NotificationCenter.default.post(name: .update, object: nil)
     }
     
     /*

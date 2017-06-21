@@ -219,10 +219,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Nlz-4a-GbD">
-                                <rect key="frame" x="4" y="100" width="367" height="123"/>
+                                <rect key="frame" x="4" y="100" width="367" height="121.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="X4A-Ai-65Q">
-                                        <rect key="frame" x="0.0" y="1" width="173.5" height="121.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="173.5" height="121.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Startdatum" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DeU-Ga-JpX">
                                                 <rect key="frame" x="0.0" y="0.0" width="173.5" height="20.5"/>
@@ -245,31 +245,43 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Oxk-HD-4ty">
-                                        <rect key="frame" x="193.5" y="0.0" width="173.5" height="123"/>
+                                        <rect key="frame" x="193.5" y="0.0" width="173.5" height="121.5"/>
                                         <subviews>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="20.04.2017" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="tWQ-sx-L0U">
-                                                <rect key="frame" x="0.0" y="0.0" width="173.5" height="21"/>
-                                                <nil key="textColor"/>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="z.B. 15.03.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Luj-So-dVz">
+                                                <rect key="frame" x="0.0" y="0.0" width="173.5" height="20.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="28.04.2017" textAlignment="natural" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NkA-vP-2HA">
-                                                <rect key="frame" x="0.0" y="51" width="173.5" height="21"/>
-                                                <nil key="textColor"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="tDf-0b-728" appends="YES" id="mxl-u5-0Ee"/>
+                                                </connections>
+                                            </label>
+                                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="z.B. 25.04.2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQ3-HV-3nr">
+                                                <rect key="frame" x="0.0" y="50.5" width="173.5" height="20.5"/>
+                                                <gestureRecognizers/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                            </textField>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="hkK-kf-WK6" appends="YES" id="hpK-U2-fAO"/>
+                                                </connections>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="gx1-kw-rwE">
-                                                <rect key="frame" x="0.0" y="102" width="173.5" height="21"/>
+                                                <rect key="frame" x="0.0" y="101" width="173.5" height="20.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="5:45" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="T7u-AI-aAX">
-                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="21"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="z.B.2:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="slD-OJ-by8">
+                                                        <rect key="frame" x="0.0" y="0.0" width="87" height="20.5"/>
+                                                        <gestureRecognizers/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
-                                                    </textField>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="6WP-1P-NKY" appends="YES" id="XVi-h9-0Pl"/>
+                                                        </connections>
+                                                    </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="h / ha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="29w-P4-od7">
-                                                        <rect key="frame" x="87" y="3.5" width="86.5" height="14.5"/>
+                                                        <rect key="frame" x="87" y="3" width="86.5" height="14.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <nil key="highlightedColor"/>
@@ -291,12 +303,23 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-HV-S4B">
                                 <rect key="frame" x="16" y="82" width="343" height="2"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Arbeit mit diesem Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orm-ok-4oX">
+                                        <rect key="frame" x="0.0" y="-18.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="0.58076222369999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="orm-ok-4oX" secondAttribute="bottom" id="Kqv-1O-6wh"/>
+                                    <constraint firstItem="orm-ok-4oX" firstAttribute="leading" secondItem="HK4-HV-S4B" secondAttribute="leading" id="Xda-zN-4er"/>
                                     <constraint firstAttribute="height" constant="2" id="kDl-qq-sKm"/>
+                                    <constraint firstAttribute="trailing" secondItem="orm-ok-4oX" secondAttribute="trailing" id="pxC-sW-Qtz"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFJ-Yg-6tJ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZFJ-Yg-6tJ">
                                 <rect key="frame" x="299" y="591" width="60" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="done_white" translatesAutoresizingMaskIntoConstraints="NO" id="k4a-Fp-YgP">
@@ -341,7 +364,12 @@
                         <barButtonItem key="backBarButtonItem" title="Zurück" id="Zea-4c-V7Q"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="enddate" destination="CQ3-HV-3nr" id="Q1r-VP-Zmz"/>
                         <outlet property="fabEdit" destination="ZFJ-Yg-6tJ" id="J57-cS-EbV"/>
+                        <outlet property="labelWarning" destination="orm-ok-4oX" id="S1U-xl-WP7"/>
+                        <outlet property="operationName" destination="RpX-7W-ajc" id="oLZ-2L-aU8"/>
+                        <outlet property="startdate" destination="Luj-So-dVz" id="EOU-IO-lhr"/>
+                        <outlet property="workingTime" destination="slD-OJ-by8" id="5Lv-re-M1A"/>
                         <segue destination="lLN-Af-PaZ" kind="unwind" identifier="unwindSegueToOperation" unwindAction="unwindToOperationWithSegue:" id="vIh-lj-BL6"/>
                     </connections>
                 </viewController>
@@ -350,6 +378,21 @@
                 <tapGestureRecognizer id="JLB-hc-zYX">
                     <connections>
                         <action selector="cancleEditOperation:" destination="Hfb-Zq-1h4" id="6Ts-fB-KGz"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="tDf-0b-728">
+                    <connections>
+                        <action selector="startdateTapped:" destination="Hfb-Zq-1h4" id="tA5-js-C90"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="hkK-kf-WK6">
+                    <connections>
+                        <action selector="enddateTapped:" destination="Hfb-Zq-1h4" id="DCC-Ld-lWV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="6WP-1P-NKY">
+                    <connections>
+                        <action selector="workingTimeTapped:" destination="Hfb-Zq-1h4" id="kMS-tu-EL0"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -154,8 +154,10 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
      */
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
+            let o:Operation = self.ops![indexPath.row]
             let storyBoard: UIStoryboard = UIStoryboard(name:"Operation",bundle:nil)
             let editController : EditOperationViewController = storyBoard.instantiateViewController(withIdentifier: "EditOperation") as! EditOperationViewController
+            editController.operation = o
             self.navigationController?.pushViewController(editController, animated: true)
         })
         editAction.backgroundColor = UIColor.orange
@@ -180,6 +182,11 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
     
 }
 
+
+
+/*
+ * Checks the input of the searchBar and updates the UITableView
+ */
 extension OperationsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -189,6 +196,11 @@ extension OperationsViewController: UISearchBarDelegate {
     
 }
 
+
+
+/*
+ * Notification handles updates of the UITableView
+ */
 extension Notification.Name {
     static let update = Notification.Name("update")
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 /*
  * @author Lukas Justen
@@ -23,6 +24,12 @@ class MapViewController: UIViewController {
  
     // The MapView which displays the satelite-map
     @IBOutlet weak var mapView: MKMapView!
+    
+    // The RealmInstance in order to access the database
+    let realm = try! Realm()
+    
+    // The operation the map currently displays
+    var currentOperation: Operation?
     
     /*
      * The ViewController creates polygons and adds them to the map.
@@ -43,6 +50,10 @@ class MapViewController: UIViewController {
         let myPolygon2: MKPolygon = MKPolygon(coordinates: &coordinates2, count: coordinates2.count)
         myPolygon2.title = "todo"
         mapView.add(myPolygon2)
+        
+        if (currentOperation == nil) {
+            currentOperation = realm.objects(Operation.self).first
+        }
     }
     
 }
