@@ -125,7 +125,6 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         let operation = ops![indexPath.row]
         let cellIdentifier = "OperationDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OperationDetailCell
-        let gesture:UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleOperationTap))
         
         if (operation.todo.count > 0) {
             cell.labelName.text = operation.name
@@ -144,7 +143,6 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         cell.viewBackground.layer.shadowOpacity = 0.2
         cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
         cell.viewBackground.layer.shadowRadius = 1
-        cell.addGestureRecognizer(gesture)
             
         return cell
     }
@@ -173,11 +171,14 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         return [deleteAction, editAction]
     }
     
+   
     /*
      * Handles all clicks on a OperationDetailCell
      */
-    func handleOperationTap() -> Void {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        MapViewController.currentOperation = self.ops![indexPath.row]
         self.tabBarController?.selectedIndex = 1
+        NotificationCenter.default.post(name: .operationSelected, object: nil)
     }
     
 }
@@ -203,4 +204,5 @@ extension OperationsViewController: UISearchBarDelegate {
  */
 extension Notification.Name {
     static let update = Notification.Name("update")
+    static let operationSelected = Notification.Name("operationSelected")
 }
