@@ -29,11 +29,16 @@ class EditOperationViewController: UIViewController {
     @IBOutlet weak var workingTime: UILabel!
     @IBOutlet weak var labelWarning: UILabel!
     
+    // Formats the output of the datepicker to a string
     let formatter = DateFormatter()
     
     // The RealmInstance in order to access the database
     let realm = try! Realm()
+    
+    // The operation the user wants to edit
     var operation: Operation?
+    
+    
     
     /*
      * Initializes the inputFields with the values of the operation the user wants to edit
