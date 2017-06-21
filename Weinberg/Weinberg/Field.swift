@@ -11,7 +11,9 @@ import RealmSwift
 
 class Field: Object {
     
-    var name: String = ""
-    var area: Double?
+   dynamic var name: String = ""
+   dynamic var treatment: String = ""
+   dynamic var fruit: String = ""
+   var area: Double?
     
 }
