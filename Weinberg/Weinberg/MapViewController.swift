@@ -34,6 +34,7 @@ class MapViewController: UIViewController {
     var editable: Bool = false
     var editCoordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
     var editPolygon: MKPolygon?
+    var editAnnotations: [MKAnnotation] = [MKAnnotation]()
     
     /*
      * The ViewController creates polygons and adds them to the map.
@@ -76,10 +77,11 @@ class MapViewController: UIViewController {
         if editable {
             let touchlocation = sender.location(in: mapView)
             let locationCoordinate = mapView.convert(touchlocation, toCoordinateFrom: mapView)
-            print("Lat: \(locationCoordinate.latitude) Lng: \(locationCoordinate.longitude)")
             let annotation = MKPointAnnotation()
             annotation.coordinate = locationCoordinate
+            annotation.title = String(editAnnotations.count)
             mapView.addAnnotation(annotation)
+            editAnnotations.append(annotation)
             editCoordinates.append(locationCoordinate)
             if (editPolygon != nil) {
                 mapView.remove(editPolygon!)
@@ -94,15 +96,20 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func confirmNewField(_ sender: Any) {
-        
+        editable = false
+        editPolygon = nil
+        editCoordinates = [CLLocationCoordinate2D]()
+        fabCreate.isHidden = true
+        mapView.removeAnnotations(editAnnotations)
     }
+    
 }
 
 
 
 /*
  * By implementing functions of the MKMapViewDelegate protocol the ViewController can change the color
- * of the polygons.
+ * of the polygons or drag markers.
  */
 extension MapViewController: MKMapViewDelegate {
     
@@ -126,5 +133,21 @@ extension MapViewController: MKMapViewDelegate {
             return polygonView
         }
         return MKPolygonRenderer(overlay: overlay)
-    }    
+    }
+    
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        /*if (editPolygon != nil) {
+            mapView.remove(editPolygon!)
+        }
+        let ann: MKAnnotation = view as! MKAnnotation
+        
+        editAnnotations[Int(ann.title.to)]
+        editCoordinates.append(locationCoordinate)
+        
+        editPolygon = MKPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
+        editPolygon?.title = "edit"
+        mapView.add(editPolygon!)*/
+        
+    }
+    
 }
