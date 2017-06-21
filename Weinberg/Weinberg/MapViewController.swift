@@ -29,7 +29,7 @@ class MapViewController: UIViewController {
     let realm = try! Realm()
     
     // The operation the map currently displays
-    var currentOperation: Operation?
+    static var currentOperation: Operation?
     
     /*
      * The ViewController creates polygons and adds them to the map.
@@ -51,10 +51,18 @@ class MapViewController: UIViewController {
         myPolygon2.title = "todo"
         mapView.add(myPolygon2)
         
-        if (currentOperation == nil) {
-            currentOperation = realm.objects(Operation.self).first
+        if (MapViewController.currentOperation == nil) {
+            MapViewController.currentOperation = realm.objects(Operation.self).first
         }
+        
+        updateOperationAndMap()
+        NotificationCenter.default.addObserver(self, selector: #selector(updateOperationAndMap), name: .operationSelected, object:nil)
     }
+    
+    func updateOperationAndMap() {
+        navigationItem.title = MapViewController.currentOperation?.name
+    }
+    
     
 }
 
