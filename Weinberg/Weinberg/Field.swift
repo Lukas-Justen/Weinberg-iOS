@@ -11,9 +11,10 @@ import RealmSwift
 
 class Field: Object {
     
-   dynamic var name: String = ""
-   dynamic var treatment: String = ""
-   dynamic var fruit: String = ""
-   var area: Double?
+    dynamic var name: String = ""
+    dynamic var treatment: String = ""
+    dynamic var fruit: String = ""
+    var area: Double?
+    var boundaries:List<LatLng> = List<LatLng>()
     
 }

@@ -34,7 +34,7 @@ class FieldsViewController: UIViewController {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
         fields = realm.objects(Field.self).sorted(byKeyPath: "name", ascending: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
+        //NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
     }
 
     @IBAction func unwindToField(segue:UIStoryboardSegue) {}

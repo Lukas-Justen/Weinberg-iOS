@@ -15,56 +15,46 @@ import RealmSwift
  * @email lukas.justen@th-bingen.de
  * @version 1.0
  *
- * The class MapViewController displays the Map and draws the fields as polygons on the map.
+ * The class MapViewController displays the Map and drvar the fields as polygons on the map.
  * If a field is already done the controller will use a green color in order to show it's done-status.
  * Otherwise the controller will use a red color. You can click at the Polygons in order to change
  * their status und get mor information about the field.
  */
 class MapViewController: UIViewController {
  
-    // The MapView which displays the satelite-map
+    // The MapView which displays the satellite-map
     @IBOutlet weak var mapView: MKMapView!
+    // The FloatingActionButton for confirming the boundaries of the new field
     @IBOutlet weak var fabCreate: UIView!
     
     // The RealmInstance in order to access the database
     let realm = try! Realm()
     
-    // The operation the map currently displays
-    static var currentOperation: Operation?
+    //
     var editable: Bool = false
     var editCoordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
     var editPolygon: MKPolygon?
     var editAnnotations: [MKAnnotation] = [MKAnnotation]()
     
+    // The operation the map currently displays
+    static var currentOperation: Operation?
+    
+    
+    
     /*
      * The ViewController creates polygons and adds them to the map.
      */
     override func viewDidLoad() {
-        var coordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-        coordinates.append(CLLocationCoordinate2D(latitude: 49.0,longitude: 7.50))
-        coordinates.append(CLLocationCoordinate2D(latitude: 52.0,longitude: 10.0))
-        coordinates.append(CLLocationCoordinate2D(latitude: 48.6,longitude: 12.13))
-        let myPolygon: MKPolygon = MKPolygon(coordinates: &coordinates, count: coordinates.count)
-        myPolygon.title = "done"
-        mapView.add(myPolygon)
-        
-        var coordinates2: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-        coordinates2.append(CLLocationCoordinate2D(latitude: 45.0,longitude: 5.50))
-        coordinates2.append(CLLocationCoordinate2D(latitude: 50.0,longitude: 10.0))
-        coordinates2.append(CLLocationCoordinate2D(latitude: 48.6,longitude: 12.13))
-        let myPolygon2: MKPolygon = MKPolygon(coordinates: &coordinates2, count: coordinates2.count)
-        myPolygon2.title = "todo"
-        mapView.add(myPolygon2)
-        
         if (MapViewController.currentOperation == nil) {
             MapViewController.currentOperation = realm.objects(Operation.self).first
         }
         
-        updateOperationAndMap()
-        NotificationCenter.default.addObserver(self, selector: #selector(updateOperationAndMap), name: .operationSelected, object:nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateOperation), name: .operationSelected, object:nil)
+        updateOperation()
+        redrawAllPolygons()
     }
     
-    func updateOperationAndMap() {
+    func updateOperation() {
         navigationItem.title = MapViewController.currentOperation?.name
     }
     
@@ -96,11 +86,41 @@ class MapViewController: UIViewController {
     }
     
     @IBAction func confirmNewField(_ sender: Any) {
+        let coordinates:List<LatLng> = List<LatLng>()
+        for coord in editCoordinates {
+            let myLatLng = LatLng()
+            myLatLng.lng = coord.longitude
+            myLatLng.lat = coord.latitude
+            coordinates.append(myLatLng)
+        }
+        let field: Field = Field()
+        let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
+        let addController : AddFieldViewController = storyBoard.instantiateViewController(withIdentifier: "AddField") as! AddFieldViewController
+        field.boundaries = coordinates
+        addController.newField = field
+        self.navigationController?.pushViewController(addController, animated: true)
+        
         editable = false
         editPolygon = nil
         editCoordinates = [CLLocationCoordinate2D]()
         fabCreate.isHidden = true
-        mapView.removeAnnotations(editAnnotations)
+        self.tabBarController?.selectedIndex = 2
+    }
+    
+    func redrawAllPolygons() -> Void {
+        mapView.removeOverlays(mapView.overlays)
+        mapView.removeAnnotations(mapView.annotations)
+        
+        let fields:Results<Field> = realm.objects(Field.self)
+        for f in fields {
+            var coordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+            for ll in f.boundaries {
+                coordinates.append(CLLocationCoordinate2D(latitude: ll.lat, longitude: ll.lng))
+            }
+            let polygon = MKPolygon(coordinates: &coordinates, count: coordinates.count)
+            polygon.title = "done"
+            mapView.add(polygon)
+        }
     }
     
 }
@@ -113,6 +133,9 @@ class MapViewController: UIViewController {
  */
 extension MapViewController: MKMapViewDelegate {
     
+    /*
+     * Changes the color of the polygons on the map
+     */
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolygon {
             let polygonView = MKPolygonRenderer(overlay: overlay)
@@ -135,19 +158,19 @@ extension MapViewController: MKMapViewDelegate {
         return MKPolygonRenderer(overlay: overlay)
     }
     
+    /* 
+     * Makes the annotations on the map dragable
+     */
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
         /*if (editPolygon != nil) {
             mapView.remove(editPolygon!)
         }
         let ann: MKAnnotation = view as! MKAnnotation
-        
         editAnnotations[Int(ann.title.to)]
         editCoordinates.append(locationCoordinate)
-        
         editPolygon = MKPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
         editPolygon?.title = "edit"
         mapView.add(editPolygon!)*/
-        
     }
     
 }
