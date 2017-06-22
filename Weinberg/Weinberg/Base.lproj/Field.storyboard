@@ -34,6 +34,9 @@
                                     <segment title="Fläche (m²)"/>
                                 </segments>
                                 <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="sortFields:" destination="CVD-Y9-qJe" eventType="valueChanged" id="Oup-iv-84r"/>
+                                </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lut-qc-2FW">
                                 <rect key="frame" x="0.0" y="160" width="375" height="456"/>

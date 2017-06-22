@@ -32,7 +32,9 @@ class AddFieldViewController: UIViewController {
             newField.fruit = fruit.text!
         }
         if(area.text != ""){
-            newField.area = Double(area.text!)
+            newField.area = Double(area.text!)!
+        }else{
+            newField.area = 0
         }
         try! realm.write {
             realm.add(newField)
