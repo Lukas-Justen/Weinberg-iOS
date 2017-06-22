@@ -25,19 +25,16 @@ class FieldsViewController: UIViewController {
         fieldTable.tableHeaderView = UIView()
         fieldTable.tableFooterView = UIView()
         
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        
-        if !launchedBefore {
-            try! realm.write {
-                realm.add(Field(value: ["name" : "Schlossberg", "treatment" : "Normalerziehung" , "fruit" : "Riesling" , "area" : "1500"]))
-            }
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-        }
         fields = realm.objects(Field.self).sorted(byKeyPath: "name", ascending: true)
         //NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
     }
 
     @IBAction func unwindToField(segue:UIStoryboardSegue) {}
+    
+    @IBAction func sortFields(_ sender: UISegmentedControl) {
+        sortBy = sender.selectedSegmentIndex
+        updateTableView()
+    }
     
     
     func updateTableView(){
@@ -45,7 +42,7 @@ class FieldsViewController: UIViewController {
         if(sortBy == 0){
             fields = fields?.sorted(byKeyPath: "name", ascending: true)
         }else{
-            fields = fields?.sorted(byKeyPath: "name", ascending: false)
+            fields = fields?.sorted(byKeyPath: "area", ascending: true)
         }
         fields = fields?.filter("name contains '" + searchFor + "'")
         fieldTable.reloadData()
@@ -67,23 +64,23 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         let field = fields![indexPath.row]
         let cellIdentifier = "FieldDetailCell"	
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! FieldDetailCell
-        let gesture:UIGestureRecognizer = UIGestureRecognizer(target: self, action: #selector(handleFieldTap))
         
         cell.name.text = field.name
-        cell.size.text = String(field.area!)
+        cell.size.text = String(field.area) + " m²"
         cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
         cell.viewBackground.layer.shadowOpacity = 0.2
         cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
         cell.viewBackground.layer.shadowRadius = 1
-        cell.addGestureRecognizer(gesture)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
+            let field:Field = self.fields![indexPath.row]
             let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
             let editController : EditFieldViewController = storyBoard.instantiateViewController(withIdentifier: "EditField") as! EditFieldViewController
+            editController.field = field
             self.navigationController?.pushViewController(editController, animated: true)
         })
         editAction.backgroundColor = UIColor.orange
@@ -99,8 +96,8 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         return [deleteAction, editAction]
     }
     
-    func handleFieldTap() -> Void {
-        self.tabBarController?.selectedIndex = 1
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tabBarController?.selectedIndex = 1
     }
     
 }
