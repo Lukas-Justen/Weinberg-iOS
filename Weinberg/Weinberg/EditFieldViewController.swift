@@ -12,6 +12,7 @@ import RealmSwift
 class EditFieldViewController: UIViewController {
 
     
+    @IBOutlet weak var labelWarning: UILabel!
     @IBOutlet weak var nameEdit: UITextField!
     @IBOutlet weak var fabEdit: UIView!
     @IBOutlet weak var treamentEdit: UITextField!
@@ -43,11 +44,18 @@ class EditFieldViewController: UIViewController {
     }
     
     @IBAction func NameChange(_ sender: UITextField) {
-        if(sender.text != ""){
-            fabEdit.isHidden = false
-        }else{
+        if (sender.text != "") {
+            if (realm.objects(Field.self).filter("name = %@", nameEdit.text!).count == 0 || field?.name == nameEdit.text) {
+                fabEdit.isHidden = false
+                labelWarning.isHidden = true
+            } else {
+                fabEdit.isHidden = true
+                labelWarning.isHidden = false
+            }
+        } else {
             fabEdit.isHidden = true
-        }        
+            labelWarning.isHidden = true
+        }
     }
 
 }
