@@ -62,6 +62,7 @@ class MapViewController: UIViewController {
         editable = true
     }
     
+    @IBAction func unwindToMap(segue:UIStoryboardSegue){}
     
     @IBAction func createNewVertex(_ sender: UITapGestureRecognizer) {
         if editable {
@@ -100,11 +101,12 @@ class MapViewController: UIViewController {
         addController.newField = field
         self.navigationController?.pushViewController(addController, animated: true)
         
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.remove(editPolygon!)
         editable = false
         editPolygon = nil
         editCoordinates = [CLLocationCoordinate2D]()
         fabCreate.isHidden = true
-        self.tabBarController?.selectedIndex = 2
     }
     
     func redrawAllPolygons() -> Void {

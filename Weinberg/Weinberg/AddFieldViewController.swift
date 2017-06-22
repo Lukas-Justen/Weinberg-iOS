@@ -18,10 +18,11 @@ class AddFieldViewController: UIViewController {
     @IBOutlet weak var area: UITextField!
     @IBOutlet weak var warningLabel: UILabel!
     
+    var newField:Field?
     let realm = try! Realm()
     
     @IBAction func cancleAddOperation(_ sender: Any) {
-        performSegue(withIdentifier: "unwindSegueToField", sender: self)
+        performSegue(withIdentifier: "unwindSegueToMap", sender: self)
         let newField : Field = Field()
         
         newField.name = fieldName.text!

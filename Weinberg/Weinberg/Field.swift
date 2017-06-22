@@ -14,7 +14,7 @@ class Field: Object {
     dynamic var name: String = ""
     dynamic var treatment: String = ""
     dynamic var fruit: String = ""
-    var area: Double?
+    dynamic var area: Double = 0.0
     var boundaries:List<LatLng> = List<LatLng>()
     
 }

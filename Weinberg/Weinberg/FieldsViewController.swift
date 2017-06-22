@@ -26,7 +26,7 @@ class FieldsViewController: UIViewController {
         fieldTable.tableFooterView = UIView()
         
         fields = realm.objects(Field.self).sorted(byKeyPath: "name", ascending: true)
-        //NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: <#T##NSNotification.Name?#>, object: <#T##Any?#>)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: .update, object: nil)
     }
 
     @IBAction func unwindToField(segue:UIStoryboardSegue) {}
@@ -66,7 +66,7 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! FieldDetailCell
         
         cell.name.text = field.name
-        cell.size.text = String(field.area) + " m²"
+        cell.size.text = String(describing: field.area)
         cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
         cell.viewBackground.layer.shadowOpacity = 0.2
         cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)

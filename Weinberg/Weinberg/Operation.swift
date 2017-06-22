@@ -20,9 +20,9 @@ class Operation: Object {
     // The amount of time you need for this work per hecktar
     dynamic var workingtime: String?
     // The list of fields the winegrower still has to do
-    let todo: List<Field> = List<Field>()
+    var todo: List<Field> = List<Field>()
     // The list of fields which are ready
-    let done: List<Field> = List<Field>()
+    var done: List<Field> = List<Field>()
     
     
     /*

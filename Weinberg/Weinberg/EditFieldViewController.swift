@@ -26,7 +26,7 @@ class EditFieldViewController: UIViewController {
             nameEdit.text = field!.name
             treamentEdit.text = field!.treatment
             fruitEdit.text = field!.fruit
-            areaEdit.text = String(field!.area)
+            areaEdit.text = "\(field!.area)"
         }
     }
     
