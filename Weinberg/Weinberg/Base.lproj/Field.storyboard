@@ -144,6 +144,9 @@
                     <navigationItem key="navigationItem" title="Ausbessern" id="yaV-2z-MTc">
                         <barButtonItem key="rightBarButtonItem" image="add" id="zan-bI-egZ">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="createNewField:" destination="CVD-Y9-qJe" id="QZS-Wa-f3p"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
@@ -340,7 +343,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="center" minimumFontSize="17" clearButtonMode="unlessEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YRF-8M-MRO">
-                                <rect key="frame" x="16" y="80" width="343" height="30"/>
+                                <rect key="frame" x="16" y="36" width="343" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -349,7 +352,7 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYC-df-bYg">
-                                <rect key="frame" x="16" y="126" width="343" height="2"/>
+                                <rect key="frame" x="16" y="82" width="343" height="2"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Fläche mit diesen Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuY-4A-l2Z">
                                         <rect key="frame" x="0.0" y="-18.5" width="343" height="20.5"/>
@@ -391,7 +394,7 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="dMi-Yx-lp6">
-                                <rect key="frame" x="4" y="144" width="367" height="121.5"/>
+                                <rect key="frame" x="4" y="100" width="367" height="121.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="tSR-9V-nPF">
                                         <rect key="frame" x="0.0" y="0.0" width="173.5" height="121.5"/>

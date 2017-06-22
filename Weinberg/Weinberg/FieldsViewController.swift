@@ -18,7 +18,7 @@ class FieldsViewController: UIViewController {
     let all:String = "15.5"
     var sortBy: Int = 0
     var searchFor: String = ""
-    
+    var createNewField:Bool = false
     
     override func viewDidLoad() {
        
@@ -26,7 +26,6 @@ class FieldsViewController: UIViewController {
         fieldTable.tableFooterView = UIView()
         
         fields = realm.objects(Field.self).sorted(byKeyPath: "name", ascending: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: .update, object: nil)
     }
 
     @IBAction func unwindToField(segue:UIStoryboardSegue) {}
@@ -47,6 +46,23 @@ class FieldsViewController: UIViewController {
         fields = fields?.filter("name contains '" + searchFor + "'")
         fieldTable.reloadData()
     }
+    
+    @IBAction func createNewField(_ sender: Any) {
+        tabBarController?.selectedIndex = 1
+        createNewField = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        if (createNewField) {
+            NotificationCenter.default.post(name: .createNewField, object: nil)
+            createNewField = false
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateTableView()
+    }
+    
 }
 
 extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
@@ -98,6 +114,7 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tabBarController?.selectedIndex = 1
+        // TODO Zoom an position mit Notification
     }
     
 }

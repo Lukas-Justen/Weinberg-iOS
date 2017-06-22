@@ -40,7 +40,6 @@ class EditFieldViewController: UIViewController {
             field?.fruit = fruitEdit.text!
             field?.area = Double(areaEdit.text!)!
         }
-        NotificationCenter.default.post(name: .update, object: nil)
     }
     
     @IBAction func NameChange(_ sender: UITextField) {

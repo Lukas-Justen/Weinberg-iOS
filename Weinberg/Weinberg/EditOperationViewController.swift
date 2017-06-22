@@ -70,7 +70,6 @@ class EditOperationViewController: UIViewController {
             operation?.enddate = (enddate.text?.hasPrefix("z.B."))! ? nil : enddate.text!
             operation?.workingtime = (workingTime.text?.hasPrefix("z.B."))! ? nil : workingTime.text!
         }
-        NotificationCenter.default.post(name: .update, object: nil)
     }
     
     /*

@@ -50,7 +50,6 @@ class AddOperationViewController: UIViewController {
         try! realm.write {
             realm.add(newOperation)
         }
-        NotificationCenter.default.post(name: .update, object: nil)
     }
     
     /*

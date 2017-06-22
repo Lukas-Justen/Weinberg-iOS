@@ -23,25 +23,30 @@ class AddFieldViewController: UIViewController {
     
     @IBAction func cancleAddOperation(_ sender: Any) {
         performSegue(withIdentifier: "unwindSegueToMap", sender: self)
-        let newField : Field = Field()
         
-        newField.name = fieldName.text!
+        newField?.name = fieldName.text!
         
         if(treament.text != ""){
-            newField.treatment = treament.text!
+            newField?.treatment = treament.text!
         }
         if(fruit.text != ""){
-            newField.fruit = fruit.text!
+            newField?.fruit = fruit.text!
         }
         if(area.text != ""){
-            newField.area = Double(area.text!)!
+            newField?.area = Double(area.text!)!
         }else{
-            newField.area = 0
+            newField?.area = 0
         }
         try! realm.write {
-            realm.add(newField)
+            realm.add(newField!)
         }
-        NotificationCenter.default.post(name: .update, object: nil)
+        
+        let operations:Results<Operation> = realm.objects(Operation.self)
+        for o in operations {
+            try! realm.write {
+                o.todo.append(newField!)
+            }
+        }
     }
     
     @IBAction func fieldNameChanged(_ sender: UITextField) {

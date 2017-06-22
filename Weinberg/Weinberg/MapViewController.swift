@@ -30,7 +30,6 @@ class MapViewController: UIViewController {
     // The RealmInstance in order to access the database
     let realm = try! Realm()
     
-    //
     var editable: Bool = false
     var editCoordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
     var editPolygon: MKPolygon?
@@ -50,6 +49,7 @@ class MapViewController: UIViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateOperation), name: .operationSelected, object:nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
         updateOperation()
         redrawAllPolygons()
     }
@@ -113,16 +113,29 @@ class MapViewController: UIViewController {
         mapView.removeOverlays(mapView.overlays)
         mapView.removeAnnotations(mapView.annotations)
         
-        let fields:Results<Field> = realm.objects(Field.self)
-        for f in fields {
-            var coordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-            for ll in f.boundaries {
-                coordinates.append(CLLocationCoordinate2D(latitude: ll.lat, longitude: ll.lng))
-            }
-            let polygon = MKPolygon(coordinates: &coordinates, count: coordinates.count)
-            polygon.title = "done"
-            mapView.add(polygon)
+        MapViewController.currentOperation = realm.objects(Operation.self).filter("name = %@", (MapViewController.currentOperation?.name)!).first
+        let doneFields:List<Field> = (MapViewController.currentOperation?.done)!
+        for f in doneFields {
+            drawField(field: f, status: "done")
         }
+        let todoFields:List<Field> = (MapViewController.currentOperation?.todo)!
+        for f in todoFields {
+            drawField(field: f, status: "todo")
+        }
+    }
+    
+    func drawField(field:Field, status:String) -> Void{
+        var coordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
+        for ll in field.boundaries {
+            coordinates.append(CLLocationCoordinate2D(latitude: ll.lat, longitude: ll.lng))
+        }
+        let polygon = MKPolygon(coordinates: &coordinates, count: coordinates.count)
+        polygon.title = status
+        mapView.add(polygon)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        redrawAllPolygons()
     }
     
 }
@@ -175,4 +188,11 @@ extension MapViewController: MKMapViewDelegate {
         mapView.add(editPolygon!)*/
     }
     
+}
+
+/*
+ * Notification starts the process for creating a new field
+ */
+extension Notification.Name {
+    static let createNewField = Notification.Name("createNewField")
 }

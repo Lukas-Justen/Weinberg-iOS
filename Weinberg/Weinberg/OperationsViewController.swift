@@ -77,7 +77,6 @@ class OperationsViewController: UIViewController {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
         ops = realm.objects(Operation.self).sorted(byKeyPath: "name", ascending: true)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: .update, object: nil)
     }
         
     /*
@@ -105,6 +104,10 @@ class OperationsViewController: UIViewController {
         }
         ops = ops?.filter("name contains '" + searchFor + "'")
         operationTable.reloadData()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateTableView()
     }
     
 }
@@ -211,6 +214,5 @@ extension OperationsViewController: UISearchBarDelegate {
  * Notification handles updates of the UITableView
  */
 extension Notification.Name {
-    static let update = Notification.Name("update")
     static let operationSelected = Notification.Name("operationSelected")
 }
