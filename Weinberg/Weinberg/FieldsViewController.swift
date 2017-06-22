@@ -77,8 +77,10 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
+            let field:Field = self.fields![indexPath.row]
             let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
             let editController : EditFieldViewController = storyBoard.instantiateViewController(withIdentifier: "EditField") as! EditFieldViewController
+            editController.field = field
             self.navigationController?.pushViewController(editController, animated: true)
         })
         editAction.backgroundColor = UIColor.orange
