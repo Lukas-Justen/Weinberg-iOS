@@ -16,6 +16,7 @@ class AddFieldViewController: UIViewController {
     @IBOutlet weak var treament: UITextField!
     @IBOutlet weak var fruit: UITextField!
     @IBOutlet weak var area: UITextField!
+    @IBOutlet weak var warningLabel: UILabel!
     
     let realm = try! Realm()
     
@@ -43,10 +44,22 @@ class AddFieldViewController: UIViewController {
     }
     
     @IBAction func fieldNameChanged(_ sender: UITextField) {
-        if(sender.text == "") {
-            fabAdd.isHidden = true
+        if(sender.text != "") {
+            if(realm.objects(Field.self).filter("name = %@", fieldName.text!).count == 0){
+                print("fab should be NOT hidden")
+                print("warning should be hidden")
+                fabAdd.isHidden = false
+                warningLabel.isHidden = true
+            }else{
+                print("fab should be hidden")
+                print("warning should be hidden")
+                fabAdd.isHidden = true
+                warningLabel.isHidden = false
+            }
         } else {
-            fabAdd.isHidden = false
+            print("both shoud be hidden")
+            fabAdd.isHidden = true
+            warningLabel.isHidden = true
         }
     }
 }

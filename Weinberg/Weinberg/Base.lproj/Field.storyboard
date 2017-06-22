@@ -276,9 +276,9 @@
                                 <rect key="frame" x="16" y="82" width="343" height="2"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Fläche mit diesen Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkT-ur-KbJ">
-                                        <rect key="frame" x="0.0" y="-15" width="343" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.79658371210000001" green="0.2678413093" blue="0.035874567929999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <rect key="frame" x="0.0" y="-18.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.99663645030000003" green="0.33324735729999999" blue="0.036086289350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -332,7 +332,7 @@
         <!--Neues Feld anlegen-->
         <scene sceneID="dMI-Se-Dah">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="O48-VR-hya" customClass="AddFieldViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddField" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="O48-VR-hya" customClass="AddFieldViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tTI-dv-Vos"/>
                         <viewControllerLayoutGuide type="bottom" id="Vc0-CF-6cr"/>
@@ -352,9 +352,20 @@
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tYC-df-bYg">
                                 <rect key="frame" x="16" y="126" width="343" height="2"/>
+                                <subviews>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Fläche mit diesen Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuY-4A-l2Z">
+                                        <rect key="frame" x="0.0" y="-18.5" width="343" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.99663645030000003" green="0.33324735729999999" blue="0.036086289350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="IuY-4A-l2Z" secondAttribute="trailing" id="RFc-x2-a4h"/>
                                     <constraint firstAttribute="height" constant="2" id="kvK-q4-xsK"/>
+                                    <constraint firstAttribute="bottom" secondItem="IuY-4A-l2Z" secondAttribute="bottom" id="lrh-jB-fIJ"/>
+                                    <constraint firstItem="IuY-4A-l2Z" firstAttribute="leading" secondItem="tYC-df-bYg" secondAttribute="leading" id="tv3-nK-b8j"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLx-tB-fYZ">
@@ -473,6 +484,7 @@
                         <outlet property="fieldName" destination="YRF-8M-MRO" id="gP8-Og-6CF"/>
                         <outlet property="fruit" destination="uQq-Qd-ffU" id="HDw-s8-Y66"/>
                         <outlet property="treament" destination="tEW-L0-CqT" id="DIs-6Z-ol8"/>
+                        <outlet property="warningLabel" destination="IuY-4A-l2Z" id="h8c-oa-alX"/>
                         <segue destination="2yR-SF-eAB" kind="unwind" identifier="unwindSegueToField" unwindAction="unwindToFieldWithSegue:" id="iiB-fu-zf9"/>
                     </connections>
                 </viewController>
