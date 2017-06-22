@@ -42,7 +42,7 @@ class FieldsViewController: UIViewController {
         if(sortBy == 0){
             fields = fields?.sorted(byKeyPath: "name", ascending: true)
         }else{
-            fields = fields?.sorted(byKeyPath: "name", ascending: false)
+            fields = fields?.sorted(byKeyPath: "area", ascending: true)
         }
         fields = fields?.filter("name contains '" + searchFor + "'")
         fieldTable.reloadData()
