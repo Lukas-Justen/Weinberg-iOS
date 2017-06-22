@@ -275,7 +275,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnU-gj-3Jb">
                                 <rect key="frame" x="16" y="82" width="343" height="2"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Fläche mit diesen Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkT-ur-KbJ">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Fläche mit diesen Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkT-ur-KbJ">
                                         <rect key="frame" x="0.0" y="-18.5" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.99663645030000003" green="0.33324735729999999" blue="0.036086289350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -314,6 +314,7 @@
                         <outlet property="areaEdit" destination="KQS-Vv-jWX" id="1zj-Fa-8Go"/>
                         <outlet property="fabEdit" destination="RKo-CP-Nv7" id="xdT-jx-lJY"/>
                         <outlet property="fruitEdit" destination="nct-OY-6m6" id="I5v-VR-Vsj"/>
+                        <outlet property="labelWarning" destination="wkT-ur-KbJ" id="R6w-M0-9dR"/>
                         <outlet property="nameEdit" destination="q3z-ke-Epn" id="LVc-nM-6UV"/>
                         <outlet property="treamentEdit" destination="JVg-VS-3zZ" id="ldM-nV-m84"/>
                         <segue destination="br5-rT-7vW" kind="unwind" identifier="unwindSegueToField" unwindAction="unwindToFieldWithSegue:" id="UVa-ec-Oah"/>
