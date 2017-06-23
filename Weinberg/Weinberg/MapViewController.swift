@@ -10,18 +10,22 @@ import UIKit
 import MapKit
 import RealmSwift
 
+
+
 /*
  * @author Lukas Justen
  * @email lukas.justen@th-bingen.de
  * @version 1.0
  *
- * The class MapViewController displays the Map and drvar the fields as polygons on the map.
+ * The class MapViewController displays the Map and draws the fields as polygons on the map.
  * If a field is already done the controller will use a green color in order to show it's done-status.
  * Otherwise the controller will use a red color. You can click at the Polygons in order to change
- * their status und get mor information about the field.
+ * their status und get more information about the field itself.
  */
 class MapViewController: UIViewController {
  
+    
+    
     // The MapView which displays the satellite-map
     @IBOutlet weak var mapView: MKMapView!
     // The FloatingActionButton for confirming the boundaries of the new field
@@ -29,17 +33,20 @@ class MapViewController: UIViewController {
     
     // The RealmInstance in order to access the database
     let realm = try! Realm()
+    // The radius of the earth in order to calculate the size of a polygon
+    let earthRadius = 6378137.0
     
+    // Variables for marking a new Field on the map
     var editable: Bool = false
     var editCoordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
     var editPolygon: MKPolygon?
     var editAnnotations: [MKAnnotation] = [MKAnnotation]()
     
-    let kEarthRadius = 6378137.0
     
     
     /*
-     * The ViewController creates polygons and adds them to the map.
+     * Initializes the currentOperation with a random operation if nil and adds an observer for 
+     * creating a new field.
      */
     override func viewDidLoad() {
         if (OperationsViewController.currentOperation == nil) {
@@ -49,16 +56,28 @@ class MapViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
     }
     
+    /*
+     * Updates the title of the navigationBar
+     */
     func updateOperation() {
         navigationItem.title = OperationsViewController.currentOperation?.name
     }
     
+    /*
+     * Starts the marking-process for a new field.
+     */
     @IBAction func createNewField(_ sender: Any) {
         editable = true
     }
     
+    /*
+     * Unwind segue returns to the map.
+     */
     @IBAction func unwindToMap(segue:UIStoryboardSegue){}
     
+    /*
+     * Adds a new vertex to the map and updates the polygon/field the user is currently creating.
+     */
     @IBAction func createNewVertex(_ sender: UITapGestureRecognizer) {
         if editable {
             let touchlocation = sender.location(in: mapView)
@@ -81,6 +100,10 @@ class MapViewController: UIViewController {
          }
     }
     
+    /*
+     * Confirms the marking-process of the new field and opens the AddFieldViewController in order 
+     * to add further information.
+     */
     @IBAction func confirmNewField(_ sender: Any) {
         let coordinates:List<LatLng> = List<LatLng>()
         for coord in editCoordinates {
@@ -105,6 +128,9 @@ class MapViewController: UIViewController {
         fabCreate.isHidden = true
     }
     
+    /*
+     * Draws all polygons on the map by using the method "drawField"
+     */
     func redrawAllPolygons() -> Void {
         mapView.removeOverlays(mapView.overlays)
         mapView.removeAnnotations(mapView.annotations)
@@ -120,6 +146,9 @@ class MapViewController: UIViewController {
         }
     }
     
+    /*
+     * Draws the given field on the map.
+     */
     func drawField(field:Field, status:String) -> Void{
         var coordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
         for ll in field.boundaries {
@@ -130,18 +159,26 @@ class MapViewController: UIViewController {
         mapView.add(polygon)
     }
     
+    /*
+     * If the ViewController is going to appear, the map and the title of the navbar are going
+     * to be updated.
+     */
     override func viewWillAppear(_ animated: Bool) {
         updateOperation()
         redrawAllPolygons()
     }
     
-    // CLLocationCoordinate2D uses degrees but we need radians
+    /*
+     * Converts degrees to radians.
+     */
     func radians(degrees: Double) -> Double {
         return degrees * Double.pi / 180;
     }
     
+    /*
+     * Calculates the area given by the coordinates.
+     */
     func regionArea(locations: [CLLocationCoordinate2D]) -> Double {
-        
         guard locations.count > 2 else { return 0 }
         var area = 0.0
         
@@ -152,22 +189,23 @@ class MapViewController: UIViewController {
             area += radians(degrees: p2.longitude - p1.longitude) * (2 + sin(radians(degrees: p1.latitude)) + sin(radians(degrees: p2.latitude)) )
         }
         
-        area = -(area * kEarthRadius * kEarthRadius / 2);
+        area = -(area * earthRadius * earthRadius / 2);
         
-        return max(area, -area) // In order not to worry about is polygon clockwise or counterclockwise defined.
+        return max(area, -area)
     }
+    
 }
 
 
 
 /*
  * By implementing functions of the MKMapViewDelegate protocol the ViewController can change the color
- * of the polygons or drag markers.
+ * of the polygons or drag annotations.
  */
 extension MapViewController: MKMapViewDelegate {
     
     /*
-     * Changes the color of the polygons on the map
+     * Changes the color of the polygons on the map.
      */
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolygon {
@@ -192,25 +230,21 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     /* 
-     * Makes the annotations on the map dragable
+     * Makes the annotations on the map dragable.
      */
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
-        /*if (editPolygon != nil) {
-            mapView.remove(editPolygon!)
-        }
-        let ann: MKAnnotation = view as! MKAnnotation
-        editAnnotations[Int(ann.title.to)]
-        editCoordinates.append(locationCoordinate)
-        editPolygon = MKPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
-        editPolygon?.title = "edit"
-        mapView.add(editPolygon!)*/
+        // TODO Marker dragable machen
     }
     
 }
+
+
 
 /*
  * Notification starts the process for creating a new field
  */
 extension Notification.Name {
+    
     static let createNewField = Notification.Name("createNewField")
+    
 }
