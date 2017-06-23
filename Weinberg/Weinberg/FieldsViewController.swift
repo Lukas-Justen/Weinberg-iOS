@@ -21,6 +21,9 @@ class FieldsViewController: UIViewController {
     var createNewField:Bool = false
     
     override func viewDidLoad() {
+        if (OperationsViewController.currentOperation == nil) {
+            OperationsViewController.currentOperation = realm.objects(Operation.self).first
+        }
        
         fieldTable.tableHeaderView = UIView()
         fieldTable.tableFooterView = UIView()
@@ -35,13 +38,16 @@ class FieldsViewController: UIViewController {
         updateTableView()
     }
     
+    func updateOperation() {
+        navigationItem.title = OperationsViewController.currentOperation?.name
+    }
     
     func updateTableView(){
         fields = realm.objects(Field.self)
         if(sortBy == 0){
             fields = fields?.sorted(byKeyPath: "name", ascending: true)
         }else{
-            fields = fields?.sorted(byKeyPath: "area", ascending: true)
+            fields = fields?.sorted(byKeyPath: "area", ascending: false)
         }
         fields = fields?.filter("name contains '" + searchFor + "'")
         fieldTable.reloadData()
@@ -61,6 +67,7 @@ class FieldsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         updateTableView()
+        updateOperation()
     }
     
 }
@@ -83,6 +90,9 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         
         cell.name.text = field.name
         cell.size.text = String(describing: field.area)
+        cell.checkBox.field = nil
+        cell.checkBox.isChecked = (OperationsViewController.currentOperation?.done.contains(field))!
+        cell.checkBox.field = field
         cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
         cell.viewBackground.layer.shadowOpacity = 0.2
         cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
@@ -119,10 +129,14 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     
 }
 
-struct FieldDummy {
-    var name : String
-    var fruit : String
-    var treatment : String
-    var size : Int
-    var done : Bool
+/*
+ * Checks the input of the searchBar and updates the UITableView
+ */
+extension FieldsViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        self.searchFor = searchText
+        updateTableView()
+    }
+    
 }

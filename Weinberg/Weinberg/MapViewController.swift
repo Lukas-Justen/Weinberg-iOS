@@ -35,27 +35,22 @@ class MapViewController: UIViewController {
     var editPolygon: MKPolygon?
     var editAnnotations: [MKAnnotation] = [MKAnnotation]()
     
-    // The operation the map currently displays
-    static var currentOperation: Operation?
-    
+    let kEarthRadius = 6378137.0
     
     
     /*
      * The ViewController creates polygons and adds them to the map.
      */
     override func viewDidLoad() {
-        if (MapViewController.currentOperation == nil) {
-            MapViewController.currentOperation = realm.objects(Operation.self).first
+        if (OperationsViewController.currentOperation == nil) {
+            OperationsViewController.currentOperation = realm.objects(Operation.self).first
         }
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateOperation), name: .operationSelected, object:nil)
         NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
-        updateOperation()
-        redrawAllPolygons()
     }
     
     func updateOperation() {
-        navigationItem.title = MapViewController.currentOperation?.name
+        navigationItem.title = OperationsViewController.currentOperation?.name
     }
     
     @IBAction func createNewField(_ sender: Any) {
@@ -98,6 +93,7 @@ class MapViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
         let addController : AddFieldViewController = storyBoard.instantiateViewController(withIdentifier: "AddField") as! AddFieldViewController
         field.boundaries = coordinates
+        field.area = Int(regionArea(locations: editCoordinates))
         addController.newField = field
         self.navigationController?.pushViewController(addController, animated: true)
         
@@ -113,12 +109,12 @@ class MapViewController: UIViewController {
         mapView.removeOverlays(mapView.overlays)
         mapView.removeAnnotations(mapView.annotations)
         
-        MapViewController.currentOperation = realm.objects(Operation.self).filter("name = %@", (MapViewController.currentOperation?.name)!).first
-        let doneFields:List<Field> = (MapViewController.currentOperation?.done)!
+        OperationsViewController.currentOperation = realm.objects(Operation.self).filter("name = %@", (OperationsViewController.currentOperation?.name)!).first
+        let doneFields:List<Field> = (OperationsViewController.currentOperation?.done)!
         for f in doneFields {
             drawField(field: f, status: "done")
         }
-        let todoFields:List<Field> = (MapViewController.currentOperation?.todo)!
+        let todoFields:List<Field> = (OperationsViewController.currentOperation?.todo)!
         for f in todoFields {
             drawField(field: f, status: "todo")
         }
@@ -135,9 +131,31 @@ class MapViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        updateOperation()
         redrawAllPolygons()
     }
     
+    // CLLocationCoordinate2D uses degrees but we need radians
+    func radians(degrees: Double) -> Double {
+        return degrees * Double.pi / 180;
+    }
+    
+    func regionArea(locations: [CLLocationCoordinate2D]) -> Double {
+        
+        guard locations.count > 2 else { return 0 }
+        var area = 0.0
+        
+        for i in 0..<locations.count {
+            let p1 = locations[i > 0 ? i - 1 : locations.count - 1]
+            let p2 = locations[i]
+            
+            area += radians(degrees: p2.longitude - p1.longitude) * (2 + sin(radians(degrees: p1.latitude)) + sin(radians(degrees: p2.latitude)) )
+        }
+        
+        area = -(area * kEarthRadius * kEarthRadius / 2);
+        
+        return max(area, -area) // In order not to worry about is polygon clockwise or counterclockwise defined.
+    }
 }
 
 

@@ -25,6 +25,9 @@
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Feld suchen" translatesAutoresizingMaskIntoConstraints="NO" id="g7j-ix-T3m">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="CVD-Y9-qJe" id="5Ji-hB-gHc"/>
+                                </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="V7b-VM-7zj">
                                 <rect key="frame" x="8" y="124" width="359" height="29"/>
@@ -112,6 +115,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <connections>
+                                            <outlet property="checkBox" destination="pLc-su-c0m" id="4Wl-cF-egK"/>
                                             <outlet property="name" destination="cb6-yK-Ous" id="Mxv-0T-9KL"/>
                                             <outlet property="size" destination="sTn-p5-wq3" id="9BL-6H-CxF"/>
                                             <outlet property="viewBackground" destination="JdD-YO-gPE" id="Qju-Lg-ncu"/>
@@ -158,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vN8-ZX-7TT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="-266"/>
+            <point key="canvasLocation" x="1210" y="-257"/>
         </scene>
         <!--Feld editieren-->
         <scene sceneID="MrS-uZ-1dv">
@@ -278,7 +282,7 @@
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Fläche mit diesen Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wkT-ur-KbJ">
                                         <rect key="frame" x="0.0" y="-18.5" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.99663645030000003" green="0.33324735729999999" blue="0.036086289350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.58076222369999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -328,7 +332,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2848.8000000000002" y="-467.3163418290855"/>
+            <point key="canvasLocation" x="2049" y="-624"/>
         </scene>
         <!--Neues Feld anlegen-->
         <scene sceneID="dMI-Se-Dah">
@@ -357,7 +361,7 @@
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eine Fläche mit diesen Namen existiert bereits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuY-4A-l2Z">
                                         <rect key="frame" x="0.0" y="-18.5" width="343" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.99663645030000003" green="0.33324735729999999" blue="0.036086289350000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="1" green="0.58076222369999997" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -497,7 +501,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2908" y="278"/>
+            <point key="canvasLocation" x="2049" y="104"/>
         </scene>
         <!--Felder-->
         <scene sceneID="AKY-b2-Y7l">

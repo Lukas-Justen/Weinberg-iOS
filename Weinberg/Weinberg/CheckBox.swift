@@ -7,15 +7,35 @@
 //
 
 import UIKit
+import RealmSwift
 
 class CheckBox: UIButton {
+    
+    let realm = try! Realm()
+    var field:Field?
     
     var isChecked: Bool = false{
         didSet{
             if isChecked {
                 self.setImage(#imageLiteral(resourceName: "check-mark-8-xxl"), for: UIControlState.normal)
+                
+                if(field != nil) {
+                    try! realm.write {
+                        OperationsViewController.currentOperation?.todo.remove(objectAtIndex: (OperationsViewController.currentOperation?.todo.index(of: field!))!)
+                        OperationsViewController.currentOperation?.done.append(self.field!)
+                        OperationsViewController.currentOperation?.doneArea += (field?.area)!
+                    }
+                }
             }else{
                 self.setImage(#imageLiteral(resourceName: "checkbox-unchecked-th"), for: UIControlState.normal)
+                
+                if (field != nil && OperationsViewController.currentOperation != nil) {
+                    try! realm.write {
+                        OperationsViewController.currentOperation!.done.remove(objectAtIndex: (OperationsViewController.currentOperation!.done.index(of: field!))!)
+                        OperationsViewController.currentOperation?.todo.append(self.field!)
+                        OperationsViewController.currentOperation?.doneArea -= (field?.area)!
+                    }
+                }
             }
         }
     }
@@ -30,4 +50,5 @@ class CheckBox: UIButton {
             isChecked = !isChecked
         }
     }
+    
 }

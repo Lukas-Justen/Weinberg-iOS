@@ -21,6 +21,10 @@ class AddFieldViewController: UIViewController {
     var newField:Field?
     let realm = try! Realm()
     
+    override func viewWillAppear(_ animated: Bool) {
+        area.text = String(describing: newField!.area)
+    }
+    
     @IBAction func cancleAddOperation(_ sender: Any) {
         performSegue(withIdentifier: "unwindSegueToMap", sender: self)
         
@@ -33,7 +37,7 @@ class AddFieldViewController: UIViewController {
             newField?.fruit = fruit.text!
         }
         if(area.text != ""){
-            newField?.area = Double(area.text!)!
+            newField?.area = Int(area.text!)!
         }else{
             newField?.area = 0
         }
@@ -52,18 +56,13 @@ class AddFieldViewController: UIViewController {
     @IBAction func fieldNameChanged(_ sender: UITextField) {
         if(sender.text != "") {
             if(realm.objects(Field.self).filter("name = %@", fieldName.text!).count == 0){
-                print("fab should be NOT hidden")
-                print("warning should be hidden")
                 fabAdd.isHidden = false
                 warningLabel.isHidden = true
             }else{
-                print("fab should be hidden")
-                print("warning should be hidden")
                 fabAdd.isHidden = true
                 warningLabel.isHidden = false
             }
         } else {
-            print("both shoud be hidden")
             fabAdd.isHidden = true
             warningLabel.isHidden = true
         }

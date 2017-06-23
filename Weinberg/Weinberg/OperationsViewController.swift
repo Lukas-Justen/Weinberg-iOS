@@ -33,6 +33,9 @@ class OperationsViewController: UIViewController {
     // The order and search criteria
     var sortBy: Int = 0
     var searchFor: String = ""
+    var allArea: String = ""
+    
+    static var currentOperation:Operation?
     
     
     
@@ -100,13 +103,19 @@ class OperationsViewController: UIViewController {
         if (sortBy == 0) {
             ops = ops?.sorted(byKeyPath: "name", ascending: true)
         } else {
-            ops = ops?.sorted(byKeyPath: "name", ascending: false)
+            ops = ops?.sorted(byKeyPath: "doneArea", ascending: false)
         }
         ops = ops?.filter("name contains '" + searchFor + "'")
         operationTable.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        let fields:Results<Field> = realm.objects(Field.self)
+        var area:Int = 0
+        for f in fields {
+            area += f.area
+        }
+        allArea = String(format:"%.2f", Double(area) / 10000.0)
         updateTableView()
     }
     
@@ -140,8 +149,12 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         if (operation.todo.count > 0) {
             cell.labelName.text = operation.name
             cell.labelDate.text = operation.getDateAsString()
-            cell.labelDone.text = String(operation.done.count)
-            cell.labelAll.text = String(operation.todo.count)
+            cell.labelDone.text = String(format: "%.2f", Double(operation.doneArea) / 10000.0)
+            cell.labelAll.text = allArea
+            cell.labelDone.isHidden = false
+            cell.labelAll.isHidden = false
+            cell.labelSlash.isHidden = false
+            cell.imageDone.isHidden = true
         } else {
             cell.labelName.text = operation.name
             cell.labelDate.text = operation.getDateAsString()
@@ -187,9 +200,8 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
      * Handles all clicks on a OperationDetailCell
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        MapViewController.currentOperation = self.ops![indexPath.row]
+        OperationsViewController.currentOperation = self.ops![indexPath.row]
         self.tabBarController?.selectedIndex = 1
-        NotificationCenter.default.post(name: .operationSelected, object: nil)
     }
     
 }
@@ -206,13 +218,4 @@ extension OperationsViewController: UISearchBarDelegate {
         updateTableView()
     }
     
-}
-
-
-
-/*
- * Notification handles updates of the UITableView
- */
-extension Notification.Name {
-    static let operationSelected = Notification.Name("operationSelected")
 }

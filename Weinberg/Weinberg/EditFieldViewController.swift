@@ -38,7 +38,7 @@ class EditFieldViewController: UIViewController {
             field?.name = nameEdit.text!
             field?.treatment = nameEdit.text!
             field?.fruit = fruitEdit.text!
-            field?.area = Double(areaEdit.text!)!
+            field?.area = Int(areaEdit.text!)!
         }
     }
     

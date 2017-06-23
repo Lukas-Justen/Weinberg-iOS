@@ -32,7 +32,7 @@
                                 </connections>
                             </searchBar>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-bL-xEh">
-                                <rect key="frame" x="8" y="58" width="359" height="29"/>
+                                <rect key="frame" x="8" y="60" width="359" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="Name"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cpf-aT-FJT">
-                                <rect key="frame" x="0.0" y="94" width="375" height="458"/>
+                                <rect key="frame" x="0.0" y="96" width="375" height="456"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="separatorColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -179,7 +179,7 @@
                             <constraint firstItem="XsV-uu-VWP" firstAttribute="top" secondItem="k6z-D0-NLs" secondAttribute="bottom" id="GcG-Lj-wb7"/>
                             <constraint firstAttribute="trailing" secondItem="Cpf-aT-FJT" secondAttribute="trailing" id="T5x-3a-nhR"/>
                             <constraint firstItem="XsV-uu-VWP" firstAttribute="top" secondItem="Cpf-aT-FJT" secondAttribute="bottom" constant="2" id="UR1-vZ-t4h"/>
-                            <constraint firstItem="zLH-bL-xEh" firstAttribute="top" secondItem="IgP-iu-H4D" secondAttribute="bottom" constant="6" id="a0V-6X-KMB"/>
+                            <constraint firstItem="zLH-bL-xEh" firstAttribute="top" secondItem="IgP-iu-H4D" secondAttribute="bottom" constant="8" id="a0V-6X-KMB"/>
                             <constraint firstItem="zLH-bL-xEh" firstAttribute="leading" secondItem="s5G-KK-y4G" secondAttribute="leading" constant="8" id="aKb-49-DQk"/>
                             <constraint firstAttribute="trailing" secondItem="k6z-D0-NLs" secondAttribute="trailing" id="bXN-vC-i8Q"/>
                             <constraint firstAttribute="trailing" secondItem="zLH-bL-xEh" secondAttribute="trailing" constant="8" id="ebQ-lZ-Em3"/>
