@@ -9,44 +9,52 @@
 import UIKit
 import RealmSwift
 
+
+
 /*
  * @author Lukas Justen
  * @email lukas.justen@th-bingen.de
  * @version 1.0
  *
- * The class OperationsViewController is responsible for filling the operation data into the 
- * UITableView. Furthermore, it handles clickevents on the OperationDetailCells. Editing, deleting
- * or adding new operations is also possible.
+ * The class OperationsViewController is responsible for filling the cells of the UITableView with
+ * operations. The user has the opportunity to search for specific operations or sort the list of
+ * operations by the name or their status. Furthermore, by clicking on a cell the ViewController
+ * switches to the MapViewController and presents the operation graphically. You can edit or delete
+ * operations by swiping over the cell.
  */
 class OperationsViewController: UIViewController {
 
-    // The list of all operations which are displayed by the UITableView
-    var ops: Results<Operation>?
-    // The UITableView which shows the operations
+
+    
+    // The UITableView which shows all operations
     @IBOutlet weak var operationTable: UITableView!
-    // The complete area the winery has to cultivate
-    let all:String = "15.5"
+    // The searchBar for searching specific operations
+    @IBOutlet weak var operationSearchBar: UISearchBar!
+    
     // The RealmInstance in order to access the database
     let realm = try! Realm()
-    // The searchBar for searching specific operations
-    @IBOutlet weak var searchForOperation: UISearchBar!
-    // The order and search criteria
-    var sortBy: Int = 0
-    var searchFor: String = ""
-    var allArea: String = ""
     
+    // The list of all operations this UIViewController displays
+    var operationList: Results<Operation>?
+    // The sort and search criteria
+    var sortOperationsBy: Int = 0
+    var searchForOperations: String = ""
+    // The sum of the area of all fields
+    var sumOfArea: String = ""
+    
+    // The operation the MapViewController and the FieldsViewController display
     static var currentOperation:Operation?
     
     
     
     /*
-     * Fills the list of operations with data and creates an empty UIView for the header and footer in the UITableView
+     * Creates an empty UIView for the header and footer in the UITableView. Furthermore, it fills the list
+     * of operations when starting the app for the first time.
      */
     override func viewDidLoad() {
         operationTable.tableHeaderView = UIView()
         operationTable.tableFooterView = UIView()
         
-        // Add Operations to the Realm inside a transaction
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if !launchedBefore {
             try! realm.write {
@@ -79,43 +87,47 @@ class OperationsViewController: UIViewController {
             }
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }
-        ops = realm.objects(Operation.self).sorted(byKeyPath: "name", ascending: true)
+        operationList = realm.objects(Operation.self).sorted(byKeyPath: "name", ascending: true)
     }
         
     /*
-     * This segue closes the EditOperation- or AddOperationViewController
+     * This segue closes the EditOperation- or AddOperationViewController.
      */
     @IBAction func unwindToOperation(segue:UIStoryboardSegue) {}
     
     /*
-     * Tries to sort the list of operation by the given criteria and updates the UITableView
+     * Tries to sort the list of operation by the given criteria and updates the UITableView.
      */
     @IBAction func sortOperations(_ sender: UISegmentedControl) {
-        sortBy = sender.selectedSegmentIndex
+        sortOperationsBy = sender.selectedSegmentIndex
         updateTableView()
     }
     
     /*
-     * Updates the content of the UITableView
+     * Updates the content which is displayed by the UITableView and reloads the data to the UITableView.
      */
     func updateTableView() -> Void {
-        ops = realm.objects(Operation.self)
-        if (sortBy == 0) {
-            ops = ops?.sorted(byKeyPath: "name", ascending: true)
+        operationList = realm.objects(Operation.self)
+        if (sortOperationsBy == 0) {
+            operationList = operationList?.sorted(byKeyPath: "name", ascending: true)
         } else {
-            ops = ops?.sorted(byKeyPath: "doneArea", ascending: false)
+            operationList = operationList?.sorted(byKeyPath: "doneArea", ascending: false)
         }
-        ops = ops?.filter("name contains '" + searchFor + "'")
+        operationList = operationList?.filter("name contains '" + searchForOperations + "'")
         operationTable.reloadData()
     }
     
+    /*
+     * If this ViewController will appear the sum of area of all fields will be updated and
+     * the UITableView updates all cells.
+     */
     override func viewWillAppear(_ animated: Bool) {
         let fields:Results<Field> = realm.objects(Field.self)
         var area:Int = 0
         for f in fields {
             area += f.area
         }
-        allArea = String(format:"%.2f", Double(area) / 10000.0)
+        sumOfArea = String(format:"%.2f", Double(area) / 10000.0)
         updateTableView()
     }
     
@@ -124,25 +136,28 @@ class OperationsViewController: UIViewController {
 
 
 /*
- * The extensions for OperationsViewController handle all tasks which relate to the UITableView
+ * This extension for OperationsViewController handles swipe events in order to delete
+ * or edit specific operations. Furthermore it returns the number of cells going to be
+ * displayed or initializes the UIViews within the OperationDetailCell. Finally it handles
+ * click-events on the cells.
  */
 extension OperationsViewController : UITableViewDataSource, UITableViewDelegate {
     
     /*
-     * Returns the number of rows displayed by the UITableView
+     * Returns the number of rows displayed by the UITableView.
      */
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (ops != nil) {
-            return (ops?.count)!
+        if (operationList != nil) {
+            return (operationList?.count)!
         }
         return realm.objects(Operation.self).count
     }
     
     /*
-     * Creates an empty OperationDetailCell and fills the labels with the correct data
+     * Creates an empty OperationDetailCell and fills the labels within the cell with the correct data.
      */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let operation = ops![indexPath.row]
+        let operation = operationList![indexPath.row]
         let cellIdentifier = "OperationDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OperationDetailCell
         
@@ -150,7 +165,7 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
             cell.labelName.text = operation.name
             cell.labelDate.text = operation.getDateAsString()
             cell.labelDone.text = String(format: "%.2f", Double(operation.doneArea) / 10000.0)
-            cell.labelAll.text = allArea
+            cell.labelAll.text = sumOfArea
             cell.labelDone.isHidden = false
             cell.labelAll.isHidden = false
             cell.labelSlash.isHidden = false
@@ -172,11 +187,11 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
     }
     
     /*
-     * Creates the opportunity for the user to edit or delete a row in the UITableView
+     * Handles swipe-events and the editing or deleting of the selected operation.
      */
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
-            let o:Operation = self.ops![indexPath.row]
+            let o:Operation = self.operationList![indexPath.row]
             let storyBoard: UIStoryboard = UIStoryboard(name:"Operation",bundle:nil)
             let editController : EditOperationViewController = storyBoard.instantiateViewController(withIdentifier: "EditOperation") as! EditOperationViewController
             editController.operation = o
@@ -186,7 +201,7 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
             try! self.realm.write {
-                self.realm.delete(self.ops![indexPath.row])
+                self.realm.delete(self.operationList![indexPath.row])
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         })
@@ -197,10 +212,10 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
     
    
     /*
-     * Handles all clicks on a OperationDetailCell
+     * Handles clicks on the OperationDetailCell
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        OperationsViewController.currentOperation = self.ops![indexPath.row]
+        OperationsViewController.currentOperation = self.operationList![indexPath.row]
         self.tabBarController?.selectedIndex = 1
     }
     
@@ -209,12 +224,13 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
 
 
 /*
- * Checks the input of the searchBar and updates the UITableView
+ * Checks the input of the searchBar and updates the UITableView when the text within the 
+ * searchbar has been changed.
  */
 extension OperationsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        self.searchFor = searchText
+        self.searchForOperations = searchText
         updateTableView()
     }
     
