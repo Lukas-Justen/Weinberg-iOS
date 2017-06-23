@@ -49,18 +49,7 @@ class MapViewController: UIViewController {
      * creating a new field.
      */
     override func viewDidLoad() {
-        if (OperationsViewController.currentOperation == nil) {
-            OperationsViewController.currentOperation = realm.objects(Operation.self).first
-        }
-        
         NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
-    }
-    
-    /*
-     * Updates the title of the navigationBar
-     */
-    func updateOperation() {
-        navigationItem.title = OperationsViewController.currentOperation?.name
     }
     
     /*
@@ -135,12 +124,11 @@ class MapViewController: UIViewController {
         mapView.removeOverlays(mapView.overlays)
         mapView.removeAnnotations(mapView.annotations)
         
-        OperationsViewController.currentOperation = realm.objects(Operation.self).filter("name = %@", (OperationsViewController.currentOperation?.name)!).first
-        let doneFields:List<Field> = (OperationsViewController.currentOperation?.done)!
+        let doneFields:List<Field> = (DataManager.shared.currentOperation?.done)!
         for f in doneFields {
             drawField(field: f, status: "done")
         }
-        let todoFields:List<Field> = (OperationsViewController.currentOperation?.todo)!
+        let todoFields:List<Field> = (DataManager.shared.currentOperation?.todo)!
         for f in todoFields {
             drawField(field: f, status: "todo")
         }
@@ -164,7 +152,7 @@ class MapViewController: UIViewController {
      * to be updated.
      */
     override func viewWillAppear(_ animated: Bool) {
-        updateOperation()
+        navigationItem.title = DataManager.shared.currentOperation?.name
         redrawAllPolygons()
     }
     

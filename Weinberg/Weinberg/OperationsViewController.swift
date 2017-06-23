@@ -41,10 +41,7 @@ class OperationsViewController: UIViewController {
     var searchForOperations: String = ""
     // The sum of the area of all fields
     var sumOfArea: String = ""
-    
-    // The operation the MapViewController and the FieldsViewController display
-    static var currentOperation:Operation?
-    
+
     
     
     /*
@@ -214,7 +211,7 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
      * Handles clicks on the OperationDetailCell
      */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        OperationsViewController.currentOperation = self.operationList![indexPath.row]
+        DataManager.shared.currentOperation = self.operationList![indexPath.row]
         self.tabBarController?.selectedIndex = 1
     }
     

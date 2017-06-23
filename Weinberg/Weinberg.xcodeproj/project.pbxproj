@@ -27,6 +27,7 @@
 		3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE6BF791EE176340013A622 /* MapKit.framework */; };
 		3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */; };
 		3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */; };
+		856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856563CE1EFD24BB00D492F7 /* DataManager.swift */; };
 		857128AB1EFBABB000D77507 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857128AA1EFBABB000D77507 /* LatLng.swift */; };
 		85CFA64D1EF7D15B00D19BB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; };
 		85CFA64E1EF7D15B00D19BB7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -97,6 +98,7 @@
 		3FE6BF791EE176340013A622 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOperationViewController.swift; sourceTree = "<group>"; };
 		3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOperationViewController.swift; sourceTree = "<group>"; };
+		856563CE1EFD24BB00D492F7 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		857128AA1EFBABB000D77507 /* LatLng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
 		85CFA64B1EF7D15B00D19BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 		3FB6A6041EF191F300DD227A /* Operation */ = {
 			isa = PBXGroup;
 			children = (
+				856563CE1EFD24BB00D492F7 /* DataManager.swift */,
 				3FE6BF721EE16E930013A622 /* OperationsViewController.swift */,
 				3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */,
 				3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */,
@@ -451,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */,
+				856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */,
 				3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */,
 				3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */,
 				3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */,

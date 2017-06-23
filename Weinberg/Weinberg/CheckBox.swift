@@ -21,19 +21,19 @@ class CheckBox: UIButton {
                 
                 if(field != nil) {
                     try! realm.write {
-                        OperationsViewController.currentOperation?.todo.remove(objectAtIndex: (OperationsViewController.currentOperation?.todo.index(of: field!))!)
-                        OperationsViewController.currentOperation?.done.append(self.field!)
-                        OperationsViewController.currentOperation?.doneArea += (field?.area)!
+                        DataManager.shared.currentOperation?.todo.remove(objectAtIndex: (DataManager.shared.currentOperation?.todo.index(of: field!))!)
+                        DataManager.shared.currentOperation?.done.append(self.field!)
+                        DataManager.shared.currentOperation?.doneArea += (field?.area)!
                     }
                 }
             }else{
                 self.setImage(#imageLiteral(resourceName: "checkbox-unchecked-th"), for: UIControlState.normal)
                 
-                if (field != nil && OperationsViewController.currentOperation != nil) {
+                if (field != nil && DataManager.shared.currentOperation != nil) {
                     try! realm.write {
-                        OperationsViewController.currentOperation!.done.remove(objectAtIndex: (OperationsViewController.currentOperation!.done.index(of: field!))!)
-                        OperationsViewController.currentOperation?.todo.append(self.field!)
-                        OperationsViewController.currentOperation?.doneArea -= (field?.area)!
+                        DataManager.shared.currentOperation!.done.remove(objectAtIndex: (DataManager.shared.currentOperation!.done.index(of: field!))!)
+                        DataManager.shared.currentOperation?.todo.append(self.field!)
+                        DataManager.shared.currentOperation?.doneArea -= (field?.area)!
                     }
                 }
             }

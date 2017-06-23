@@ -21,10 +21,6 @@ class FieldsViewController: UIViewController {
     var createNewField:Bool = false
     
     override func viewDidLoad() {
-        if (OperationsViewController.currentOperation == nil) {
-            OperationsViewController.currentOperation = realm.objects(Operation.self).first
-        }
-       
         fieldTable.tableHeaderView = UIView()
         fieldTable.tableFooterView = UIView()
         
@@ -39,7 +35,7 @@ class FieldsViewController: UIViewController {
     }
     
     func updateOperation() {
-        navigationItem.title = OperationsViewController.currentOperation?.name
+        navigationItem.title = DataManager.shared.currentOperation?.name
     }
     
     func updateTableView(){
@@ -91,7 +87,7 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         cell.name.text = field.name
         cell.size.text = String(describing: field.area)
         cell.checkBox.field = nil
-        cell.checkBox.isChecked = (OperationsViewController.currentOperation?.done.contains(field))!
+        cell.checkBox.isChecked = (DataManager.shared.currentOperation?.done.contains(field))!
         cell.checkBox.field = field
         cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
         cell.viewBackground.layer.shadowOpacity = 0.2
