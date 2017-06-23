@@ -163,7 +163,7 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         
         if (operation.todo.count > 0) {
             cell.labelName.text = operation.name
-            cell.labelDate.text = operation.getDateAsString()
+            cell.labelDate.text = Operation.getDateAsString(operation)
             cell.labelDone.text = String(format: "%.2f", Double(operation.doneArea) / 10000.0)
             cell.labelAll.text = sumOfArea
             cell.labelDone.isHidden = false
