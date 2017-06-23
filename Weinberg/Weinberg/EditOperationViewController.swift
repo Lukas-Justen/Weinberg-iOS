@@ -10,6 +10,8 @@ import UIKit
 import DatePickerDialog
 import RealmSwift
 
+
+
 /*
  * @author Lukas Justen
  * @email lukas.justen@th-bingen.de
@@ -17,9 +19,12 @@ import RealmSwift
  *
  * The class EditOperationViewController handles the user-interaction in order to edit an
  * operation. The class recognizes wether the user has entered a name for the operation. Thus,
- * the class hides or shows the FloatingActionButton in order to save the changes for the operation.
+ * the class hides or shows the FloatingActionButton in order to save the changes for the 
+ * operation.
  */
 class EditOperationViewController: UIViewController {
+    
+    
     
     // The UIElements
     @IBOutlet weak var fabEdit: UIView!
@@ -31,7 +36,6 @@ class EditOperationViewController: UIViewController {
     
     // Formats the output of the datepicker to a string
     let formatter = DateFormatter()
-    
     // The RealmInstance in order to access the database
     let realm = try! Realm()
     
@@ -92,7 +96,8 @@ class EditOperationViewController: UIViewController {
     }
     
     /*
-     * Shows a DatePickerDialog in order to give the user the opportunity of choosing a new startdate for the operation he is editing right now.
+     * Shows a DatePickerDialog in order to give the user the opportunity of 
+     * choosing a new startdate for the operation he is editing right now.
      */
     @IBAction func startdateTapped(_ sender: Any) {
         DatePickerDialog().show(title: "Startdatum auswählen", doneButtonTitle: "Fertig", cancelButtonTitle: "Abbrechen", datePickerMode: .date) {
@@ -104,7 +109,8 @@ class EditOperationViewController: UIViewController {
     }
     
     /*
-     * Shows a DatePickerDialog in order to give the user the opportunity of choosing a new enddate for the operation he is editing right now.
+     * Shows a DatePickerDialog in order to give the user the opportunity 
+     * of choosing a new enddate for the operation he is editing right now.
      */
     @IBAction func enddateTapped(_ sender: Any) {
         DatePickerDialog().show(title: "Enddatum auswählen", doneButtonTitle: "Fertig", cancelButtonTitle: "Abbrechen", datePickerMode: .date) {
@@ -116,7 +122,8 @@ class EditOperationViewController: UIViewController {
     }
     
     /*
-     * Shows a DatePickerDialog in order to give the user the opportunity of choosing a new workingTime for the operation he is creating right now.
+     * Shows a DatePickerDialog in order to give the user the opportunity of
+     * choosing a new workingTime for the operation he is creating right now.
      * The user can select hours and minutes.
      */
     @IBAction func workingTimeTapped(_ sender: Any) {

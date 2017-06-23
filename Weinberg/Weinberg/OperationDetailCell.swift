@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 /*
  * @author Lukas Justen
  * @email lukas.justen@th-bingen.de
@@ -18,6 +20,9 @@ import UIKit
  */
 class OperationDetailCell: UITableViewCell {
 
+    
+    
+    // The UIElements within the detail cell which display the operation
     @IBOutlet weak var labelName: UILabel!
     @IBOutlet weak var labelDate: UILabel!
     @IBOutlet weak var labelDone: UILabel!
