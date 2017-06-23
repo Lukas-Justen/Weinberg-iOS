@@ -161,9 +161,10 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         let cellIdentifier = "OperationDetailCell"
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as! OperationDetailCell
         
+        cell.labelName.text = operation.name
+        cell.labelDate.text = Operation.getDateAsString(operation:operation)
+        
         if (operation.todo.count > 0) {
-            cell.labelName.text = operation.name
-            cell.labelDate.text = Operation.getDateAsString(operation)
             cell.labelDone.text = String(format: "%.2f", Double(operation.doneArea) / 10000.0)
             cell.labelAll.text = sumOfArea
             cell.labelDone.isHidden = false
@@ -171,8 +172,6 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
             cell.labelSlash.isHidden = false
             cell.imageDone.isHidden = true
         } else {
-            cell.labelName.text = operation.name
-            cell.labelDate.text = operation.getDateAsString()
             cell.labelDone.isHidden = true
             cell.labelAll.isHidden = true
             cell.labelSlash.isHidden = true

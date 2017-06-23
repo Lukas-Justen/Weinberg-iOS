@@ -93,7 +93,7 @@
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IR4-Ua-M99">
                                                                     <rect key="frame" x="54.5" y="0.5" width="54.5" height="20"/>
                                                                     <subviews>
-                                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="done_green" highlightedImage="done_green" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nxf-J4-ZTX">
+                                                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="done_green" highlightedImage="done_green" translatesAutoresizingMaskIntoConstraints="NO" id="Nxf-J4-ZTX">
                                                                             <rect key="frame" x="0.0" y="0.0" width="54.5" height="20"/>
                                                                             <color key="tintColor" red="0.40784313729999999" green="0.62352941179999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
                                                                         </imageView>
@@ -198,8 +198,8 @@
                         <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </simulatedTabBarMetrics>
                     <connections>
+                        <outlet property="operationSearchBar" destination="IgP-iu-H4D" id="qjf-g1-oAx"/>
                         <outlet property="operationTable" destination="Cpf-aT-FJT" id="IoB-Si-QN8"/>
-                        <outlet property="searchForOperation" destination="IgP-iu-H4D" id="sh6-2L-lFI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiX-KG-5ff" userLabel="First Responder" sceneMemberID="firstResponder"/>
