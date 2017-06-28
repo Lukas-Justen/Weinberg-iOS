@@ -152,7 +152,7 @@ class MapViewController: UIViewController {
      */
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = DataManager.shared.currentOperation?.name
-        let span = MKCoordinateSpanMake(CLLocationDegrees(0.0625), CLLocationDegrees(0.0625))
+        let span = MKCoordinateSpanMake(CLLocationDegrees(0.005), CLLocationDegrees(0.005))
         
         
         
