@@ -110,13 +110,6 @@ class MapViewController: UIViewController {
         field.area = Int(regionArea(locations: editCoordinates))
         addController.newField = field
         self.navigationController?.pushViewController(addController, animated: true)
-        
-        mapView.removeAnnotations(mapView.annotations)
-        mapView.remove(editPolygon!)
-        editable = false
-        editPolygon = nil
-        editCoordinates = [CLLocationCoordinate2D]()
-        fabCreate.isHidden = true
     }
     
     /*
@@ -192,6 +185,35 @@ class MapViewController: UIViewController {
         area = -(area * earthRadius * earthRadius / 2);
         
         return max(area, -area)
+    }
+    
+    /*
+     * Marks all fields of this operation as undone and updates the Map
+     */
+    @IBAction func renewOperation(_ sender: UIBarButtonItem) {
+        try! realm.write {
+            let operation = DataManager.shared.currentOperation
+            for doneField in (operation?.done)! {
+                operation?.todo.append(doneField)
+            }
+            operation?.doneArea  = 0
+            operation?.done.removeAll()
+        }
+        redrawAllPolygons()
+    }
+    
+    /*
+     * Removes all unnecessary Annotations, Polygons and the FloatingActionButton
+     */
+    override func viewWillDisappear(_ animated: Bool) {
+        if (editPolygon != nil) {
+            mapView.remove(editPolygon!)
+        }
+        mapView.removeAnnotations(mapView.annotations)
+        editable = false
+        editPolygon = nil
+        editCoordinates = [CLLocationCoordinate2D]()
+        fabCreate.isHidden = true
     }
     
 }

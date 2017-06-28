@@ -38,6 +38,7 @@ class OperationsViewController: UIViewController {
     var operationList: Results<Operation>?
     // The sort and search criteria
     var sortOperationsBy: Int = 0
+    var sortDirection:Bool = true
     var searchForOperations: String = ""
     // The sum of the area of all fields
     var sumOfArea: String = ""
@@ -95,8 +96,9 @@ class OperationsViewController: UIViewController {
     /*
      * Tries to sort the list of operation by the given criteria and updates the UITableView.
      */
-    @IBAction func sortOperations(_ sender: UISegmentedControl) {
+    @IBAction func sortOperations(_ sender: UISortSegmentedControl) {
         sortOperationsBy = sender.selectedSegmentIndex
+        sortDirection = sender.direction
         updateTableView()
     }
     
@@ -106,9 +108,9 @@ class OperationsViewController: UIViewController {
     func updateTableView() -> Void {
         operationList = realm.objects(Operation.self)
         if (sortOperationsBy == 0) {
-            operationList = operationList?.sorted(byKeyPath: "name", ascending: true)
+            operationList = operationList?.sorted(byKeyPath: "name", ascending: sortDirection)
         } else {
-            operationList = operationList?.sorted(byKeyPath: "doneArea", ascending: false)
+            operationList = operationList?.sorted(byKeyPath: "doneArea", ascending: sortDirection)
         }
         operationList = operationList?.filter("name contains '" + searchForOperations + "'")
         operationTable.reloadData()
