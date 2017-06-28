@@ -54,15 +54,34 @@
                                     <outletCollection property="gestureRecognizers" destination="v88-eN-w4N" appends="YES" id="ngb-gc-Wjv"/>
                                 </connections>
                             </view>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.65000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bitte markiere die Eckpunkte des Weinbergs!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4J-HU-Ksc">
+                                <rect key="frame" x="16" y="562" width="343" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="F21-aN-FAp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="bAc-2T-dkd" firstAttribute="top" secondItem="70b-UN-47b" secondAttribute="bottom" constant="16" id="470-U8-bfh"/>
                             <constraint firstAttribute="trailing" secondItem="lEl-Dy-4oX" secondAttribute="trailing" id="DqF-Dn-alV"/>
+                            <constraint firstItem="bAc-2T-dkd" firstAttribute="top" secondItem="k4J-HU-Ksc" secondAttribute="bottom" constant="16" id="HGS-ul-xW8"/>
+                            <constraint firstItem="k4J-HU-Ksc" firstAttribute="leading" secondItem="2lu-2E-nHq" secondAttribute="leading" constant="16" id="M2A-eJ-55m"/>
                             <constraint firstAttribute="trailing" secondItem="70b-UN-47b" secondAttribute="trailing" constant="16" id="M3y-1b-jCQ"/>
                             <constraint firstItem="lEl-Dy-4oX" firstAttribute="leading" secondItem="2lu-2E-nHq" secondAttribute="leading" id="Who-Vh-1gw"/>
                             <constraint firstItem="lEl-Dy-4oX" firstAttribute="top" secondItem="4K4-hf-OmY" secondAttribute="bottom" id="c7N-cW-6oK"/>
                             <constraint firstItem="bAc-2T-dkd" firstAttribute="top" secondItem="lEl-Dy-4oX" secondAttribute="bottom" id="jDa-2H-RvP"/>
+                            <constraint firstAttribute="trailing" secondItem="k4J-HU-Ksc" secondAttribute="trailing" constant="16" id="zaN-X7-9fN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ausbessern" id="XXb-jc-cwX">
@@ -86,6 +105,7 @@
                     </simulatedTabBarMetrics>
                     <connections>
                         <outlet property="fabCreate" destination="70b-UN-47b" id="d9m-UI-nAi"/>
+                        <outlet property="labelMarkPoints" destination="k4J-HU-Ksc" id="2yi-7f-93k"/>
                         <outlet property="mapView" destination="lEl-Dy-4oX" id="gmP-g1-eiR"/>
                     </connections>
                 </viewController>
