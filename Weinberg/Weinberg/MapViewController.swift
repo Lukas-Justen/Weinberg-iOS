@@ -175,6 +175,9 @@ class MapViewController: UIViewController {
         return max(area, -area)
     }
     
+    /*
+     * Marks all fields of this operation as undone and updates the Map
+     */
     @IBAction func renewOperation(_ sender: UIBarButtonItem) {
         try! realm.write {
             let operation = DataManager.shared.currentOperation
@@ -187,6 +190,9 @@ class MapViewController: UIViewController {
         redrawAllPolygons()
     }
     
+    /*
+     * Removes all unnecessary Annotations, Polygons and the FloatingActionButton
+     */
     override func viewWillDisappear(_ animated: Bool) {
         if (editPolygon != nil) {
             mapView.remove(editPolygon!)
