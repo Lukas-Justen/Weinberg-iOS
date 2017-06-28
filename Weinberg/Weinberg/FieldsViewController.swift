@@ -133,9 +133,12 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         return [deleteAction, editAction]
     }
     
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    /*
+    *Handles clicks on the Field detailCell
+    */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        DataManager.shared.currentcoordinates = CLLocationCoordinate2D(latitude: (self.fields![indexPath.row].boundaries.first?.lng)!, longitude: (self.fields![indexPath.row].boundaries.first?.lat)!)
+        DataManager.shared.currentcoordinates = CLLocationCoordinate2D(latitude: (self.fields![indexPath.row].boundaries.first?.lat)!, longitude: (self.fields![indexPath.row].boundaries.first?.lng)!)
         tabBarController?.selectedIndex = 1
         // TODO Zoom an position mit Notification
     }
