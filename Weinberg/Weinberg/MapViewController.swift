@@ -30,6 +30,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     // The FloatingActionButton for confirming the boundaries of the new field
     @IBOutlet weak var fabCreate: UIView!
+    // The label in order to tell the user to mark the area of the new field
+    @IBOutlet weak var labelMarkPoints: UILabel!
     
     // The RealmInstance in order to access the database
     let realm = try! Realm()
@@ -59,6 +61,7 @@ class MapViewController: UIViewController {
      */
     @IBAction func createNewField(_ sender: Any) {
         editable = true
+        self.labelMarkPoints.isHidden = false
     }
     
     /*
@@ -87,6 +90,7 @@ class MapViewController: UIViewController {
             mapView.add(editPolygon!)
             if (editCoordinates.count >= 3) {
                 fabCreate.isHidden = false
+                labelMarkPoints.isHidden = true
             }
          }
     }
@@ -214,6 +218,7 @@ class MapViewController: UIViewController {
         editPolygon = nil
         editCoordinates = [CLLocationCoordinate2D]()
         fabCreate.isHidden = true
+        labelMarkPoints.isHidden = true
     }
     
 }
