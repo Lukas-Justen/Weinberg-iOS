@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import CoreLocation
 
 class FieldsViewController: UIViewController {
 
@@ -119,6 +120,8 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+
+        DataManager.shared.currentcoordinates = CLLocationCoordinate2D(latitude: (self.fields![indexPath.row].boundaries.first?.lng)!, longitude: (self.fields![indexPath.row].boundaries.first?.lat)!)
         tabBarController?.selectedIndex = 1
         // TODO Zoom an position mit Notification
     }

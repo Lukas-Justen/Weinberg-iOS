@@ -50,6 +50,8 @@ class MapViewController: UIViewController {
      */
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
+        mapView.showsUserLocation = true
+        mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     /*
@@ -149,10 +151,20 @@ class MapViewController: UIViewController {
     
     /*
      * If the ViewController is going to appear, the map and the title of the navbar are going
-     * to be updated.
+     * to be updated and the Map will zoom on the lattest chosen field.  
      */
     override func viewWillAppear(_ animated: Bool) {
         navigationItem.title = DataManager.shared.currentOperation?.name
+        let span = MKCoordinateSpanMake(CLLocationDegrees(0.0625), CLLocationDegrees(0.0625))
+        
+        
+        
+        if(DataManager.shared.currentcoordinates != nil){
+            mapView.setRegion(MKCoordinateRegionMake((DataManager.shared.currentcoordinates)!, span), animated: true)
+        }
+       /* else{
+             mapView.setRegion(MKCoordinateRegionMake((mapView.userLocation.location?.coordinate)!, span), animated: true)
+        }*/
         redrawAllPolygons()
     }
     
