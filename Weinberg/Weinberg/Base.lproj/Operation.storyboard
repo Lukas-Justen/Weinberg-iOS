@@ -31,7 +31,7 @@
                                     <outlet property="delegate" destination="HwZ-5Q-3cT" id="dll-Ma-NwR"/>
                                 </connections>
                             </searchBar>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-bL-xEh">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zLH-bL-xEh" customClass="UISortSegmentedControl" customModule="Weinberg" customModuleProvider="target">
                                 <rect key="frame" x="8" y="60" width="359" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -95,7 +95,7 @@
                                                                     <subviews>
                                                                         <imageView hidden="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="done_green" highlightedImage="done_green" translatesAutoresizingMaskIntoConstraints="NO" id="Nxf-J4-ZTX">
                                                                             <rect key="frame" x="0.0" y="0.0" width="54.5" height="20"/>
-                                                                            <color key="tintColor" red="0.40784313729999999" green="0.62352941179999999" blue="0.21960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            <color key="tintColor" red="0.40784313729999999" green="0.62352941179999999" blue="0.21960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFD-Rm-gyy">
                                                                             <rect key="frame" x="-0.5" y="0.0" width="55" height="20"/>

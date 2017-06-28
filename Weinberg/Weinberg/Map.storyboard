@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -65,12 +66,20 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Ausbessern" id="XXb-jc-cwX">
-                        <barButtonItem key="rightBarButtonItem" image="add" style="done" id="7Zy-QA-9P1">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="createNewField:" destination="jzA-eh-54I" id="FVu-Ms-aB2"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="add" style="done" id="7Zy-QA-9P1">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="createNewField:" destination="jzA-eh-54I" id="FVu-Ms-aB2"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="renew" id="POL-vT-drS">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="renewOperation:" destination="jzA-eh-54I" id="5M4-EV-4ba"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics">
                         <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,7 +109,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C21-kj-1yh" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Karte" image="map" id="IlX-Ah-FbL"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="q3B-wo-LAS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="q3B-wo-LAS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -124,6 +133,7 @@
         <image name="add" width="24" height="24"/>
         <image name="done_white" width="24" height="24"/>
         <image name="map" width="24" height="24"/>
+        <image name="renew" width="24" height="24"/>
     </resources>
     <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

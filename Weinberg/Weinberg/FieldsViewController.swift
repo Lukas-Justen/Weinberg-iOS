@@ -17,6 +17,7 @@ class FieldsViewController: UIViewController {
     @IBOutlet weak var fieldTable: UITableView!
     let all:String = "15.5"
     var sortBy: Int = 0
+    var sortDirection: Bool = true
     var searchFor: String = ""
     var createNewField:Bool = false
     
@@ -29,8 +30,9 @@ class FieldsViewController: UIViewController {
 
     @IBAction func unwindToField(segue:UIStoryboardSegue) {}
     
-    @IBAction func sortFields(_ sender: UISegmentedControl) {
+    @IBAction func sortFields(_ sender: UISortSegmentedControl) {
         sortBy = sender.selectedSegmentIndex
+        sortDirection = sender.direction
         updateTableView()
     }
     
@@ -41,9 +43,9 @@ class FieldsViewController: UIViewController {
     func updateTableView(){
         fields = realm.objects(Field.self)
         if(sortBy == 0){
-            fields = fields?.sorted(byKeyPath: "name", ascending: true)
+            fields = fields?.sorted(byKeyPath: "name", ascending: sortDirection)
         }else{
-            fields = fields?.sorted(byKeyPath: "area", ascending: false)
+            fields = fields?.sorted(byKeyPath: "area", ascending: sortDirection)
         }
         fields = fields?.filter("name contains '" + searchFor + "'")
         fieldTable.reloadData()
@@ -64,6 +66,18 @@ class FieldsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         updateTableView()
         updateOperation()
+    }
+    
+    @IBAction func renewOperation(_ sender: UIBarButtonItem) {
+        try! realm.write {
+            let operation = DataManager.shared.currentOperation
+            for doneField in (operation?.done)! {
+                operation?.todo.append(doneField)
+            }
+            operation?.doneArea  = 0
+            operation?.done.removeAll()
+        }
+        updateTableView()
     }
     
 }
