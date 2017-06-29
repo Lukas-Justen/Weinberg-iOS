@@ -51,6 +51,8 @@ class AddOperationViewController: UIViewController {
         newOperation.startdate = (startdate.text?.hasPrefix("z.B."))! ? nil : startdate.text!
         newOperation.enddate = (enddate.text?.hasPrefix("z.B."))! ? nil : enddate.text!
         newOperation.workingtime = (workingTime.text?.hasPrefix("z.B."))! ? nil : workingTime.text!
+        newOperation.doneArea = 0
+        newOperation.todo = List(realm.objects(Field.self))
         try! realm.write {
             realm.add(newOperation)
         }

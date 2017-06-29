@@ -188,12 +188,17 @@ class MapViewController: UIViewController {
         let span = MKCoordinateSpanMake(CLLocationDegrees(0.0625), CLLocationDegrees(0.0625))
         
         if(DataManager.shared.currentOperation != nil){
+            redrawAllPolygons()
             navigationItem.title = DataManager.shared.currentOperation?.name
-            mapView.setRegion(MKCoordinateRegionMake((DataManager.shared.currentField)!, span), animated: true)
         } else {
+            mapView.removeOverlays(mapView.overlays)
+            mapView.removeAnnotations(mapView.annotations)
             navigationItem.title = "Keine Arbeiten"
         }
-        redrawAllPolygons()
+        
+        if ( DataManager.shared.currentField != nil) {
+            mapView.setRegion(MKCoordinateRegionMake((DataManager.shared.currentField)!, span), animated: true)
+        }
     }
     
     /*

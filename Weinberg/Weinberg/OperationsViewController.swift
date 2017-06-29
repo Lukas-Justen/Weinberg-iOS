@@ -197,19 +197,23 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         })
         editAction.backgroundColor = UIColor.orange
         
-        let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
-            try! self.realm.write {
-                let operation:Operation = self.operationList![indexPath.row]
-                if (DataManager.shared.currentOperation == operation) {
+        if (self.realm.objects(Operation.self).count > 1) {
+            let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
+                try! self.realm.write {
+                    let operation:Operation = self.operationList![indexPath.row]
+                    if (DataManager.shared.currentOperation == operation) {
+                        DataManager.shared.currentOperation = nil
+                    }
+                    self.realm.delete(operation)
                     DataManager.refreshOperation()
                 }
-                self.realm.delete(operation)
-            }
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        })
-        deleteAction.backgroundColor = UIColor.red
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            })
+            deleteAction.backgroundColor = UIColor.red
+            return [deleteAction, editAction]
+        }
         
-        return [deleteAction, editAction]
+        return [editAction]
     }
     
    
