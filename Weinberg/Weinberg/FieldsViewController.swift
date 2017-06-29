@@ -38,7 +38,11 @@ class FieldsViewController: UIViewController {
     }
     
     func updateOperation() {
-        navigationItem.title = DataManager.shared.currentOperation?.name
+        if (DataManager.shared.currentOperation != nil) {
+            navigationItem.title = DataManager.shared.currentOperation?.name
+        } else {
+            navigationItem.title = "Keine Arbeiten"
+        }
     }
     
     func updateTableView(){
@@ -70,15 +74,22 @@ class FieldsViewController: UIViewController {
     }
     
     @IBAction func renewOperation(_ sender: UIBarButtonItem) {
-        try! realm.write {
-            let operation = DataManager.shared.currentOperation
-            for doneField in (operation?.done)! {
-                operation?.todo.append(doneField)
-            }
-            operation?.doneArea  = 0
-            operation?.done.removeAll()
+        if (DataManager.shared.currentOperation != nil && (DataManager.shared.currentOperation?.done.count)!>0) {
+            let alert = UIAlertController(title: "Zurücksetzen", message: "Wollen Sie wirklich den gesamten Arbeitsschritt zurücksetzen?", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Zurücksetzen", style: .default, handler:{(_) in
+                try! self.realm.write {
+                    let operation = DataManager.shared.currentOperation
+                    for doneField in (operation?.done)! {
+                        operation?.todo.append(doneField)
+                    }
+                    operation?.doneArea  = 0
+                    operation?.done.removeAll()
+                }
+                self.updateTableView()
+            }))
         }
-        updateTableView()
     }
     
 }
@@ -86,11 +97,13 @@ class FieldsViewController: UIViewController {
 extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(fields != nil){
-            return (fields?.count)!
+        if (DataManager.shared.currentOperation != nil) {
+            if(fields == nil){
+                fields = realm.objects(Field.self)
+            }
+            return fields!.count
         }
-        
-        return realm.objects(Field.self).count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -138,7 +151,7 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        DataManager.shared.currentcoordinates = CLLocationCoordinate2D(latitude: (self.fields![indexPath.row].boundaries.first?.lat)!, longitude: (self.fields![indexPath.row].boundaries.first?.lng)!)
+        DataManager.shared.currentField = CLLocationCoordinate2D(latitude: (self.fields![indexPath.row].boundaries.first?.lat)!, longitude: (self.fields![indexPath.row].boundaries.first?.lng)!)
         tabBarController?.selectedIndex = 1
         // TODO Zoom an position mit Notification
     }

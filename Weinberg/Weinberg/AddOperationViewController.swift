@@ -54,6 +54,9 @@ class AddOperationViewController: UIViewController {
         try! realm.write {
             realm.add(newOperation)
         }
+        if (DataManager.shared.currentOperation == nil) {
+            DataManager.refreshOperation()
+        }
     }
     
     /*

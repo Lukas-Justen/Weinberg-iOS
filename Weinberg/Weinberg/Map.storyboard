@@ -112,7 +112,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G70-KK-ogr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="qfs-bQ-M8y">
                     <connections>
-                        <action selector="createNewVertex:" destination="jzA-eh-54I" id="1kx-7F-7Ff"/>
+                        <action selector="mapClicked:" destination="jzA-eh-54I" id="hD4-g4-UUL"/>
                     </connections>
                 </tapGestureRecognizer>
                 <tapGestureRecognizer id="v88-eN-w4N">

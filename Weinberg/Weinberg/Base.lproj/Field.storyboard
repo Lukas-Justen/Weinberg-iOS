@@ -193,7 +193,7 @@
                                     <action selector="NameChange:" destination="Id6-Hb-XnV" eventType="editingChanged" id="inf-h6-hFx"/>
                                 </connections>
                             </textField>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKo-CP-Nv7">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RKo-CP-Nv7">
                                 <rect key="frame" x="299" y="591" width="60" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="done_white" translatesAutoresizingMaskIntoConstraints="NO" id="3mg-TY-hTk">

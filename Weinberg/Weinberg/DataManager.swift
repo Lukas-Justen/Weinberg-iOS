@@ -14,7 +14,7 @@ class DataManager {
     
     // The operation the MapViewController and the FieldsViewController display
     var currentOperation:Operation?
-    var currentcoordinates:CLLocationCoordinate2D?
+    var currentField:CLLocationCoordinate2D?
     
     static private let realm = try! Realm()
     
@@ -25,7 +25,12 @@ class DataManager {
         
         let firstField = DataManager.realm.objects(Field.self).first
         if(firstField != nil){
-            self.currentcoordinates = CLLocationCoordinate2D(latitude: (firstField?.boundaries.first?.lat)!, longitude: (firstField?.boundaries.first?.lng)!)
+            self.currentField = CLLocationCoordinate2D(latitude: (firstField?.boundaries.first?.lat)!, longitude: (firstField?.boundaries.first?.lng)!)
         }
     }
+    
+    static func refreshOperation() {
+        shared.currentOperation = DataManager.realm.objects(Operation.self).first
+    }
+    
 }

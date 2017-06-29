@@ -41,7 +41,7 @@ class MapViewController: UIViewController {
     // Variables for marking a new Field on the map
     var editable: Bool = false
     var editCoordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-    var editPolygon: MKPolygon?
+    var editPolygon: MKFieldPolygon?
     var editAnnotations: [MKAnnotation] = [MKAnnotation]()
     
     
@@ -52,8 +52,6 @@ class MapViewController: UIViewController {
      */
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
-        mapView.showsUserLocation = true
-        mapView.setUserTrackingMode(.follow, animated: true)
     }
     
     /*
@@ -70,12 +68,13 @@ class MapViewController: UIViewController {
     @IBAction func unwindToMap(segue:UIStoryboardSegue){}
     
     /*
-     * Adds a new vertex to the map and updates the polygon/field the user is currently creating.
+     * Adds a new vertex to the map and updates the polygon/field the user is currently creating. If
+     * the user isn't in e
      */
-    @IBAction func createNewVertex(_ sender: UITapGestureRecognizer) {
+    @IBAction func mapClicked(_ sender: UITapGestureRecognizer) {
+        let touchlocation = sender.location(in: mapView)
+        let locationCoordinate = mapView.convert(touchlocation, toCoordinateFrom: mapView)
         if editable {
-            let touchlocation = sender.location(in: mapView)
-            let locationCoordinate = mapView.convert(touchlocation, toCoordinateFrom: mapView)
             let annotation = MKPointAnnotation()
             annotation.coordinate = locationCoordinate
             annotation.title = String(editAnnotations.count)
@@ -85,14 +84,47 @@ class MapViewController: UIViewController {
             if (editPolygon != nil) {
                 mapView.remove(editPolygon!)
             }
-            editPolygon = MKPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
-            editPolygon?.title = "edit"
+            editPolygon = MKFieldPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
+            editPolygon?.status = "edit"
             mapView.add(editPolygon!)
             if (editCoordinates.count >= 3) {
                 fabCreate.isHidden = false
                 labelMarkPoints.isHidden = true
             }
-         }
+        } else {
+            let point:MKMapPoint = MKMapPointForCoordinate(locationCoordinate)
+            let overlays = mapView.overlays.filter {o in o is MKPolygon}
+            for overlay in overlays {
+                let polygonRenderer = MKPolygonRenderer(overlay: overlay)
+                let datPoint = polygonRenderer.point(for: point)
+                polygonRenderer.invalidatePath()
+                if (polygonRenderer.path.contains(datPoint)) {
+                    let fieldPolygon:MKFieldPolygon = overlay as! MKFieldPolygon
+                    let field:Field = fieldPolygon.field!
+                    let alert = UIAlertController(title: field.name, message: "Rebsorte: \(field.fruit) \nErziehung: \(field.treatment)", preferredStyle: .alert)
+                    self.present(alert, animated: true, completion: nil)
+                    alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+                    let done:Bool = fieldPolygon.status == "done"
+                    alert.addAction(UIAlertAction(title: (done) ? "Enthaken" :"Abhaken", style: .default, handler:{(_) in
+                        if !done {
+                            try! self.realm.write {
+                                DataManager.shared.currentOperation?.todo.remove(objectAtIndex: (DataManager.shared.currentOperation?.todo.index(of: field))!)
+                                DataManager.shared.currentOperation?.done.append(field)
+                                DataManager.shared.currentOperation?.doneArea += field.area
+                            }
+                            
+                        }else{
+                            try! self.realm.write {
+                                DataManager.shared.currentOperation!.done.remove(objectAtIndex: (DataManager.shared.currentOperation!.done.index(of: field))!)
+                                DataManager.shared.currentOperation?.todo.append(field)
+                                DataManager.shared.currentOperation?.doneArea -= field.area
+                            }
+                        }
+                        self.redrawAllPolygons()
+                    }))
+                }
+            }
+        }
     }
     
     /*
@@ -122,14 +154,15 @@ class MapViewController: UIViewController {
     func redrawAllPolygons() -> Void {
         mapView.removeOverlays(mapView.overlays)
         mapView.removeAnnotations(mapView.annotations)
-        
-        let doneFields:List<Field> = (DataManager.shared.currentOperation?.done)!
-        for f in doneFields {
-            drawField(field: f, status: "done")
-        }
-        let todoFields:List<Field> = (DataManager.shared.currentOperation?.todo)!
-        for f in todoFields {
-            drawField(field: f, status: "todo")
+        if (DataManager.shared.currentOperation != nil) {
+            let doneFields:List<Field> = (DataManager.shared.currentOperation?.done)!
+            for f in doneFields {
+                drawField(field: f, status: "done")
+            }
+            let todoFields:List<Field> = (DataManager.shared.currentOperation?.todo)!
+            for f in todoFields {
+                drawField(field: f, status: "todo")
+            }
         }
     }
     
@@ -141,8 +174,9 @@ class MapViewController: UIViewController {
         for ll in field.boundaries {
             coordinates.append(CLLocationCoordinate2D(latitude: ll.lat, longitude: ll.lng))
         }
-        let polygon = MKPolygon(coordinates: &coordinates, count: coordinates.count)
-        polygon.title = status
+        let polygon = MKFieldPolygon(coordinates: &coordinates, count: coordinates.count)
+        polygon.status = status
+        polygon.field = field
         mapView.add(polygon)
     }
     
@@ -151,17 +185,14 @@ class MapViewController: UIViewController {
      * to be updated and the Map will zoom on the lattest chosen field.  
      */
     override func viewWillAppear(_ animated: Bool) {
-        navigationItem.title = DataManager.shared.currentOperation?.name
         let span = MKCoordinateSpanMake(CLLocationDegrees(0.0625), CLLocationDegrees(0.0625))
         
-        
-        
-        if(DataManager.shared.currentcoordinates != nil){
-            mapView.setRegion(MKCoordinateRegionMake((DataManager.shared.currentcoordinates)!, span), animated: true)
+        if(DataManager.shared.currentOperation != nil){
+            navigationItem.title = DataManager.shared.currentOperation?.name
+            mapView.setRegion(MKCoordinateRegionMake((DataManager.shared.currentField)!, span), animated: true)
+        } else {
+            navigationItem.title = "Keine Arbeiten"
         }
-       /* else{
-             mapView.setRegion(MKCoordinateRegionMake((mapView.userLocation.location?.coordinate)!, span), animated: true)
-        }*/
         redrawAllPolygons()
     }
     
@@ -195,15 +226,22 @@ class MapViewController: UIViewController {
      * Marks all fields of this operation as undone and updates the Map
      */
     @IBAction func renewOperation(_ sender: UIBarButtonItem) {
-        try! realm.write {
-            let operation = DataManager.shared.currentOperation
-            for doneField in (operation?.done)! {
-                operation?.todo.append(doneField)
-            }
-            operation?.doneArea  = 0
-            operation?.done.removeAll()
+        if (DataManager.shared.currentOperation != nil && (DataManager.shared.currentOperation?.done.count)!>0) {
+            let alert = UIAlertController(title: "Zurücksetzen", message: "Wollen Sie wirklich den gesamten Arbeitsschritt zurücksetzen?", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+            alert.addAction(UIAlertAction(title: "Zurücksetzen", style: .default, handler:{(_) in
+                try! self.realm.write {
+                    let operation = DataManager.shared.currentOperation
+                    for doneField in (operation?.done)! {
+                        operation?.todo.append(doneField)
+                    }
+                    operation?.doneArea  = 0
+                    operation?.done.removeAll()
+                }
+                self.redrawAllPolygons()
+            }))
         }
-        redrawAllPolygons()
     }
     
     /*
@@ -237,7 +275,7 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKPolygon {
             let polygonView = MKPolygonRenderer(overlay: overlay)
-            switch (overlay as! MKPolygon).title! {
+            switch (overlay as! MKFieldPolygon).status {
             case "done":
                 polygonView.strokeColor = UIColor(red: CGFloat(156.0/255.0), green: CGFloat(223.0/255.0), blue: CGFloat(94.0/255.0), alpha: CGFloat(0.8))
                 polygonView.fillColor = UIColor(red: CGFloat(156.0/255.0), green: CGFloat(223.0/255.0), blue: CGFloat(94.0/255.0), alpha: CGFloat(0.5))

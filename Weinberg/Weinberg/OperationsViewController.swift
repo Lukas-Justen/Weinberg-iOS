@@ -199,7 +199,11 @@ extension OperationsViewController : UITableViewDataSource, UITableViewDelegate 
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
             try! self.realm.write {
-                self.realm.delete(self.operationList![indexPath.row])
+                let operation:Operation = self.operationList![indexPath.row]
+                if (DataManager.shared.currentOperation == operation) {
+                    DataManager.refreshOperation()
+                }
+                self.realm.delete(operation)
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         })
