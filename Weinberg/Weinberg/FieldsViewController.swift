@@ -124,7 +124,10 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
         
         return cell
     }
-    
+    /*
+     *
+     *
+     */
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
             let field:Field = self.fields![indexPath.row]
