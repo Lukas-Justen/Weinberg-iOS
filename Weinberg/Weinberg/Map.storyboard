@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ausbessern-->
+        <!--Arbeit auf Karte-->
         <scene sceneID="YKu-vw-HZW">
             <objects>
                 <viewController storyboardIdentifier="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="jzA-eh-54I" customClass="MapViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
@@ -84,7 +84,7 @@
                             <constraint firstAttribute="trailing" secondItem="k4J-HU-Ksc" secondAttribute="trailing" constant="16" id="zaN-X7-9fN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ausbessern" id="XXb-jc-cwX">
+                    <navigationItem key="navigationItem" title="Arbeit auf Karte" id="XXb-jc-cwX">
                         <rightBarButtonItems>
                             <barButtonItem image="add" style="done" id="7Zy-QA-9P1">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

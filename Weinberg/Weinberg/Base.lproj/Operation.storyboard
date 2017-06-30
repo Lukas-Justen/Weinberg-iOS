@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Weingut Selmigkeit-->
+        <!--Weingut-->
         <scene sceneID="Qj1-eg-csw">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="HwZ-5Q-3cT" customClass="OperationsViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
@@ -187,7 +187,7 @@
                             <constraint firstItem="Cpf-aT-FJT" firstAttribute="top" secondItem="zLH-bL-xEh" secondAttribute="bottom" constant="8" id="zRN-qq-xS8"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Weingut Selmigkeit" id="6Do-bd-K9f">
+                    <navigationItem key="navigationItem" title="Weingut" id="6Do-bd-K9f">
                         <barButtonItem key="rightBarButtonItem" image="add" id="HZG-Ao-aZG">
                             <connections>
                                 <segue destination="Y79-b3-EVI" kind="show" id="xPR-iu-d86"/>

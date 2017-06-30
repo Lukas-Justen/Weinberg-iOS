@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Ausbessern-->
+        <!--Arbeit als Liste-->
         <scene sceneID="TMe-El-txI">
             <objects>
                 <viewController id="CVD-Y9-qJe" customClass="FieldsViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,7 +146,7 @@
                             <constraint firstAttribute="trailing" secondItem="Lut-qc-2FW" secondAttribute="trailing" id="yqJ-3H-OUE"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Ausbessern" id="yaV-2z-MTc">
+                    <navigationItem key="navigationItem" title="Arbeit als Liste" id="yaV-2z-MTc">
                         <rightBarButtonItems>
                             <barButtonItem image="add" id="zan-bI-egZ">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
