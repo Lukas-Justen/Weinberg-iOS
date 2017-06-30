@@ -144,14 +144,11 @@
 		3FB6A6041EF191F300DD227A /* Operation */ = {
 			isa = PBXGroup;
 			children = (
-				856563CE1EFD24BB00D492F7 /* DataManager.swift */,
 				3FE6BF721EE16E930013A622 /* OperationsViewController.swift */,
 				3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */,
 				3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */,
 				3FC14C771EE98374000EA760 /* Operation.storyboard */,
 				3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */,
-				85CFA6551EF7D54C00D19BB7 /* Operation.swift */,
-				85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */,
 			);
 			name = Operation;
 			sourceTree = "<group>";
@@ -161,7 +158,6 @@
 			children = (
 				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
 				3FC14C7A1EE9838B000EA760 /* Map.storyboard */,
-				85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -171,12 +167,9 @@
 			children = (
 				3FE6BF741EE172700013A622 /* FieldsViewController.swift */,
 				3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */,
-				3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */,
 				3FC14C7C1EE983A3000EA760 /* Field.storyboard */,
 				3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */,
 				3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */,
-				85CFA6571EF7D78500D19BB7 /* Field.swift */,
-				857128AA1EFBABB000D77507 /* LatLng.swift */,
 			);
 			name = Field;
 			sourceTree = "<group>";
@@ -208,9 +201,11 @@
 		3FE6BF411EE16C3D0013A622 /* Weinberg */ = {
 			isa = PBXGroup;
 			children = (
+				858560B71F0623B3006F3B81 /* Custom */,
 				3FB6A6061EF1925200DD227A /* Field */,
 				3FB6A6051EF1924B00DD227A /* Map */,
 				3FB6A6041EF191F300DD227A /* Operation */,
+				858560B61F06236B006F3B81 /* Datastructure */,
 				3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */,
 				3FE6BF481EE16C3E0013A622 /* Main.storyboard */,
 				3FE6BF4B1EE16C3E0013A622 /* Assets.xcassets */,
@@ -254,6 +249,27 @@
 				DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		858560B61F06236B006F3B81 /* Datastructure */ = {
+			isa = PBXGroup;
+			children = (
+				856563CE1EFD24BB00D492F7 /* DataManager.swift */,
+				857128AA1EFBABB000D77507 /* LatLng.swift */,
+				85CFA6571EF7D78500D19BB7 /* Field.swift */,
+				85CFA6551EF7D54C00D19BB7 /* Operation.swift */,
+			);
+			name = Datastructure;
+			sourceTree = "<group>";
+		};
+		858560B71F0623B3006F3B81 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */,
+				85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */,
+				85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
