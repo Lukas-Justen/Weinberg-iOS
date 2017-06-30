@@ -95,40 +95,50 @@ class MapViewController: UIViewController {
             let point:MKMapPoint = MKMapPointForCoordinate(locationCoordinate)
             let overlays = mapView.overlays.filter {o in o is MKPolygon}
             for overlay in overlays {
-                let polygonRenderer = MKPolygonRenderer(overlay: overlay)
-                let datPoint = polygonRenderer.point(for: point)
-                polygonRenderer.invalidatePath()
-                if (polygonRenderer.path.contains(datPoint)) {
-                    let fieldPolygon:MKFieldPolygon = overlay as! MKFieldPolygon
-                    let field:Field = fieldPolygon.field!
-                    let alert = UIAlertController(title: field.name, message: "Rebsorte: \(field.fruit) \nErziehung: \(field.treatment)", preferredStyle: .alert)
-                    self.present(alert, animated: true, completion: nil)
-                    alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
-                    let done:Bool = fieldPolygon.status == "done"
-                    alert.addAction(UIAlertAction(title: (done) ? "Enthaken" :"Abhaken", style: .default, handler:{(_) in
-                        if !done {
-                            try! self.realm.write {
-                                DataManager.shared.currentOperation?.todo.remove(objectAtIndex: (DataManager.shared.currentOperation?.todo.index(of: field))!)
-                                DataManager.shared.currentOperation?.done.append(field)
-                                DataManager.shared.currentOperation?.doneArea += field.area
-                            }
-                            
-                        }else{
-                            try! self.realm.write {
-                                DataManager.shared.currentOperation!.done.remove(objectAtIndex: (DataManager.shared.currentOperation!.done.index(of: field))!)
-                                DataManager.shared.currentOperation?.todo.append(field)
-                                DataManager.shared.currentOperation?.doneArea -= field.area
-                            }
-                        }
-                        self.redrawAllPolygons()
-                    }))
-                }
+                showStatusDialog(overlay: overlay, point: point)
             }
         }
     }
     
     /*
-     * Confirms the marking-process of the new field and opens the AddFieldViewController in order 
+     * Determines wether the user tapped on a field. In this case the app shows a dialog
+     * with further informationm like fruit and treatment of the field.
+     */
+    func showStatusDialog(overlay: MKOverlay, point:MKMapPoint) {
+        let polygonRenderer = MKPolygonRenderer(overlay: overlay)
+        let datPoint = polygonRenderer.point(for: point)
+        polygonRenderer.invalidatePath()
+        if (polygonRenderer.path.contains(datPoint)) {
+            let fieldPolygon:MKFieldPolygon = overlay as! MKFieldPolygon
+            let field:Field = fieldPolygon.field!
+            let fruit = (field.fruit != "") ? "\nRebsorte: \(field.fruit)" : ""
+            let treatment = (field.treatment != "") ? "\nErziehung: \(field.treatment)" : ""
+            let area = "\nFläche: \(field.area)"
+            let alert = UIAlertController(title: field.name, message: fruit + treatment + area, preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Abbrechen", style: .cancel, handler: nil))
+            let done:Bool = fieldPolygon.status == "done"
+            alert.addAction(UIAlertAction(title: (done) ? "Enthaken" :"Abhaken", style: .default, handler:{(_) in
+                if !done {
+                    try! self.realm.write {
+                        DataManager.shared.currentOperation?.todo.remove(objectAtIndex: (DataManager.shared.currentOperation?.todo.index(of: field))!)
+                        DataManager.shared.currentOperation?.done.append(field)
+                        DataManager.shared.currentOperation?.doneArea += field.area
+                    }
+                }else{
+                    try! self.realm.write {
+                        DataManager.shared.currentOperation!.done.remove(objectAtIndex: (DataManager.shared.currentOperation!.done.index(of: field))!)
+                        DataManager.shared.currentOperation?.todo.append(field)
+                        DataManager.shared.currentOperation?.doneArea -= field.area
+                    }
+                }
+                self.redrawAllPolygons()
+            }))
+        }
+    }
+    
+    /*
+     * Confirms the marking-process of the new field and opens the AddFieldViewController in order
      * to add further information.
      */
     @IBAction func confirmNewField(_ sender: Any) {
@@ -143,7 +153,7 @@ class MapViewController: UIViewController {
         let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
         let addController : AddFieldViewController = storyBoard.instantiateViewController(withIdentifier: "AddField") as! AddFieldViewController
         field.boundaries = coordinates
-        field.area = Int(regionArea(locations: editCoordinates))
+        field.area = Int64(regionArea(locations: editCoordinates))
         addController.newField = field
         self.navigationController?.pushViewController(addController, animated: true)
     }

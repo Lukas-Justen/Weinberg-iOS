@@ -37,7 +37,7 @@ class AddFieldViewController: UIViewController {
             newField?.fruit = fruit.text!
         }
         if(area.text != ""){
-            newField?.area = Int(area.text!)!
+            newField?.area = Int64(area.text!)!
         }else{
             newField?.area = 0
         }

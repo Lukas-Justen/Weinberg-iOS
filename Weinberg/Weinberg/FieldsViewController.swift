@@ -153,10 +153,9 @@ extension FieldsViewController : UITableViewDataSource, UITableViewDelegate{
     *Handles clicks on the Field detailCell
     */
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        DataManager.shared.currentField = CLLocationCoordinate2D(latitude: (self.fields![indexPath.row].boundaries.first?.lat)!, longitude: (self.fields![indexPath.row].boundaries.first?.lng)!)
+        let field:Field = self.fields![indexPath.row];
+        DataManager.shared.currentField = CLLocationCoordinate2D(latitude: (field.boundaries.first?.lat)!, longitude: (field.boundaries.first?.lng)!)
         tabBarController?.selectedIndex = 1
-        // TODO Zoom an position mit Notification
     }
     
 }

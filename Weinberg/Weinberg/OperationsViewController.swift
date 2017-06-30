@@ -56,6 +56,9 @@ class OperationsViewController: UIViewController {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if !launchedBefore {
             try! realm.write {
+                //let data = "{\"name\": \"Hallo\"}"
+                //let json = try! JSONSerialization.jsonObject(with: data, options: [])
+                //realm.create(Operation.self,value:json,update: true)
                 realm.add(Operation(value: ["name" : "Grubbern 3", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
                 realm.add(Operation(value: ["name" : "Grubbern 4", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
                 realm.add(Operation(value: ["name" : "Grubbern 5", "startdate": "21.06.2017", "enddate":"26.06.2017"]))
@@ -122,7 +125,7 @@ class OperationsViewController: UIViewController {
      */
     override func viewWillAppear(_ animated: Bool) {
         let fields:Results<Field> = realm.objects(Field.self)
-        var area:Int = 0
+        var area:Int64 = 0
         for f in fields {
             area += f.area
         }

@@ -32,7 +32,7 @@ class Operation: Object {
     // The amount of time you need for this work per hecktar
     dynamic var workingtime: String?
     // The area of fields that is already done
-    dynamic var doneArea: Int = 0
+    dynamic var doneArea: Int64 = 0
     // The list of fields the winegrower still has to do
     var todo: List<Field> = List<Field>()
     // The list of fields which are already done

@@ -36,9 +36,15 @@ class EditFieldViewController: UIViewController {
         performSegue(withIdentifier: "unwindSegueToField", sender: self)
         try! realm.write {
             field?.name = nameEdit.text!
-            field?.treatment = nameEdit.text!
+            field?.treatment = treamentEdit.text!
             field?.fruit = fruitEdit.text!
-            field?.area = Int(areaEdit.text!)!
+            let results = realm.objects(Operation.self)
+            for operation in results {
+                if (operation.done.contains(field!)) {
+                    operation.doneArea += -(field?.area)! + Int64(areaEdit.text!)!
+                }
+            }
+            field?.area = Int64(areaEdit.text!)!
         }
     }
     
