@@ -80,8 +80,16 @@ class FieldsVCRTableViewDelegate: NSObject, UITableViewDelegate, UITableViewData
         editAction.backgroundColor = UIColor.orange
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Löschen", handler: {(action,indexPath) in
+            let results = self.realm.objects(Operation.self)
+            let toDelete = self.fields![indexPath.row]
             try! self.realm.write {
-                self.realm.delete(self.fields![indexPath.row])
+                for operation in results {
+                    if (operation.done.contains(toDelete)) {
+                        operation.doneArea -= toDelete.area
+                    }
+                }
+                
+                self.realm.delete(toDelete)
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         })
