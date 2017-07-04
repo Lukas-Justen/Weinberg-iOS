@@ -195,7 +195,7 @@ class MapViewController: UIViewController {
      * to be updated and the Map will zoom on the lattest chosen field.  
      */
     override func viewWillAppear(_ animated: Bool) {
-        let span = MKCoordinateSpanMake(CLLocationDegrees(0.0625), CLLocationDegrees(0.0625))
+        let span = MKCoordinateSpanMake(CLLocationDegrees(0.005), CLLocationDegrees(0.005))
         
         if(DataManager.shared.currentOperation != nil){
             redrawAllPolygons()
@@ -323,6 +323,25 @@ extension MapViewController: MKMapViewDelegate {
             return pinAnnotationView
         }
         return nil
+    }
+    
+    /*
+     * Handles the drop event of the annotations.
+     */
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
+        if (oldState == .ending && newState == .none) {
+            let pinAnnotationView: MKPinAnnotationView = view as! MKPinAnnotationView
+            let pointAnnotation = pinAnnotationView.annotation as! MKPointAnnotation
+            let position:Int = Int(pointAnnotation.title!)!
+            editAnnotations[position] = pinAnnotationView.annotation!
+            editCoordinates[position] = (pinAnnotationView.annotation?.coordinate)!
+            if (editPolygon != nil) {
+                mapView.remove(editPolygon!)
+            }
+            editPolygon = MKFieldPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
+            editPolygon?.status = "edit"
+            mapView.add(editPolygon!)
+        }
     }
     
 }
