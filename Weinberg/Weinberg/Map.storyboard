@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <gestureRecognizers/>
                                 <connections>
-                                    <outlet property="delegate" destination="jzA-eh-54I" id="Yfa-ju-UuE"/>
+                                    <outlet property="delegate" destination="jzA-eh-54I" id="PQz-o6-nr5"/>
                                     <outletCollection property="gestureRecognizers" destination="qfs-bQ-M8y" appends="YES" id="eO7-Yl-xJZ"/>
                                 </connections>
                             </mapView>
