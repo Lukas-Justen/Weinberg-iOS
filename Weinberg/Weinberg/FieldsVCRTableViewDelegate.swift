@@ -10,6 +10,17 @@ import UIKit
 import RealmSwift
 import CoreLocation
 
+/*
+ *@autor Johannes Strauss
+ *@email johannes.a.strauss@th-bingen.de
+ *@version 1.0
+ *
+ *
+ *
+ *
+ *
+ */
+
 class FieldsVCRTableViewDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     let realm = try! Realm()
