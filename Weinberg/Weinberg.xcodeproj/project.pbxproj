@@ -30,6 +30,7 @@
 		856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856563CE1EFD24BB00D492F7 /* DataManager.swift */; };
 		857128AB1EFBABB000D77507 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857128AA1EFBABB000D77507 /* LatLng.swift */; };
 		858560B91F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */; };
+		858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */; };
 		85930EA31F03948D007B0635 /* UISortSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */; };
 		85A2C2791F03DE6400F0377C /* MKFieldPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */; };
 		85CFA64D1EF7D15B00D19BB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; };
@@ -104,6 +105,7 @@
 		856563CE1EFD24BB00D492F7 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		857128AA1EFBABB000D77507 /* LatLng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
 		858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsVCRTableViewdelegate.swift; sourceTree = "<group>"; };
+		858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsVCRTableViewDelegate.swift; sourceTree = "<group>"; };
 		85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISortSegmetedControl.swift; sourceTree = "<group>"; };
 		85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKFieldPolygon.swift; sourceTree = "<group>"; };
 		85CFA64B1EF7D15B00D19BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				3FC14C7C1EE983A3000EA760 /* Field.storyboard */,
 				3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */,
 				3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */,
+				858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */,
 			);
 			name = Field;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 			files = (
 				3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */,
 				856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */,
+				858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */,
 				3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */,
 				3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */,
 				3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */,
