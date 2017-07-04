@@ -35,14 +35,8 @@ class MapViewController: UIViewController {
     
     // The RealmInstance in order to access the database
     let realm = try! Realm()
-    // The radius of the earth in order to calculate the size of a polygon
-    let earthRadius = 6378137.0
-    
-    // Variables for marking a new Field on the map
-    var editable: Bool = false
-    var editCoordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-    var editPolygon: MKFieldPolygon?
-    var editAnnotations: [MKAnnotation] = [MKAnnotation]()
+    // The MapDrawer handles the marking process for a new Field
+    var mapDrawer:MapDrawer?
     
     
     
@@ -52,13 +46,14 @@ class MapViewController: UIViewController {
      */
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
+        mapDrawer = MapDrawer(mapView: mapView, fabCreate: fabCreate, labelMarkPoints: labelMarkPoints)
     }
     
     /*
      * Starts the marking-process for a new field.
      */
     @IBAction func createNewField(_ sender: Any) {
-        editable = true
+        mapDrawer?.editable = true
         self.labelMarkPoints.isHidden = false
     }
     
@@ -74,23 +69,8 @@ class MapViewController: UIViewController {
     @IBAction func mapClicked(_ sender: UITapGestureRecognizer) {
         let touchlocation = sender.location(in: mapView)
         let locationCoordinate = mapView.convert(touchlocation, toCoordinateFrom: mapView)
-        if editable {
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = locationCoordinate
-            annotation.title = String(editAnnotations.count)
-            mapView.addAnnotation(annotation)
-            editAnnotations.append(annotation)
-            editCoordinates.append(locationCoordinate)
-            if (editPolygon != nil) {
-                mapView.remove(editPolygon!)
-            }
-            editPolygon = MKFieldPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
-            editPolygon?.status = "edit"
-            mapView.add(editPolygon!)
-            if (editCoordinates.count >= 3) {
-                fabCreate.isHidden = false
-                labelMarkPoints.isHidden = true
-            }
+        if (mapDrawer?.editable)! {
+            mapDrawer?.createNewVertex(locationCoordinate: locationCoordinate)
         } else {
             let point:MKMapPoint = MKMapPointForCoordinate(locationCoordinate)
             let overlays = mapView.overlays.filter {o in o is MKPolygon}
@@ -142,19 +122,9 @@ class MapViewController: UIViewController {
      * to add further information.
      */
     @IBAction func confirmNewField(_ sender: Any) {
-        let coordinates:List<LatLng> = List<LatLng>()
-        for coord in editCoordinates {
-            let myLatLng = LatLng()
-            myLatLng.lng = coord.longitude
-            myLatLng.lat = coord.latitude
-            coordinates.append(myLatLng)
-        }
-        let field: Field = Field()
         let storyBoard: UIStoryboard = UIStoryboard(name:"Field",bundle:nil)
         let addController : AddFieldViewController = storyBoard.instantiateViewController(withIdentifier: "AddField") as! AddFieldViewController
-        field.boundaries = coordinates
-        field.area = Int64(regionArea(locations: editCoordinates))
-        addController.newField = field
+        addController.newField = mapDrawer?.createNewField()
         self.navigationController?.pushViewController(addController, animated: true)
     }
     
@@ -167,27 +137,13 @@ class MapViewController: UIViewController {
         if (DataManager.shared.currentOperation != nil) {
             let doneFields:List<Field> = (DataManager.shared.currentOperation?.done)!
             for f in doneFields {
-                drawField(field: f, status: "done")
+                mapDrawer?.drawField(field: f, status: "done")
             }
             let todoFields:List<Field> = (DataManager.shared.currentOperation?.todo)!
             for f in todoFields {
-                drawField(field: f, status: "todo")
+                mapDrawer?.drawField(field: f, status: "todo")
             }
         }
-    }
-    
-    /*
-     * Draws the given field on the map.
-     */
-    func drawField(field:Field, status:String) -> Void{
-        var coordinates: [CLLocationCoordinate2D] = [CLLocationCoordinate2D]()
-        for ll in field.boundaries {
-            coordinates.append(CLLocationCoordinate2D(latitude: ll.lat, longitude: ll.lng))
-        }
-        let polygon = MKFieldPolygon(coordinates: &coordinates, count: coordinates.count)
-        polygon.status = status
-        polygon.field = field
-        mapView.add(polygon)
     }
     
     /*
@@ -210,32 +166,7 @@ class MapViewController: UIViewController {
             mapView.setRegion(MKCoordinateRegionMake((DataManager.shared.currentField)!, span), animated: true)
         }
     }
-    
-    /*
-     * Converts degrees to radians.
-     */
-    func radians(degrees: Double) -> Double {
-        return degrees * Double.pi / 180;
-    }
-    
-    /*
-     * Calculates the area given by the coordinates.
-     */
-    func regionArea(locations: [CLLocationCoordinate2D]) -> Double {
-        guard locations.count > 2 else { return 0 }
-        var area = 0.0
-        
-        for i in 0..<locations.count {
-            let p1 = locations[i > 0 ? i - 1 : locations.count - 1]
-            let p2 = locations[i]
-            
-            area += radians(degrees: p2.longitude - p1.longitude) * (2 + sin(radians(degrees: p1.latitude)) + sin(radians(degrees: p2.latitude)) )
-        }
-        
-        area = -(area * earthRadius * earthRadius / 2);
-        
-        return max(area, -area)
-    }
+       
     
     /*
      * Marks all fields of this operation as undone and updates the Map
@@ -263,16 +194,7 @@ class MapViewController: UIViewController {
      * Removes all unnecessary Annotations, Polygons and the FloatingActionButton
      */
     override func viewWillDisappear(_ animated: Bool) {
-        if (editPolygon != nil) {
-            mapView.remove(editPolygon!)
-        }
-        mapView.removeAnnotations(mapView.annotations)
-        editable = false
-        editPolygon = nil
-        editAnnotations = [MKAnnotation]()
-        editCoordinates = [CLLocationCoordinate2D]()
-        fabCreate.isHidden = true
-        labelMarkPoints.isHidden = true
+        mapDrawer?.reset()
     }
     
 }
@@ -330,17 +252,7 @@ extension MapViewController: MKMapViewDelegate {
      */
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
         if (oldState == .ending && newState == .none) {
-            let pinAnnotationView: MKPinAnnotationView = view as! MKPinAnnotationView
-            let pointAnnotation = pinAnnotationView.annotation as! MKPointAnnotation
-            let position:Int = Int(pointAnnotation.title!)!
-            editAnnotations[position] = pinAnnotationView.annotation!
-            editCoordinates[position] = (pinAnnotationView.annotation?.coordinate)!
-            if (editPolygon != nil) {
-                mapView.remove(editPolygon!)
-            }
-            editPolygon = MKFieldPolygon(coordinates: &editCoordinates, count: editCoordinates.count)
-            editPolygon?.status = "edit"
-            mapView.add(editPolygon!)
+            mapDrawer?.dragAndDropAnnotation(view: view)
         }
     }
     

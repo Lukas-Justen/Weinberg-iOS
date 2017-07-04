@@ -29,6 +29,7 @@
 		3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */; };
 		856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856563CE1EFD24BB00D492F7 /* DataManager.swift */; };
 		857128AB1EFBABB000D77507 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857128AA1EFBABB000D77507 /* LatLng.swift */; };
+		85837CBC1F0BA873008830B5 /* MapDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85837CBB1F0BA873008830B5 /* MapDrawer.swift */; };
 		858560B91F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */; };
 		858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */; };
 		85930EA31F03948D007B0635 /* UISortSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */; };
@@ -104,6 +105,7 @@
 		3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOperationViewController.swift; sourceTree = "<group>"; };
 		856563CE1EFD24BB00D492F7 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		857128AA1EFBABB000D77507 /* LatLng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
+		85837CBB1F0BA873008830B5 /* MapDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDrawer.swift; sourceTree = "<group>"; };
 		858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsVCRTableViewdelegate.swift; sourceTree = "<group>"; };
 		858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsVCRTableViewDelegate.swift; sourceTree = "<group>"; };
 		85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISortSegmetedControl.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			children = (
 				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
 				3FC14C7A1EE9838B000EA760 /* Map.storyboard */,
+				85837CBB1F0BA873008830B5 /* MapDrawer.swift */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */,
 				3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */,
 				3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */,
+				85837CBC1F0BA873008830B5 /* MapDrawer.swift in Sources */,
 				3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */,
 				3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */,
 				3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */,
