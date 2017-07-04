@@ -10,6 +10,19 @@ import UIKit
 import RealmSwift
 import CoreLocation
 
+/*
+ *@autor Johannes Strauss
+ *@email johannes.a.strauss@th-bingen.de
+ *
+ *The class FieldsViewController is reponsible for creating Cells of the UITableView with
+ *the content of Fields. The List can be sorted, by name or size of the field. A search
+ *functionality is also part of the view. A checkbox inside the cell marks, if the Field
+ *is done in relation to the currently chosen operation. The user can check or uncheck.
+ *By clicking on the cell the ViewController switches to the map, and moves to the excapt location
+ *of the Field. You can edit or delete the Field by swiping over the cell.
+ *
+ */
+
 class FieldsViewController: UIViewController {
 
     var fields: Results<Field>?
