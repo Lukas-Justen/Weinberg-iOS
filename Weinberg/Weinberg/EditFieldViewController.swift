@@ -9,6 +9,16 @@
 import UIKit
 import RealmSwift
 
+/*
+ *@autor Johannes Strauss
+ *@email johannes.a.strauss@th-bingen.de
+ *@version 1.0
+ *
+ * This class handels the editing of a field.
+ * Appart from displaying alread prsent information it works just like the addField
+ * ViewController.
+ */
+
 class EditFieldViewController: UIViewController {
 
     
@@ -62,5 +72,4 @@ class EditFieldViewController: UIViewController {
             labelWarning.isHidden = true
         }
     }
-
 }
