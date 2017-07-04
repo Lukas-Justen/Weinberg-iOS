@@ -29,7 +29,7 @@
 		3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */; };
 		856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856563CE1EFD24BB00D492F7 /* DataManager.swift */; };
 		857128AB1EFBABB000D77507 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857128AA1EFBABB000D77507 /* LatLng.swift */; };
-		858560B91F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */; };
+		858560B91F06668E006F3B81 /* OperationsVCRTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858560B81F06668E006F3B81 /* OperationsVCRTableViewDelegate.swift */; };
 		85930EA31F03948D007B0635 /* UISortSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */; };
 		85A2C2791F03DE6400F0377C /* MKFieldPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */; };
 		85CFA64D1EF7D15B00D19BB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; };
@@ -103,7 +103,7 @@
 		3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOperationViewController.swift; sourceTree = "<group>"; };
 		856563CE1EFD24BB00D492F7 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		857128AA1EFBABB000D77507 /* LatLng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
-		858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsVCRTableViewdelegate.swift; sourceTree = "<group>"; };
+		858560B81F06668E006F3B81 /* OperationsVCRTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsVCRTableViewDelegate.swift; sourceTree = "<group>"; };
 		85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISortSegmetedControl.swift; sourceTree = "<group>"; };
 		85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKFieldPolygon.swift; sourceTree = "<group>"; };
 		85CFA64B1EF7D15B00D19BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -151,7 +151,7 @@
 				3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */,
 				3FC14C771EE98374000EA760 /* Operation.storyboard */,
 				3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */,
-				858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */,
+				858560B81F06668E006F3B81 /* OperationsVCRTableViewDelegate.swift */,
 			);
 			name = Operation;
 			sourceTree = "<group>";
@@ -486,7 +486,7 @@
 				3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */,
 				3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */,
 				85A2C2791F03DE6400F0377C /* MKFieldPolygon.swift in Sources */,
-				858560B91F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift in Sources */,
+				858560B91F06668E006F3B81 /* OperationsVCRTableViewDelegate.swift in Sources */,
 				3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */,
 				857128AB1EFBABB000D77507 /* LatLng.swift in Sources */,
 				85CFA6581EF7D78500D19BB7 /* Field.swift in Sources */,

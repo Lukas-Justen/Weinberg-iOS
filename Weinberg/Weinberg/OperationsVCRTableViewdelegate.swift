@@ -12,6 +12,10 @@ import RealmSwift
 
 
 /*
+ * @author Lukas Justen
+ * @email lukas.justen@th-bingen.de
+ * @version 1.0
+ *
  * This extension for OperationsViewController handles swipe events in order to delete
  * or edit specific operations. Furthermore it returns the number of cells going to be
  * displayed or initializes the UIViews within the OperationDetailCell. Finally it handles
@@ -117,7 +121,6 @@ class OperationsVCRTableViewDelegate : NSObject, UITableViewDelegate, UITableVie
         
         return [editAction]
     }
-    
     
     /*
      * Handles clicks on the OperationDetailCell

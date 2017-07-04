@@ -269,6 +269,7 @@ class MapViewController: UIViewController {
         mapView.removeAnnotations(mapView.annotations)
         editable = false
         editPolygon = nil
+        editAnnotations = [MKAnnotation]()
         editCoordinates = [CLLocationCoordinate2D]()
         fabCreate.isHidden = true
         labelMarkPoints.isHidden = true
@@ -309,11 +310,19 @@ extension MapViewController: MKMapViewDelegate {
         return MKPolygonRenderer(overlay: overlay)
     }
     
-    /* 
+    /*
      * Makes the annotations on the map dragable.
      */
-    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, didChange newState: MKAnnotationViewDragState, fromOldState oldState: MKAnnotationViewDragState) {
-        // TODO Marker dragable machen
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKPointAnnotation {
+            let pinAnnotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myPin")
+            pinAnnotationView.isDraggable = true
+            pinAnnotationView.animatesDrop = true
+            pinAnnotationView.canShowCallout = true
+            
+            return pinAnnotationView
+        }
+        return nil
     }
     
 }
