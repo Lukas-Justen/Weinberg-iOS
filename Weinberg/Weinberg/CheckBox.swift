@@ -9,11 +9,27 @@
 import UIKit
 import RealmSwift
 
+/*
+ *
+ *@autor Johannes Strauss
+ *@email johannes.a.strauss@th-bingen.de
+ *@version 1.0
+ *
+ * The Checkbox is CustomButton, that works just like a CheckBox.
+ * It's used to display the status of a Field in the Fieldlist.
+ * The class also handels the Database entry when a checkbox gets clicked.
+ */
+
 class CheckBox: UIButton {
     
+    //The realmInstance
     let realm = try! Realm()
+    //The Field related to the checkbox
     var field:Field?
-    
+    /*
+     * Whenever the status isChecked changes the image of the button gets changed and the
+     * DataBase gets update accordingly.
+     */
     var isChecked: Bool = false{
         didSet{
             if isChecked {
@@ -39,12 +55,13 @@ class CheckBox: UIButton {
             }
         }
     }
-    
+    //awakes the nib.s
     override func awakeFromNib() {
         self.addTarget(self, action:#selector(buttonClicked(sender:)),for: UIControlEvents.touchUpInside)
         isChecked = false
     }
     
+    //When the chickbox is clicked the checked status gets negate
     func buttonClicked(sender: UIButton){
         if sender == self{
             isChecked = !isChecked

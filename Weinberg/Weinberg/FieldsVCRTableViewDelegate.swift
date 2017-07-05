@@ -10,22 +10,35 @@ import UIKit
 import RealmSwift
 import CoreLocation
 
+/*
+ *@autor Johannes Strauss
+ *@email johannes.a.strauss@th-bingen.de
+ *@version 1.0
+ *
+ * This Class handels All TableView related functions for the
+ * FieldViewController
+ */
+
 class FieldsVCRTableViewDelegate: NSObject, UITableViewDelegate, UITableViewDataSource {
 
     let realm = try! Realm()
-
+    // The List of Fields
     var fields: Results<Field>?
-
+    // The navigationController for opening the EditOperationViewController
     let navigationController: UINavigationController
-    
+       // The tabbarController for switching to the map
     let tabbarController: UITabBarController
     
+    /*
+     * Initializes the DataSource, the NavigationController and the TabbarController in order to display all fields
+     */
     init(fields: Results<Field>, navbarController: UINavigationController, tabbarController: UITabBarController){
         self.fields = fields
         self.navigationController = navbarController
         self.tabbarController = tabbarController
     }
     
+    // return the number of elements in the tableview
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (DataManager.shared.currentOperation != nil) {
             if(fields == nil){
@@ -36,6 +49,9 @@ class FieldsVCRTableViewDelegate: NSObject, UITableViewDelegate, UITableViewData
         return 0
     }
     
+    /*
+     * Creates an empty OperationDetailCell and fills the labels within the cell with the correct data.
+     */
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let field = fields![indexPath.row]
@@ -54,9 +70,9 @@ class FieldsVCRTableViewDelegate: NSObject, UITableViewDelegate, UITableViewData
         
         return cell
     }
+  
     /*
-     *
-     *
+     * Handles swipe-events and the editing or deleting of the selected field.
      */
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let editAction = UITableViewRowAction(style: .default, title: "Editieren", handler: {(action,indexPath) in
