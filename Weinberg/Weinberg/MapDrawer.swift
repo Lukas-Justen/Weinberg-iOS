@@ -101,7 +101,7 @@ class MapDrawer {
             let p1 = locations[i > 0 ? i - 1 : locations.count - 1]
             let p2 = locations[i]
             
-            area += radians(degrees: p2.longitude - p1.longitude) * (2 + sin(radians(degrees: p1.latitude)) + sin(radians(degrees: p2.latitude)) )
+            area += MapDrawer.radians(degrees: p2.longitude - p1.longitude) * (2 + sin(MapDrawer.radians(degrees: p1.latitude)) + sin(MapDrawer.radians(degrees: p2.latitude)) )
         }
         
         area = -(area * earthRadius * earthRadius / 2);
@@ -112,7 +112,7 @@ class MapDrawer {
     /*
      * Converts degrees to radians.
      */
-    func radians(degrees: Double) -> Double {
+    static func radians(degrees: Double) -> Double {
         return degrees * Double.pi / 180;
     }
     
