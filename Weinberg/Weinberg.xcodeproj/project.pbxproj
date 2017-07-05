@@ -186,8 +186,6 @@
 		3FE6BF361EE16C3D0013A622 = {
 			isa = PBXGroup;
 			children = (
-				85CFA64B1EF7D15B00D19BB7 /* Realm.framework */,
-				85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */,
 				3FE6BF411EE16C3D0013A622 /* Weinberg */,
 				3FE6BF581EE16C3E0013A622 /* WeinbergTests */,
 				3FE6BF631EE16C3E0013A622 /* WeinbergUITests */,
@@ -245,6 +243,8 @@
 		3FE6BF781EE176340013A622 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				85CFA64B1EF7D15B00D19BB7 /* Realm.framework */,
+				85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */,
 				3FE6BF791EE176340013A622 /* MapKit.framework */,
 				36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */,
 			);
