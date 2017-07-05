@@ -512,7 +512,7 @@
                                     <constraint firstAttribute="bottom" secondItem="U8n-ws-4Oo" secondAttribute="bottom" id="yIF-AW-sI9"/>
                                 </constraints>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HWa-w2-RX7">
+                            <view hidden="YES" contentMode="scaleToFill" restorationIdentifier="fabAddoperation" translatesAutoresizingMaskIntoConstraints="NO" id="HWa-w2-RX7">
                                 <rect key="frame" x="299" y="527" width="60" height="60"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="done_white" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-MB-F5l">
@@ -600,7 +600,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cqM-aR-Mah" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Arbeiten" image="operations" id="ah8-Wg-2YO"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="65y-Og-0eP">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="65y-Og-0eP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

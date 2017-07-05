@@ -12,25 +12,100 @@ class WeinbergUITests: XCTestCase {
         
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
         XCUIApplication().launch()
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testSearchOperation() {
+        let arbeitSuchenSearchField = XCUIApplication().searchFields["Arbeit suchen"]
+        arbeitSuchenSearchField.tap()
+        arbeitSuchenSearchField.typeText("Spritzen 7")
+        arbeitSuchenSearchField.buttons["Clear text"].tap()
+    }
+    
+    func testSortOperation() {
+        let app = XCUIApplication()
+        let statusHaButton = app.buttons["Status (ha)"]
+        statusHaButton.tap()
+        let nameButton = app.buttons["Name"]
+        nameButton.tap()
+        nameButton.tap()
+        nameButton.tap()
+        statusHaButton.tap()
+        statusHaButton.tap()
+        statusHaButton.tap()
+    }
+    
+    func testSelectOperation() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["Arbeiten"].tap()
+        app.tables.staticTexts["Biegen"].tap()
+    }
+    
+    func testAddOperation() {
+        XCUIApplication().navigationBars["Weingut"].buttons["add"].tap()
+        let app = XCUIApplication()
+        let nameTextField = app.textFields["Name"]
+        nameTextField.tap()
+        nameTextField.typeText(helperRandomString())
+    }
+    
+    func testSearchField() {
+        XCUIApplication().tabBars.buttons["Felder"].tap()
+        let feldSuchenSearchField = XCUIApplication().searchFields["Feld suchen"]
+        feldSuchenSearchField.tap()
+        feldSuchenSearchField.typeText("Himmelsau")
+        feldSuchenSearchField.buttons["Clear text"].tap()
+        
+    }
+    
+    func testSortField() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["Felder"].tap()
+        let flCheMButton = app.buttons["Fläche (m²)"]
+        flCheMButton.tap()
+        let nameButton = app.buttons["Name"]
+        nameButton.tap()
+        nameButton.tap()
+        flCheMButton.tap()
+        flCheMButton.tap()
+        flCheMButton.tap()
+        
+    }
+    
+    func testSelectField() {
+        let app = XCUIApplication()
+        let felderButton = app.tabBars.buttons["Felder"]
+        felderButton.tap()
+        let tablesQuery = app.tables
+        tablesQuery.staticTexts["Höllenberg"].tap()
+        felderButton.tap()
+        tablesQuery.staticTexts["Kirchberg"].tap()
+    }
+    
+    func testResetOperationInFields() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["Felder"].tap()
+        app.navigationBars["Spritzen 6"].buttons["renew"].tap()
+    }
+    
+    func testResetOperationOnMap() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["Karte"].tap()
+        app.navigationBars["Spritzen 6"].buttons["renew"].tap()
+    }
+    
+    func helperRandomString() -> String {
+        var c:[String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+        var s:String = ""
+        for _ in (1...20) {
+            s.append(c[Int(arc4random()) % c.count])
+        }
+        return s
     }
     
 }

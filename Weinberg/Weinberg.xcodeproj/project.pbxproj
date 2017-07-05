@@ -28,6 +28,7 @@
 		3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE6BF791EE176340013A622 /* MapKit.framework */; };
 		3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */; };
 		3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */; };
+		855578F81F0CE96B003B7624 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
 		856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856563CE1EFD24BB00D492F7 /* DataManager.swift */; };
 		857128AB1EFBABB000D77507 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857128AA1EFBABB000D77507 /* LatLng.swift */; };
 		85837CBC1F0BA873008830B5 /* MapDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85837CBB1F0BA873008830B5 /* MapDrawer.swift */; };
@@ -423,6 +424,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				855578F81F0CE96B003B7624 /* Field.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
