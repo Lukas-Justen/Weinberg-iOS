@@ -19,8 +19,15 @@ class WeinbergTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testRadians() {
+        let result:Double = MapDrawer.radians(degrees: 180)
+        XCTAssertEqual(Double.pi,result)
+    }
     
+    func testCreateNewField() {
+        //let mapDrawer:MapDrawer = MapDrawer(mapView:,fabCreate:nil,labelMarkPoints:nil)
+        //let field:Field = mapDrawer.createNewField()
+        //XCTAssertNotNil(field)
     }
     
  
