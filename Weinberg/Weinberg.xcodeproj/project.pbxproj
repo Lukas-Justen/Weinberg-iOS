@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C21D7D92CE434BF51189FDB /* Pods_WeinbergTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080CD3FB699576FB805ACFEB /* Pods_WeinbergTests.framework */; };
 		3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */; };
 		3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */; };
 		3FC14C791EE98374000EA760 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
@@ -34,12 +35,9 @@
 		858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */; };
 		85930EA31F03948D007B0635 /* UISortSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */; };
 		85A2C2791F03DE6400F0377C /* MKFieldPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */; };
-		85CFA64D1EF7D15B00D19BB7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; };
-		85CFA64E1EF7D15B00D19BB7 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64B1EF7D15B00D19BB7 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		85CFA64F1EF7D15B00D19BB7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */; };
-		85CFA6501EF7D15B00D19BB7 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		85CFA6561EF7D54C00D19BB7 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6551EF7D54C00D19BB7 /* Operation.swift */; };
 		85CFA6581EF7D78500D19BB7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6571EF7D78500D19BB7 /* Field.swift */; };
+		A4881083851764972B6304A3 /* Pods_WeinbergUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AED28302C047EC41115A45 /* Pods_WeinbergUITests.framework */; };
 		F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,8 +65,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				85CFA6501EF7D15B00D19BB7 /* RealmSwift.framework in Embed Frameworks */,
-				85CFA64E1EF7D15B00D19BB7 /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +72,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		080CD3FB699576FB805ACFEB /* Pods_WeinbergTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeinbergTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11E835E537A1CE74A2A33718 /* Pods-WeinbergUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weinberg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFieldViewController.swift; sourceTree = "<group>"; };
 		3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFieldViewController.swift; sourceTree = "<group>"; };
@@ -110,12 +108,14 @@
 		858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsVCRTableViewDelegate.swift; sourceTree = "<group>"; };
 		85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISortSegmetedControl.swift; sourceTree = "<group>"; };
 		85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKFieldPolygon.swift; sourceTree = "<group>"; };
-		85CFA64B1EF7D15B00D19BB7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		85CFA6551EF7D54C00D19BB7 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
 		85CFA6571EF7D78500D19BB7 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		BF0D5F14709DD202647B7B03 /* Pods-WeinbergTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.debug.xcconfig"; sourceTree = "<group>"; };
+		D1AED28302C047EC41115A45 /* Pods_WeinbergUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeinbergUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.release.xcconfig"; sourceTree = "<group>"; };
+		E346326BE18F194F4E9EA117 /* Pods-WeinbergTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests.release.xcconfig"; sourceTree = "<group>"; };
+		E36E750A09F535BF04DCD52A /* Pods-WeinbergUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85CFA64D1EF7D15B00D19BB7 /* Realm.framework in Frameworks */,
 				3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */,
-				85CFA64F1EF7D15B00D19BB7 /* RealmSwift.framework in Frameworks */,
 				F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -134,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C21D7D92CE434BF51189FDB /* Pods_WeinbergTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4881083851764972B6304A3 /* Pods_WeinbergUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,10 +243,10 @@
 		3FE6BF781EE176340013A622 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				85CFA64B1EF7D15B00D19BB7 /* Realm.framework */,
-				85CFA64C1EF7D15B00D19BB7 /* RealmSwift.framework */,
 				3FE6BF791EE176340013A622 /* MapKit.framework */,
 				36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */,
+				080CD3FB699576FB805ACFEB /* Pods_WeinbergTests.framework */,
+				D1AED28302C047EC41115A45 /* Pods_WeinbergUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -256,6 +256,10 @@
 			children = (
 				C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */,
 				DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */,
+				BF0D5F14709DD202647B7B03 /* Pods-WeinbergTests.debug.xcconfig */,
+				E346326BE18F194F4E9EA117 /* Pods-WeinbergTests.release.xcconfig */,
+				11E835E537A1CE74A2A33718 /* Pods-WeinbergUITests.debug.xcconfig */,
+				E36E750A09F535BF04DCD52A /* Pods-WeinbergUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -310,9 +314,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FE6BF6C1EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "WeinbergTests" */;
 			buildPhases = (
+				54C217AA02A4CDFE3CBF74BA /* [CP] Check Pods Manifest.lock */,
 				3FE6BF511EE16C3E0013A622 /* Sources */,
 				3FE6BF521EE16C3E0013A622 /* Frameworks */,
 				3FE6BF531EE16C3E0013A622 /* Resources */,
+				2895C15337C0FC879B319417 /* [CP] Embed Pods Frameworks */,
+				6DE44A7340205E6FC4AED7FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -328,9 +335,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FE6BF6F1EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "WeinbergUITests" */;
 			buildPhases = (
+				2DFE354BCAA4EB4442C31F69 /* [CP] Check Pods Manifest.lock */,
 				3FE6BF5C1EE16C3E0013A622 /* Sources */,
 				3FE6BF5D1EE16C3E0013A622 /* Frameworks */,
 				3FE6BF5E1EE16C3E0013A622 /* Resources */,
+				38B725DA73B742556F9671F4 /* [CP] Embed Pods Frameworks */,
+				BD6BCB8BC7615FDB43F5372D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -419,6 +429,81 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2895C15337C0FC879B319417 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DFE354BCAA4EB4442C31F69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		38B725DA73B742556F9671F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54C217AA02A4CDFE3CBF74BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6DE44A7340205E6FC4AED7FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		802890595DDD7D429EDEDE71 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -460,6 +545,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD6BCB8BC7615FDB43F5372D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E79105037A081B9A3047E152 /* [CP] Copy Pods Resources */ = {
@@ -705,6 +805,7 @@
 		};
 		3FE6BF6D1EE16C3E0013A622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF0D5F14709DD202647B7B03 /* Pods-WeinbergTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -719,6 +820,7 @@
 		};
 		3FE6BF6E1EE16C3E0013A622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E346326BE18F194F4E9EA117 /* Pods-WeinbergTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -733,6 +835,7 @@
 		};
 		3FE6BF701EE16C3E0013A622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11E835E537A1CE74A2A33718 /* Pods-WeinbergUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeinbergUITests/Info.plist;
@@ -746,6 +849,7 @@
 		};
 		3FE6BF711EE16C3E0013A622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36E750A09F535BF04DCD52A /* Pods-WeinbergUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeinbergUITests/Info.plist;
