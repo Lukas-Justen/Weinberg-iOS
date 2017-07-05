@@ -28,9 +28,23 @@ class WeinbergUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    
+    
+    func testTabBar() {
+        
+        let tabBarsQuery = XCUIApplication().tabBars
+        let karteButton = tabBarsQuery.buttons["Karte"]
+        karteButton.tap()
+        
+        let felderButton = tabBarsQuery.buttons["Felder"]
+        felderButton.tap()
+        karteButton.tap()
+        felderButton.tap()
+        
+        let arbeitenButton = tabBarsQuery.buttons["Arbeiten"]
+        arbeitenButton.tap()
+        felderButton.tap()
+        arbeitenButton.tap()
+   }
     
 }

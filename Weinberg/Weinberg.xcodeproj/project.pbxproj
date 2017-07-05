@@ -34,6 +34,14 @@
 		858560B91F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */; };
 		858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */; };
 		85930EA31F03948D007B0635 /* UISortSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */; };
+		8597DC0E1F0CE623008C98D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF481EE16C3E0013A622 /* Main.storyboard */; };
+		8597DC0F1F0CE627008C98D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF481EE16C3E0013A622 /* Main.storyboard */; };
+		8597DC101F0CE631008C98D2 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
+		8597DC111F0CE632008C98D2 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
+		8597DC121F0CE636008C98D2 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7A1EE9838B000EA760 /* Map.storyboard */; };
+		8597DC131F0CE636008C98D2 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7A1EE9838B000EA760 /* Map.storyboard */; };
+		8597DC141F0CE63C008C98D2 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
+		8597DC151F0CE63D008C98D2 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
 		85A2C2791F03DE6400F0377C /* MKFieldPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */; };
 		85CFA6561EF7D54C00D19BB7 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6551EF7D54C00D19BB7 /* Operation.swift */; };
 		85CFA6581EF7D78500D19BB7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6571EF7D78500D19BB7 /* Field.swift */; };
@@ -416,6 +424,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8597DC101F0CE631008C98D2 /* Operation.storyboard in Resources */,
+				8597DC0F1F0CE627008C98D2 /* Main.storyboard in Resources */,
+				8597DC131F0CE636008C98D2 /* Map.storyboard in Resources */,
+				8597DC151F0CE63D008C98D2 /* Field.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +435,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8597DC111F0CE632008C98D2 /* Operation.storyboard in Resources */,
+				8597DC0E1F0CE623008C98D2 /* Main.storyboard in Resources */,
+				8597DC121F0CE636008C98D2 /* Map.storyboard in Resources */,
+				8597DC141F0CE63C008C98D2 /* Field.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
