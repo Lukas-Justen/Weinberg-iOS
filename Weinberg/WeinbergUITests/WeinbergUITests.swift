@@ -7,9 +7,13 @@
 //
 
 import XCTest
+import RealmSwift
+import DatePickerDialog
 
 class WeinbergUITests: XCTestCase {
-        
+    
+    let realm = try! Realm()
+    
     override func setUp() {
         super.setUp()
         continueAfterFailure = false
@@ -19,8 +23,6 @@ class WeinbergUITests: XCTestCase {
     override func tearDown() {
         super.tearDown()
     }
-    
-    
     
     func testSearchOperation() {
         let arbeitSuchenSearchField = XCUIApplication().searchFields["Arbeit suchen"]
@@ -129,7 +131,6 @@ class WeinbergUITests: XCTestCase {
         let app = XCUIApplication()
         app.tabBars.buttons["Felder"].tap()
         app.navigationBars["Spritzen 6"].buttons["add"].tap()
-        
         let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
         
         let map = element.children(matching: .other).element.children(matching: .other).element.children(matching: .map).element
@@ -155,7 +156,6 @@ class WeinbergUITests: XCTestCase {
         
         app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).tap()
     }
-    
     
     
     func helperRandomString() -> String {

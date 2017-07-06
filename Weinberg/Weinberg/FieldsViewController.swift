@@ -140,13 +140,18 @@ class FieldsViewController: UIViewController {
 }
 
 /*
- * Checks the input of the searchBar and updates the UITableView
+ * Checks the input of the searchBar and updates the UITableView. Furthermore it hides 
+ * the keyboard if the searchbutton is pressed.
  */
 extension FieldsViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchFor = searchText
         updateTableView()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
     
 }

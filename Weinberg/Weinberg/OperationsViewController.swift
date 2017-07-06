@@ -134,7 +134,7 @@ class OperationsViewController: UIViewController {
 
 /*
  * Checks the input of the searchBar and updates the UITableView when the text within the
- * searchbar has been changed. Furtherore it hides the keyboard if the searchbutton is pressed.
+ * searchbar has been changed. Furthermore it hides the keyboard if the searchbutton is pressed.
  */
 extension OperationsViewController: UISearchBarDelegate,UITextFieldDelegate {
     
