@@ -295,6 +295,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="nameOfOperationChanged:" destination="Hfb-Zq-1h4" eventType="editingChanged" id="aew-mZ-nep"/>
+                                    <outlet property="delegate" destination="Hfb-Zq-1h4" id="uIW-ww-izX"/>
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HK4-HV-S4B">
@@ -491,6 +492,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="nameOfOperationChanged:" destination="Y79-b3-EVI" eventType="editingChanged" id="Sgc-55-TnP"/>
+                                    <outlet property="delegate" destination="Y79-b3-EVI" id="WJs-QN-UKV"/>
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MN2-ok-7Sg">

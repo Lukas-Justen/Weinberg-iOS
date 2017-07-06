@@ -134,13 +134,17 @@ class OperationsViewController: UIViewController {
 
 /*
  * Checks the input of the searchBar and updates the UITableView when the text within the
- * searchbar has been changed.
+ * searchbar has been changed. Furtherore it hides the keyboard if the searchbutton is pressed.
  */
-extension OperationsViewController: UISearchBarDelegate {
+extension OperationsViewController: UISearchBarDelegate,UITextFieldDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchForOperations = searchText
         updateTableView()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
     }
     
 }

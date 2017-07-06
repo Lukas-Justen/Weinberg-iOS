@@ -20,6 +20,8 @@ class WeinbergUITests: XCTestCase {
         super.tearDown()
     }
     
+    
+    
     func testSearchOperation() {
         let arbeitSuchenSearchField = XCUIApplication().searchFields["Arbeit suchen"]
         arbeitSuchenSearchField.tap()
@@ -47,11 +49,15 @@ class WeinbergUITests: XCTestCase {
     }
     
     func testAddOperation() {
-        XCUIApplication().navigationBars["Weingut"].buttons["add"].tap()
+        XCUIApplication().navigationBars["Weingut"].children(matching: .button).element.tap()
+        
         let app = XCUIApplication()
         let nameTextField = app.textFields["Name"]
         nameTextField.tap()
         nameTextField.typeText(helperRandomString())
+        app.buttons["Return"].tap()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).tap()
+        
     }
     
     func testSearchField() {
@@ -87,17 +93,70 @@ class WeinbergUITests: XCTestCase {
         tablesQuery.staticTexts["Kirchberg"].tap()
     }
     
-    func testResetOperationInFields() {
-        let app = XCUIApplication()
-        app.tabBars.buttons["Felder"].tap()
-        app.navigationBars["Spritzen 6"].buttons["renew"].tap()
-    }
-    
-    func testResetOperationOnMap() {
+    func testAddFieldFromMap() {
         let app = XCUIApplication()
         app.tabBars.buttons["Karte"].tap()
-        app.navigationBars["Spritzen 6"].buttons["renew"].tap()
+        app.navigationBars["Spritzen 6"].buttons["add"].tap()
+        
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+        
+        let map = element.children(matching: .other).element.children(matching: .other).element.children(matching: .map).element
+        map.tap()
+        map.tap()
+        map.tap()
+        element.children(matching: .other).element(boundBy: 1).tap()
+        
+        let nameTextField = app.textFields["Name"]
+        nameTextField.tap()
+        nameTextField.typeText(helperRandomString())
+        app.buttons["Return"].tap()
+        
+        let normalerziehungTextField = app.textFields["Normalerziehung"]
+        normalerziehungTextField.tap()
+        normalerziehungTextField.typeText(helperRandomString())
+        app.buttons["Return"].tap()
+        
+        let rieslingTextField = app.textFields["Riesling"]
+        rieslingTextField.tap()
+        rieslingTextField.typeText("ghj")
+        app.buttons["Return"].tap()
+        
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).tap()
     }
+    
+    
+    func testAddFieldFromFields() {
+        let app = XCUIApplication()
+        app.tabBars.buttons["Felder"].tap()
+        app.navigationBars["Spritzen 6"].buttons["add"].tap()
+        
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+        
+        let map = element.children(matching: .other).element.children(matching: .other).element.children(matching: .map).element
+        map.tap()
+        map.tap()
+        map.tap()
+        element.children(matching: .other).element(boundBy: 1).tap()
+        
+        let nameTextField = app.textFields["Name"]
+        nameTextField.tap()
+        nameTextField.typeText(helperRandomString())
+        app.buttons["Return"].tap()
+        
+        let normalerziehungTextField = app.textFields["Normalerziehung"]
+        normalerziehungTextField.tap()
+        normalerziehungTextField.typeText(helperRandomString())
+        app.buttons["Return"].tap()
+        
+        let rieslingTextField = app.textFields["Riesling"]
+        rieslingTextField.tap()
+        rieslingTextField.typeText("ghj")
+        app.buttons["Return"].tap()
+        
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 2).tap()
+    }
+    
+    
     
     func helperRandomString() -> String {
         var c:[String] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]

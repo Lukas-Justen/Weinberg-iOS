@@ -136,3 +136,17 @@ class EditOperationViewController: UIViewController {
     }
     
 }
+
+
+
+/*
+ * Hides the keyboard if the return-key is pressed.
+ */
+extension EditOperationViewController : UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        return false
+    }
+    
+}
