@@ -63,10 +63,12 @@ class FieldsVCRTableViewDelegate: NSObject, UITableViewDelegate, UITableViewData
         cell.checkBox.field = nil
         cell.checkBox.isChecked = (DataManager.shared.currentOperation?.done.contains(field))!
         cell.checkBox.field = field
+        cell.checkBox.accessibilityIdentifier = "checkFieldStatus"
         cell.viewBackground.layer.shadowColor = UIColor.black.cgColor
         cell.viewBackground.layer.shadowOpacity = 0.2
         cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
         cell.viewBackground.layer.shadowRadius = 1
+        cell.accessibilityIdentifier = "FieldCell"
         
         return cell
     }

@@ -141,10 +141,18 @@ extension OperationsViewController: UISearchBarDelegate,UITextFieldDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchForOperations = searchText
         updateTableView()
+        if (searchText.characters.count == 0) {
+            self.perform(#selector(hideKeyboardWithSearchBar), with: searchBar, afterDelay: 0)
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+    }
+    
+    
+    func hideKeyboardWithSearchBar(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
 }

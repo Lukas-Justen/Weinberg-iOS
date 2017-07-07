@@ -38,6 +38,7 @@ class AddFieldViewController: UIViewController {
     // The instance of the new field
     var newField:Field?
     let realm = try! Realm()
+    var button:UIButton?
     
     //When the View appears the displayed area is set to the calculated area of the field
     override func viewWillAppear(_ animated: Bool) {
@@ -88,6 +89,23 @@ class AddFieldViewController: UIViewController {
             warningLabel.isHidden = true
         }
     }
+    
+    override func viewDidLoad() {
+        area.delegate = NumberPadDelegate(textField: area)
+    }
+    
+ 
+    
+    func keyboardWillShow(_ note : Notification) -> Void{
+        DispatchQueue.main.async { () -> Void in
+            self.button?.isHidden = false
+            let keyBoardWindow = UIApplication.shared.windows.last
+            self.button?.frame = CGRect(x: 0, y: (keyBoardWindow?.frame.size.height)!-53, width: 106, height: 53)
+            keyBoardWindow?.addSubview(self.button!)
+            keyBoardWindow?.bringSubview(toFront: self.button!)
+        }
+    }
+    
 }
 
 

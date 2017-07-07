@@ -52,6 +52,8 @@ class FieldsViewController: UIViewController {
         tableDelegate = FieldsVCRTableViewDelegate(fields: fields!, navbarController: self.navigationController!, tabbarController: self.tabBarController!)
         fieldTable.delegate = tableDelegate
         fieldTable.dataSource = tableDelegate
+        
+        navigationController?.navigationBar.accessibilityIdentifier = "FieldNavigationItemID"
     }
 
     /*
@@ -137,6 +139,7 @@ class FieldsViewController: UIViewController {
             }))
         }
     }
+    
 }
 
 /*
@@ -144,14 +147,22 @@ class FieldsViewController: UIViewController {
  * the keyboard if the searchbutton is pressed.
  */
 extension FieldsViewController: UISearchBarDelegate {
-    
+        
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         self.searchFor = searchText
         updateTableView()
+        if (searchText.characters.count == 0) {
+            self.perform(#selector(hideKeyboardWithSearchBar), with: searchBar, afterDelay: 0)
+        }
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.endEditing(true)
+    }
+    
+    
+    func hideKeyboardWithSearchBar(searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
     
 }

@@ -47,6 +47,7 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         NotificationCenter.default.addObserver(self, selector: #selector(createNewField), name: .createNewField, object:nil)
         mapDrawer = MapDrawer(mapView: mapView, fabCreate: fabCreate, labelMarkPoints: labelMarkPoints)
+        navigationController?.navigationBar.accessibilityIdentifier = "MapNavigationItemID"
     }
     
     /*

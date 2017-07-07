@@ -86,6 +86,7 @@ class OperationsVCRTableViewDelegate : NSObject, UITableViewDelegate, UITableVie
         cell.viewBackground.layer.shadowOpacity = 0.2
         cell.viewBackground.layer.shadowOffset = CGSize.init(width: -1, height: 1)
         cell.viewBackground.layer.shadowRadius = 1
+        cell.accessibilityIdentifier = "OperationCell"
         
         return cell
     }
