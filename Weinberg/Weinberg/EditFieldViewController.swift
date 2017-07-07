@@ -39,8 +39,6 @@ class EditFieldViewController: UIViewController {
             fruitEdit.text = field!.fruit
             areaEdit.text = "\(field!.area)"
         }
-        
-        areaEdit.delegate = NumberPadDelegate(textField: areaEdit)
     }
     
     
