@@ -41,7 +41,7 @@ class OperationsViewController: UIViewController {
     // The RealmInstance in order to access the database
     let realm = try! Realm()
     
-    // The list of all operations this UIViewController displays
+    // The list of ∞all operations this UIViewController displays
     var operationList: Results<Operation>?
     
     

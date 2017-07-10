@@ -22,6 +22,7 @@ import RealmSwift
 class EditFieldViewController: UIViewController {
 
     
+    
     @IBOutlet weak var labelWarning: UILabel!
     @IBOutlet weak var nameEdit: UITextField!
     @IBOutlet weak var fabEdit: UIView!
@@ -74,8 +75,6 @@ class EditFieldViewController: UIViewController {
     }
     
 }
-
-
 
 /*
  * Hides the keyboard if the return-key is pressed.

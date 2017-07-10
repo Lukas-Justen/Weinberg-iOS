@@ -9,6 +9,8 @@
 import UIKit
 import RealmSwift
 
+
+
 /*
  *@autor Johannes Strauss
  *@email johannes.a.strauss@th-bingen.de
@@ -25,6 +27,8 @@ import RealmSwift
 
 class AddFieldViewController: UIViewController {
 
+    
+    
     // The floating action button that appears if the User entered a valid name
     @IBOutlet weak var fabAdd: UIView!
     // The textfields

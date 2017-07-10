@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 import CoreLocation
 
+
+
 /*
  *@autor Johannes Strauss
  *@email johannes.a.strauss@th-bingen.de
@@ -23,9 +25,10 @@ import CoreLocation
  *of the Field. You can edit or delete the Field by swiping over the cell. A Method to uncheck all
  *is also provided
  */
-
 class FieldsViewController: UIViewController {
 
+    
+    
     //The List of Fields
     var fields: Results<Field>?
     //The realm instance
@@ -77,6 +80,7 @@ class FieldsViewController: UIViewController {
             navigationItem.title = "Keine Arbeiten"
         }
     }
+    
     /*
     *Updates the content of the TableView
     */
@@ -111,6 +115,7 @@ class FieldsViewController: UIViewController {
             createNewField = false
         }
     }
+    
     /*
      *updates the content each time the view appears.
      */
@@ -118,6 +123,7 @@ class FieldsViewController: UIViewController {
         updateTableView()
         updateOperation()
     }
+    
     /*
      *Set all fields unckecked and updates the date in the database.
      */
