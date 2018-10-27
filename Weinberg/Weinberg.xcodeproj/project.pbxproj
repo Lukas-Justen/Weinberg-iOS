@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C21D7D92CE434BF51189FDB /* Pods_WeinbergTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080CD3FB699576FB805ACFEB /* Pods_WeinbergTests.framework */; };
+		3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */; };
+		3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */; };
+		3FC14C791EE98374000EA760 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
+		3FC14C7B1EE9838B000EA760 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7A1EE9838B000EA760 /* Map.storyboard */; };
+		3FC14C7E1EE983A3000EA760 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
+		3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */; };
+		3FE5E6DD1EF183B0004734F4 /* FieldDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */; };
+		3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */; };
 		3FE6BF431EE16C3D0013A622 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */; };
 		3FE6BF4A1EE16C3E0013A622 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF481EE16C3E0013A622 /* Main.storyboard */; };
 		3FE6BF4C1EE16C3E0013A622 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF4B1EE16C3E0013A622 /* Assets.xcassets */; };
@@ -17,6 +26,27 @@
 		3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF741EE172700013A622 /* FieldsViewController.swift */; };
 		3FE6BF771EE1728B0013A622 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE6BF761EE1728B0013A622 /* MapViewController.swift */; };
 		3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FE6BF791EE176340013A622 /* MapKit.framework */; };
+		3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */; };
+		3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */; };
+		856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 856563CE1EFD24BB00D492F7 /* DataManager.swift */; };
+		857128AB1EFBABB000D77507 /* LatLng.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857128AA1EFBABB000D77507 /* LatLng.swift */; };
+		85837CBC1F0BA873008830B5 /* MapDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85837CBB1F0BA873008830B5 /* MapDrawer.swift */; };
+		858560B91F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */; };
+		858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */; };
+		85930EA31F03948D007B0635 /* UISortSegmetedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */; };
+		8597DC0E1F0CE623008C98D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF481EE16C3E0013A622 /* Main.storyboard */; };
+		8597DC0F1F0CE627008C98D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FE6BF481EE16C3E0013A622 /* Main.storyboard */; };
+		8597DC101F0CE631008C98D2 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
+		8597DC111F0CE632008C98D2 /* Operation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C771EE98374000EA760 /* Operation.storyboard */; };
+		8597DC121F0CE636008C98D2 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7A1EE9838B000EA760 /* Map.storyboard */; };
+		8597DC131F0CE636008C98D2 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7A1EE9838B000EA760 /* Map.storyboard */; };
+		8597DC141F0CE63C008C98D2 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
+		8597DC151F0CE63D008C98D2 /* Field.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FC14C7C1EE983A3000EA760 /* Field.storyboard */; };
+		85A2C2791F03DE6400F0377C /* MKFieldPolygon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */; };
+		85CFA6561EF7D54C00D19BB7 /* Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6551EF7D54C00D19BB7 /* Operation.swift */; };
+		85CFA6581EF7D78500D19BB7 /* Field.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85CFA6571EF7D78500D19BB7 /* Field.swift */; };
+		A4881083851764972B6304A3 /* Pods_WeinbergUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AED28302C047EC41115A45 /* Pods_WeinbergUITests.framework */; };
+		F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +66,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		85CFA6511EF7D15B00D19BB7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		080CD3FB699576FB805ACFEB /* Pods_WeinbergTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeinbergTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		11E835E537A1CE74A2A33718 /* Pods-WeinbergUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Weinberg.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFieldViewController.swift; sourceTree = "<group>"; };
+		3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFieldViewController.swift; sourceTree = "<group>"; };
+		3FC14C781EE98374000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Operation.storyboard; sourceTree = "<group>"; };
+		3FC14C7A1EE9838B000EA760 /* Map.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		3FC14C7D1EE983A3000EA760 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Field.storyboard; sourceTree = "<group>"; };
+		3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationDetailCell.swift; sourceTree = "<group>"; };
+		3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldDetailCell.swift; sourceTree = "<group>"; };
+		3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		3FE6BF3F1EE16C3D0013A622 /* Weinberg.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weinberg.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FE6BF491EE16C3E0013A622 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +107,23 @@
 		3FE6BF741EE172700013A622 /* FieldsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsViewController.swift; sourceTree = "<group>"; };
 		3FE6BF761EE1728B0013A622 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3FE6BF791EE176340013A622 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddOperationViewController.swift; sourceTree = "<group>"; };
+		3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditOperationViewController.swift; sourceTree = "<group>"; };
+		856563CE1EFD24BB00D492F7 /* DataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		857128AA1EFBABB000D77507 /* LatLng.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LatLng.swift; sourceTree = "<group>"; };
+		85837CBB1F0BA873008830B5 /* MapDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapDrawer.swift; sourceTree = "<group>"; };
+		858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationsVCRTableViewdelegate.swift; sourceTree = "<group>"; };
+		858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldsVCRTableViewDelegate.swift; sourceTree = "<group>"; };
+		85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISortSegmetedControl.swift; sourceTree = "<group>"; };
+		85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MKFieldPolygon.swift; sourceTree = "<group>"; };
+		85CFA6551EF7D54C00D19BB7 /* Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operation.swift; sourceTree = "<group>"; };
+		85CFA6571EF7D78500D19BB7 /* Field.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Field.swift; sourceTree = "<group>"; };
+		BF0D5F14709DD202647B7B03 /* Pods-WeinbergTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.debug.xcconfig"; sourceTree = "<group>"; };
+		D1AED28302C047EC41115A45 /* Pods_WeinbergUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeinbergUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weinberg.release.xcconfig"; path = "Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg.release.xcconfig"; sourceTree = "<group>"; };
+		E346326BE18F194F4E9EA117 /* Pods-WeinbergTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests.release.xcconfig"; sourceTree = "<group>"; };
+		E36E750A09F535BF04DCD52A /* Pods-WeinbergUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeinbergUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE6BF7A1EE176340013A622 /* MapKit.framework in Frameworks */,
+				F4F87C2C93392357F80513F6 /* Pods_Weinberg.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C21D7D92CE434BF51189FDB /* Pods_WeinbergTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +148,49 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4881083851764972B6304A3 /* Pods_WeinbergUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FB6A6041EF191F300DD227A /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				3FE6BF721EE16E930013A622 /* OperationsViewController.swift */,
+				3FF20A5E1EF093810098F0E7 /* EditOperationViewController.swift */,
+				3FC14C7F1EEAA206000EA760 /* OperationDetailCell.swift */,
+				3FC14C771EE98374000EA760 /* Operation.storyboard */,
+				3FF20A5C1EEAED350098F0E7 /* AddOperationViewController.swift */,
+				858560B81F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift */,
+			);
+			name = Operation;
+			sourceTree = "<group>";
+		};
+		3FB6A6051EF1924B00DD227A /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
+				3FC14C7A1EE9838B000EA760 /* Map.storyboard */,
+				85837CBB1F0BA873008830B5 /* MapDrawer.swift */,
+			);
+			name = Map;
+			sourceTree = "<group>";
+		};
+		3FB6A6061EF1925200DD227A /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				3FE6BF741EE172700013A622 /* FieldsViewController.swift */,
+				3FE5E6DC1EF183B0004734F4 /* FieldDetailCell.swift */,
+				3FC14C7C1EE983A3000EA760 /* Field.storyboard */,
+				3F1B00531EF1B75D00322E35 /* AddFieldViewController.swift */,
+				3F1B00551EF1B79100322E35 /* EditFieldViewController.swift */,
+				858DE76E1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift */,
+			);
+			name = Field;
+			sourceTree = "<group>";
+		};
 		3FE6BF361EE16C3D0013A622 = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +199,7 @@
 				3FE6BF631EE16C3E0013A622 /* WeinbergUITests */,
 				3FE6BF401EE16C3D0013A622 /* Products */,
 				3FE6BF781EE176340013A622 /* Frameworks */,
+				725721B14E3FB8FCF16BBAC9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,14 +216,16 @@
 		3FE6BF411EE16C3D0013A622 /* Weinberg */ = {
 			isa = PBXGroup;
 			children = (
+				858560B71F0623B3006F3B81 /* Custom */,
+				3FB6A6061EF1925200DD227A /* Field */,
+				3FB6A6051EF1924B00DD227A /* Map */,
+				3FB6A6041EF191F300DD227A /* Operation */,
+				858560B61F06236B006F3B81 /* Datastructure */,
 				3FE6BF421EE16C3D0013A622 /* AppDelegate.swift */,
 				3FE6BF481EE16C3E0013A622 /* Main.storyboard */,
 				3FE6BF4B1EE16C3E0013A622 /* Assets.xcassets */,
 				3FE6BF4D1EE16C3E0013A622 /* LaunchScreen.storyboard */,
 				3FE6BF501EE16C3E0013A622 /* Info.plist */,
-				3FE6BF721EE16E930013A622 /* OperationsViewController.swift */,
-				3FE6BF741EE172700013A622 /* FieldsViewController.swift */,
-				3FE6BF761EE1728B0013A622 /* MapViewController.swift */,
 			);
 			path = Weinberg;
 			sourceTree = "<group>";
@@ -139,8 +252,45 @@
 			isa = PBXGroup;
 			children = (
 				3FE6BF791EE176340013A622 /* MapKit.framework */,
+				36DFD27349AD164106FFF240 /* Pods_Weinberg.framework */,
+				080CD3FB699576FB805ACFEB /* Pods_WeinbergTests.framework */,
+				D1AED28302C047EC41115A45 /* Pods_WeinbergUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		725721B14E3FB8FCF16BBAC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */,
+				DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */,
+				BF0D5F14709DD202647B7B03 /* Pods-WeinbergTests.debug.xcconfig */,
+				E346326BE18F194F4E9EA117 /* Pods-WeinbergTests.release.xcconfig */,
+				11E835E537A1CE74A2A33718 /* Pods-WeinbergUITests.debug.xcconfig */,
+				E36E750A09F535BF04DCD52A /* Pods-WeinbergUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		858560B61F06236B006F3B81 /* Datastructure */ = {
+			isa = PBXGroup;
+			children = (
+				856563CE1EFD24BB00D492F7 /* DataManager.swift */,
+				857128AA1EFBABB000D77507 /* LatLng.swift */,
+				85CFA6571EF7D78500D19BB7 /* Field.swift */,
+				85CFA6551EF7D54C00D19BB7 /* Operation.swift */,
+			);
+			name = Datastructure;
+			sourceTree = "<group>";
+		};
+		858560B71F0623B3006F3B81 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				3FE5E6DE1EF18E87004734F4 /* CheckBox.swift */,
+				85A2C2781F03DE6400F0377C /* MKFieldPolygon.swift */,
+				85930EA21F03948D007B0635 /* UISortSegmetedControl.swift */,
+			);
+			name = Custom;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,9 +300,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FE6BF691EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "Weinberg" */;
 			buildPhases = (
+				90F3F7E15A8474100DA01E9D /* [CP] Check Pods Manifest.lock */,
 				3FE6BF3B1EE16C3D0013A622 /* Sources */,
 				3FE6BF3C1EE16C3D0013A622 /* Frameworks */,
 				3FE6BF3D1EE16C3D0013A622 /* Resources */,
+				802890595DDD7D429EDEDE71 /* [CP] Embed Pods Frameworks */,
+				E79105037A081B9A3047E152 /* [CP] Copy Pods Resources */,
+				85CFA6511EF7D15B00D19BB7 /* Embed Frameworks */,
+				85CFA6521EF7D1A300D19BB7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -167,9 +322,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FE6BF6C1EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "WeinbergTests" */;
 			buildPhases = (
+				54C217AA02A4CDFE3CBF74BA /* [CP] Check Pods Manifest.lock */,
 				3FE6BF511EE16C3E0013A622 /* Sources */,
 				3FE6BF521EE16C3E0013A622 /* Frameworks */,
 				3FE6BF531EE16C3E0013A622 /* Resources */,
+				2895C15337C0FC879B319417 /* [CP] Embed Pods Frameworks */,
+				6DE44A7340205E6FC4AED7FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -185,9 +343,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FE6BF6F1EE16C3E0013A622 /* Build configuration list for PBXNativeTarget "WeinbergUITests" */;
 			buildPhases = (
+				2DFE354BCAA4EB4442C31F69 /* [CP] Check Pods Manifest.lock */,
 				3FE6BF5C1EE16C3E0013A622 /* Sources */,
 				3FE6BF5D1EE16C3E0013A622 /* Frameworks */,
 				3FE6BF5E1EE16C3E0013A622 /* Resources */,
+				38B725DA73B742556F9671F4 /* [CP] Embed Pods Frameworks */,
+				BD6BCB8BC7615FDB43F5372D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -250,7 +411,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC14C791EE98374000EA760 /* Operation.storyboard in Resources */,
 				3FE6BF4F1EE16C3E0013A622 /* LaunchScreen.storyboard in Resources */,
+				3FC14C7B1EE9838B000EA760 /* Map.storyboard in Resources */,
+				3FC14C7E1EE983A3000EA760 /* Field.storyboard in Resources */,
 				3FE6BF4C1EE16C3E0013A622 /* Assets.xcassets in Resources */,
 				3FE6BF4A1EE16C3E0013A622 /* Main.storyboard in Resources */,
 			);
@@ -260,6 +424,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8597DC101F0CE631008C98D2 /* Operation.storyboard in Resources */,
+				8597DC0F1F0CE627008C98D2 /* Main.storyboard in Resources */,
+				8597DC131F0CE636008C98D2 /* Map.storyboard in Resources */,
+				8597DC151F0CE63D008C98D2 /* Field.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,10 +435,165 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8597DC111F0CE632008C98D2 /* Operation.storyboard in Resources */,
+				8597DC0E1F0CE623008C98D2 /* Main.storyboard in Resources */,
+				8597DC121F0CE636008C98D2 /* Map.storyboard in Resources */,
+				8597DC141F0CE63C008C98D2 /* Field.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2895C15337C0FC879B319417 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DFE354BCAA4EB4442C31F69 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		38B725DA73B742556F9671F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		54C217AA02A4CDFE3CBF74BA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6DE44A7340205E6FC4AED7FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergTests/Pods-WeinbergTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		802890595DDD7D429EDEDE71 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		85CFA6521EF7D1A300D19BB7 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
+		90F3F7E15A8474100DA01E9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD6BCB8BC7615FDB43F5372D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WeinbergUITests/Pods-WeinbergUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E79105037A081B9A3047E152 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Weinberg/Pods-Weinberg-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3FE6BF3B1EE16C3D0013A622 /* Sources */ = {
@@ -278,9 +601,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FE6BF751EE172700013A622 /* FieldsViewController.swift in Sources */,
+				856563CF1EFD24BB00D492F7 /* DataManager.swift in Sources */,
+				858DE76F1F0B9227005DF934 /* FieldsVCRTableViewDelegate.swift in Sources */,
+				3F1B00561EF1B79100322E35 /* EditFieldViewController.swift in Sources */,
+				3F1B00541EF1B75D00322E35 /* AddFieldViewController.swift in Sources */,
+				85837CBC1F0BA873008830B5 /* MapDrawer.swift in Sources */,
+				3FF20A5F1EF093810098F0E7 /* EditOperationViewController.swift in Sources */,
+				3FE5E6DF1EF18E87004734F4 /* CheckBox.swift in Sources */,
+				3FC14C801EEAA206000EA760 /* OperationDetailCell.swift in Sources */,
+				85A2C2791F03DE6400F0377C /* MKFieldPolygon.swift in Sources */,
+				858560B91F06668E006F3B81 /* OperationsVCRTableViewdelegate.swift in Sources */,
+				3FF20A5D1EEAED350098F0E7 /* AddOperationViewController.swift in Sources */,
+				857128AB1EFBABB000D77507 /* LatLng.swift in Sources */,
+				85CFA6581EF7D78500D19BB7 /* Field.swift in Sources */,
 				3FE6BF731EE16E930013A622 /* OperationsViewController.swift in Sources */,
+				85930EA31F03948D007B0635 /* UISortSegmetedControl.swift in Sources */,
 				3FE6BF431EE16C3D0013A622 /* AppDelegate.swift in Sources */,
 				3FE6BF771EE1728B0013A622 /* MapViewController.swift in Sources */,
+				3FE5E6DD1EF183B0004734F4 /* FieldDetailCell.swift in Sources */,
+				85CFA6561EF7D54C00D19BB7 /* Operation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +655,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3FC14C771EE98374000EA760 /* Operation.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FC14C781EE98374000EA760 /* Base */,
+			);
+			name = Operation.storyboard;
+			sourceTree = "<group>";
+		};
+		3FC14C7C1EE983A3000EA760 /* Field.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3FC14C7D1EE983A3000EA760 /* Base */,
+			);
+			name = Field.storyboard;
+			sourceTree = "<group>";
+		};
 		3FE6BF481EE16C3E0013A622 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -432,8 +787,13 @@
 		};
 		3FE6BF6A1EE16C3E0013A622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C2294985EBE310EB1AEE56E4 /* Pods-Weinberg.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Weinberg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TH-Bingen.Weinberg";
@@ -444,8 +804,13 @@
 		};
 		3FE6BF6B1EE16C3E0013A622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DCC9E7308EEB000F3A7F031E /* Pods-Weinberg.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Weinberg/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TH-Bingen.Weinberg";
@@ -456,6 +821,7 @@
 		};
 		3FE6BF6D1EE16C3E0013A622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF0D5F14709DD202647B7B03 /* Pods-WeinbergTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -470,6 +836,7 @@
 		};
 		3FE6BF6E1EE16C3E0013A622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E346326BE18F194F4E9EA117 /* Pods-WeinbergTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -484,6 +851,7 @@
 		};
 		3FE6BF701EE16C3E0013A622 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11E835E537A1CE74A2A33718 /* Pods-WeinbergUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeinbergUITests/Info.plist;
@@ -497,6 +865,7 @@
 		};
 		3FE6BF711EE16C3E0013A622 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E36E750A09F535BF04DCD52A /* Pods-WeinbergUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = WeinbergUITests/Info.plist;

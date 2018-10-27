@@ -1,0 +1,17 @@
+platform :ios, '8.0’
+use_frameworks!
+
+target 'Weinberg‘ do
+  pod 'DatePickerDialog‘
+  pod 'RealmSwift'
+end
+
+target 'WeinbergTests‘ do
+pod 'DatePickerDialog‘
+pod 'RealmSwift'
+end
+
+target 'WeinbergUITests‘ do
+pod 'DatePickerDialog‘
+pod 'RealmSwift'
+end

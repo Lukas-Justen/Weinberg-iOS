@@ -9,121 +9,57 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Arbeiten-->
-        <scene sceneID="cDj-EG-0SL">
-            <objects>
-                <tableViewController id="DZ6-KV-npD" customClass="OperationsViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="SI2-Hc-luM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="uXy-iF-ur2">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uXy-iF-ur2" id="ok2-YN-Qcn">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GB-c7-dHe">
-                                            <rect key="frame" x="19" y="11" width="136" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="DZ6-KV-npD" id="ZYK-JZ-dZq"/>
-                            <outlet property="delegate" destination="DZ6-KV-npD" id="sUE-er-w2F"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Arbeiten" image="second" id="maQ-xC-9se"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hqK-pD-wy7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1010" y="-586"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
                 <tabBarController id="49e-Tb-3d3" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" red="0.67843137249999996" green="0.078431372550000003" blue="0.3411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="DZ6-KV-npD" kind="relationship" relationship="viewControllers" id="kAo-to-OOO"/>
-                        <segue destination="jzA-eh-54I" kind="relationship" relationship="viewControllers" id="dH1-Nx-24A"/>
-                        <segue destination="dY1-zM-aZ1" kind="relationship" relationship="viewControllers" id="Edm-HG-014"/>
+                        <segue destination="tMb-5g-dTV" kind="relationship" relationship="viewControllers" id="rbq-Xb-x5D"/>
+                        <segue destination="ZMy-b9-H7S" kind="relationship" relationship="viewControllers" id="tSy-QH-rNq"/>
+                        <segue destination="ycQ-Rn-H5U" kind="relationship" relationship="viewControllers" id="IYr-9H-NCC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-257" y="-120"/>
         </scene>
-        <!--Karte-->
-        <scene sceneID="YKu-vw-HZW">
+        <!--Operation-->
+        <scene sceneID="V5q-dn-S1X">
             <objects>
-                <viewController id="jzA-eh-54I" customClass="MapViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4K4-hf-OmY"/>
-                        <viewControllerLayoutGuide type="bottom" id="bAc-2T-dkd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2lu-2E-nHq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="satellite" translatesAutoresizingMaskIntoConstraints="NO" id="lEl-Dy-4oX">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Karte" id="IlX-Ah-FbL"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G70-KK-ogr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Operation" id="tMb-5g-dTV" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Mv9-yS-HwC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rBA-eb-ADt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1746" y="-120"/>
+            <point key="canvasLocation" x="598" y="-216"/>
         </scene>
-        <!--Felder-->
-        <scene sceneID="xpk-j4-Fiv">
+        <!--Map-->
+        <scene sceneID="abl-p2-rve">
             <objects>
-                <tableViewController id="dY1-zM-aZ1" customClass="FieldsViewController" customModule="Weinberg" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mGh-KB-cta">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Bpv-F0-9ai">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bpv-F0-9ai" id="cWg-gX-atv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="dY1-zM-aZ1" id="yGf-3V-8sE"/>
-                            <outlet property="delegate" destination="dY1-zM-aZ1" id="X1Y-9O-4My"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Felder" id="fFQ-dr-F0H"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Pp1-3t-MkU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Map" id="ZMy-b9-H7S" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="qRu-MC-A5b"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ry-Gg-08I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1009" y="370"/>
+            <point key="canvasLocation" x="571" y="-121"/>
+        </scene>
+        <!--Field-->
+        <scene sceneID="f5W-aM-cf7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Field" id="ycQ-Rn-H5U" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="kKS-cc-XeZ"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0J7-Bl-hhc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="574" y="-24"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="second" width="30" height="30"/>
-    </resources>
     <color key="tintColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

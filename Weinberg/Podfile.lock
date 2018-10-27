@@ -1,0 +1,20 @@
+PODS:
+  - DatePickerDialog (1.1.7)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
+
+DEPENDENCIES:
+  - DatePickerDialog
+  - RealmSwift
+
+SPEC CHECKSUMS:
+  DatePickerDialog: bd5e7e92e4da2c6a8966b28d5f5d8f335d6c2c63
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+
+PODFILE CHECKSUM: 767bcdd194e97136911355fd895994e27f9fb6ab
+
+COCOAPODS: 1.2.1
